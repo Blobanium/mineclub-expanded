@@ -19,12 +19,14 @@ import java.util.regex.Pattern;
 
 @Mixin(ChatHudListener.class)
 public class ChatHudListenerMixin {
-    private final Pattern outbidPattern = Pattern.compile("You have been outbid by");
+    //TODO: Get The regex to work
+    private final Pattern outbidPattern = Pattern.compile("ꌄ§8\\[§dMarket§8] §cYou have been outbid by");
 
     @Inject(at = @At("HEAD"), method = "onChatMessage")
     public void onChatMessage(MessageType messageType, Text message, UUID sender, CallbackInfo ci){
         Matcher outbidMatcher = outbidPattern.matcher(message.getString());
         if(outbidMatcher.matches()){
+            //this is what i want it to output below
             System.out.println("Triggered message");
             SystemToast toast = SystemToast.create(MinecraftClient.getInstance(), SystemToast.Type.TUTORIAL_HINT, new LiteralText("ayyy!!!"), new LiteralText("It Worked!"));
             MinecraftClient.getInstance().getToastManager().add(toast);
