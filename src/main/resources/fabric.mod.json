@@ -1,15 +1,14 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "mineclubexpanded",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Mineclub Expanded",
+  "description": "This is a fabric mod that enhances mineclub",
   "authors": [
-    "Me!"
+    "Blobanium"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
 
@@ -19,11 +18,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "io.github.blobanium.mineclubexpanded.MineclubExpanded"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "mineclubexpanded.mixins.json"
   ],
 
   "depends": {
