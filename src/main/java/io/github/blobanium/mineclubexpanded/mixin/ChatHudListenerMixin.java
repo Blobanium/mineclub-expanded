@@ -26,7 +26,7 @@ public class ChatHudListenerMixin {
     public void onChatMessage(MessageType messageType, Text message, UUID sender, CallbackInfo ci){
         Matcher outbidMatcher = outbidPattern.matcher(message.getString());
         if(outbidMatcher.matches()){
-            //this is what i want it to output below
+            //this is what i want it to output below (im going to replace this btw)
             System.out.println("Triggered message");
             SystemToast toast = SystemToast.create(MinecraftClient.getInstance(), SystemToast.Type.TUTORIAL_HINT, new LiteralText("ayyy!!!"), new LiteralText("It Worked!"));
             MinecraftClient.getInstance().getToastManager().add(toast);
