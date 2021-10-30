@@ -1,9 +1,7 @@
-# Fabric Example Mod
+# Mineclub Expanded
 
-## Setup
+## NOTE
+this mod is in the very early Alpha Stages, Expect things to break alot.
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+Plus, there is a bunch of things to be planned with this mod.
 
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
