@@ -1,4 +1,4 @@
-package io.github.blobanium.mineclubexpanded.util;
+package io.github.blobanium.mineclubexpanded.util.sound;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.PositionedSoundInstance;

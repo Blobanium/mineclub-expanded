@@ -19,6 +19,9 @@
   "entrypoints": {
     "main": [
       "io.github.blobanium.mineclubexpanded.MineclubExpanded"
+    ],
+    "modmenu": [
+      "io.github.blobanium.mineclubexpanded.util.config.ModMenuConfig"
     ]
   },
   "mixins": [

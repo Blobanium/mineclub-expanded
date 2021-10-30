@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded;
 
+import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,5 +18,6 @@ public class MineclubExpanded implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Mineclub Expanded Initialized!");
+		ConfigReader.configRegister();
 	}
 }

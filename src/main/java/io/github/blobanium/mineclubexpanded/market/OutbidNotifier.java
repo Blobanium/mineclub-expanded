@@ -1,10 +1,6 @@
 package io.github.blobanium.mineclubexpanded.market;
 
-import io.github.blobanium.mineclubexpanded.util.SoundPlayer;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.client.toast.SystemToast;
-import net.minecraft.text.LiteralText;
+import io.github.blobanium.mineclubexpanded.util.sound.SoundPlayer;
 import net.minecraft.text.Text;
 
 public class OutbidNotifier {
