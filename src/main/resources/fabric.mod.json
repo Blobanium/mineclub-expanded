@@ -9,10 +9,10 @@
     "Blobanium"
   ],
   "contact": {
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Blobanium/mineclub-expanded"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/modid/icon.png",
 
   "environment": "*",
@@ -30,8 +30,5 @@
     "fabric": "*",
     "minecraft": "1.17.x",
     "java": ">=16"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
