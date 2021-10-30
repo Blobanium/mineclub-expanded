@@ -1,4 +1,5 @@
 {
-  "mineclub-expanded.config.outbidsound": "Outbid Notification Sound"
-
+  "mineclub-expanded.config": "Mineclub Expanded Config Screen",
+  "mineclub-expanded.config.outbidsound": "Outbid Notification Sound",
+  "mineclub-expanded.config.outbidsound.description": "Plays a Minecraft bee death sound if someone outbids you. \n§4This can get a little loud."
 }

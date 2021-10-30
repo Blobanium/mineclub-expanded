@@ -29,7 +29,7 @@ public class ModMenuConfig implements ModMenuApi {
 
             final ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
-                .setTitle(new TranslatableText("loading-timer.config"));
+                .setTitle(new TranslatableText("mineclub-expanded.config"));
 
             // Serialise the config into the config file. This will be called last after all variables are updated.
             builder.setSavingRunnable(ConfigReader::refreshConfig);
@@ -40,7 +40,7 @@ public class ModMenuConfig implements ModMenuApi {
         
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.outbidsound"), ConfigReader.outbidNotification)
                 .setDefaultValue(false)
-                .setTooltip(new TranslatableText("mineclub-expanded.config.outbid.description"))
+                .setTooltip(new TranslatableText("mineclub-expanded.config.outbidsound.description"))
                 .setSaveConsumer(newValue -> ConfigReader.outbidNotification = newValue)
                 .build());
 
