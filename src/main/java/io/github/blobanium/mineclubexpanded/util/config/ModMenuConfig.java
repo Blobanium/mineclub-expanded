@@ -36,14 +36,19 @@ public class ModMenuConfig implements ModMenuApi {
         
             ConfigEntryBuilder entryBuilder = builder.entryBuilder();
         
-            ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("category.examplemod.general"));
-        
+            ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.market"));
+
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.outbidsound"), ConfigReader.outbidNotification)
                 .setDefaultValue(false)
                 .setTooltip(new TranslatableText("mineclub-expanded.config.outbidsound.description"))
                 .setSaveConsumer(newValue -> ConfigReader.outbidNotification = newValue)
                 .build());
 
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autogg"), ConfigReader.autogg)
+                    .setDefaultValue(false)
+                    .setTooltip(new TranslatableText("mineclub-expanded.config.autogg.description"))
+                    .setSaveConsumer(newValue -> ConfigReader.autogg = newValue)
+                    .build());
 
             return builder.build();
         }

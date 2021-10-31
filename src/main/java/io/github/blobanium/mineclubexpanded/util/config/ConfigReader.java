@@ -14,6 +14,7 @@ public class ConfigReader {
 
 	//configs
 	public static boolean outbidNotification = false;
+	public static boolean autogg = false;
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
@@ -21,11 +22,13 @@ public class ConfigReader {
     	LOGGER.debug("Registering config..");
     	SimpleConfig CONFIG = SimpleConfig.of("MineclubExpanded").provider(namespace -> ConfigReader.ltProvider(namespace)).request();
     	final boolean outbidConfig = CONFIG.getOrDefault("outbid_notification", outbidNotification);
+		final boolean autoggConfig = CONFIG.getOrDefault("auto_gg", autogg);
     }
 
     private static String ltProvider(String filename) {
     	return "#Mineclub Expanded Config File."
-    	+ "\noutbid_notification=" + outbidNotification;
+    	+ "\noutbid_notification=" + outbidNotification
+		+ "\nauto_gg=" + autogg;
     }
 
 	public static void refreshConfig(){

@@ -1,7 +1,9 @@
 package io.github.blobanium.mineclubexpanded.mixin;
 
 import io.github.blobanium.mineclubexpanded.MineclubExpanded;
+import io.github.blobanium.mineclubexpanded.games.AutoGG;
 import io.github.blobanium.mineclubexpanded.market.OutbidNotifier;
+import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import net.minecraft.client.gui.hud.ChatHudListener;
 import net.minecraft.network.MessageType;
 import net.minecraft.text.Text;
@@ -34,7 +36,12 @@ public class ChatHudListenerMixin {
             lastMessage2 = lastMessage;
             lastMessage = message.getString();
             //Broadcast On Chat Message
-            OutbidNotifier.onChatMessage(message);
+            if(ConfigReader.outbidNotification) {
+                OutbidNotifier.onChatMessage(message);
+            }
+            if(ConfigReader.autogg){
+                AutoGG.autoGg(message);
+            }
         } else {
             if(lastMessage.equals(message.getString())||lastMessage2.equals(message.getString())){
                 chatBeingCleared = false;

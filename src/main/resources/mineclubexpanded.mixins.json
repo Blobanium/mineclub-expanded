@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "ChatHudListenerMixin"
+    "ChatHudListenerMixin",
+    "SoundManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
