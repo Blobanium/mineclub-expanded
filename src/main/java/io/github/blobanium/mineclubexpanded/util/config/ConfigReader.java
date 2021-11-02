@@ -23,6 +23,13 @@ public class ConfigReader {
     	SimpleConfig CONFIG = SimpleConfig.of("MineclubExpanded").provider(namespace -> ConfigReader.ltProvider(namespace)).request();
     	final boolean outbidConfig = CONFIG.getOrDefault("outbid_notification", outbidNotification);
 		final boolean autoggConfig = CONFIG.getOrDefault("auto_gg", autogg);
+
+		if(outbidConfig){
+			outbidNotification = true;
+		}
+		if(autoggConfig){
+			autogg = true;
+		}
     }
 
     private static String ltProvider(String filename) {
@@ -30,6 +37,7 @@ public class ConfigReader {
     	+ "\noutbid_notification=" + outbidNotification
 		+ "\nauto_gg=" + autogg;
     }
+
 
 	public static void refreshConfig(){
 		refreshingConfig = true;

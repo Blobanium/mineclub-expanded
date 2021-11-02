@@ -39,9 +39,6 @@ public class ChatHudListenerMixin {
             if(ConfigReader.outbidNotification) {
                 OutbidNotifier.onChatMessage(message);
             }
-            if(ConfigReader.autogg){
-                AutoGG.autoGg(message);
-            }
         } else {
             if(lastMessage.equals(message.getString())||lastMessage2.equals(message.getString())){
                 chatBeingCleared = false;
