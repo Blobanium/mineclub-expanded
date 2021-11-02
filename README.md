@@ -1,7 +1,8 @@
 # Mineclub Expanded
 
 ## NOTE
-this mod is in the very early Alpha Stages, Expect things to break alot.
 
-Plus, there is a bunch of things to be planned with this mod.
+This Mod is in the beta phase, expect bugs here and there, if you do come across one, open an issue
 
+
+![](https://i.imgur.com/77kxz8x.png)
