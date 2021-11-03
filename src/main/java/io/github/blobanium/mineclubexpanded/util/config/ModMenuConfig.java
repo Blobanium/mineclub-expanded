@@ -44,10 +44,16 @@ public class ModMenuConfig implements ModMenuApi {
                 .setSaveConsumer(newValue -> ConfigReader.outbidNotification = newValue)
                 .build());
 
-            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autogg"), ConfigReader.autogg)
+                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autogg"), ConfigReader.autogg)
                     .setDefaultValue(false)
                     .setTooltip(new TranslatableText("mineclub-expanded.config.autogg.description"))
                     .setSaveConsumer(newValue -> ConfigReader.autogg = newValue)
+                    .build());
+
+                general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.outbidvolume"), ConfigReader.outbidVolume, 0, 200)
+                    .setDefaultValue(100)
+                    .setTooltip(new TranslatableText("mineclub-expanded.config.outbidvolume.description"))
+                    .setSaveConsumer(newValue -> ConfigReader.outbidVolume = newValue)
                     .build());
 
             return builder.build();
