@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
-    @Shadow @Final private SpectatorHud spectatorHud;
     private static boolean hasFeather = false;
     private static boolean hasCompass = false;
     private static boolean hasIceBlock = false;
@@ -30,13 +29,17 @@ public class InGameHudMixin {
         int itemID = Item.getRawId(stack.getItem());
 
             if (itemID == 733) {
-                hasFeather = true;
+                if(!hasFeather) {
+                    hasFeather = true;
+                    System.out.println("Feather Truified!");
+                }
                 featherCountdown = 10;
             } else {
                 if (featherCountdown == 0) {
                     if(hasFeather) {
                         hasFeather = false;
                         featherCountdown = 10;
+                        System.out.println("Feather Falsified");
                     }
                 } else {
                     featherCountdown = featherCountdown - 1;
@@ -44,12 +47,17 @@ public class InGameHudMixin {
             }
 
         if (itemID == 795) {
-            hasCompass = true;
+            if(!hasCompass) {
+                hasCompass = true;
+                System.out.println("Compass Truified");
+            }
             compassCountdown = 10;
         } else {
             if (compassCountdown == 0) {
                 if(hasCompass) {
                     hasCompass = false;
+                    System.out.println("Compass Falsified");
+                } else {
                     compassCountdown = 10;
                 }
             } else {
@@ -58,13 +66,17 @@ public class InGameHudMixin {
         }
 
         if (itemID == 252) {
-            hasIceBlock = true;
+            if(!hasIceBlock) {
+                hasIceBlock = true;
+                System.out.println("Ice Block Truified");
+            }
             iceBlockCountdown = 10;
         } else {
             if (iceBlockCountdown == 0) {
                 if(hasIceBlock) {
                     hasIceBlock = false;
                     iceBlockCountdown = 10;
+                    System.out.println("Ice Block Falsified");
                 }
             } else {
                 iceBlockCountdown = iceBlockCountdown - 1;
