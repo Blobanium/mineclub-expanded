@@ -7,10 +7,14 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class AutoGG {
+    public static boolean isSpectatorMode = false;
+
     public static void autoGg(SoundInstance sound){
         if(ConfigReader.autogg) {
             if (sound.getId().toString().equals("minecraft:custom.mineclub.roundover-1")) {
-                MinecraftClient.getInstance().player.sendChatMessage("gg");
+                if (!isSpectatorMode) {
+                    MinecraftClient.getInstance().player.sendChatMessage("gg");
+                }
             }
         }
     }
