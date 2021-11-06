@@ -65,25 +65,7 @@ public class InGameHudMixin {
             }
         }
 
-        if (itemID == 252) {
-            if(!hasIceBlock) {
-                hasIceBlock = true;
-                System.out.println("Ice Block Truified");
-            }
-            iceBlockCountdown = 10;
-        } else {
-            if (iceBlockCountdown == 0) {
-                if(hasIceBlock) {
-                    hasIceBlock = false;
-                    iceBlockCountdown = 10;
-                    System.out.println("Ice Block Falsified");
-                }
-            } else {
-                iceBlockCountdown = iceBlockCountdown - 1;
-            }
-        }
-
-        if ((hasFeather && hasCompass && hasIceBlock) != AutoGG.isSpectatorMode){
+        if ((hasFeather && hasCompass) != AutoGG.isSpectatorMode){
             if(hasFeather && hasCompass && hasIceBlock){
                 AutoGG.isSpectatorMode = true;
                 System.out.println("Spectator mode is on");
