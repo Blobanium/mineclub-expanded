@@ -66,7 +66,7 @@ public class InGameHudMixin {
         }
 
         if ((hasFeather && hasCompass) != AutoGG.isSpectatorMode){
-            if(hasFeather && hasCompass && hasIceBlock){
+            if(hasFeather && hasCompass){
                 AutoGG.isSpectatorMode = true;
                 System.out.println("Spectator mode is on");
             } else {
