@@ -13,9 +13,8 @@ import java.math.RoundingMode;
 
 
 public class SoundPlayer {
-    public static float pitch;
 
-    public static void playSound(){
+    public static void playSound(float pitch){
         SoundEvent sound = registerSound();
         PositionedSoundInstance posSound = PositionedSoundInstance.master(sound, pitch, getVolume(ConfigReader.outbidVolume));
         MinecraftClient.getInstance().getSoundManager().play(posSound);
