@@ -46,24 +46,24 @@ public class InGameHudMixin {
                 }
             }
 
-        if (itemID == 795) {
-            if(!hasCompass) {
-                hasCompass = true;
-                System.out.println("Compass Truified");
-            }
-            compassCountdown = 10;
-        } else {
-            if (compassCountdown == 0) {
-                if(hasCompass) {
-                    hasCompass = false;
-                    System.out.println("Compass Falsified");
-                } else {
-                    compassCountdown = 10;
+            if (itemID == 795) {
+                if(!hasCompass) {
+                    hasCompass = true;
+                    System.out.println("Compass Truified");
                 }
+                compassCountdown = 10;
             } else {
-                compassCountdown = compassCountdown - 1;
+                if (compassCountdown == 0) {
+                    if(hasCompass) {
+                        hasCompass = false;
+                        System.out.println("Compass Falsified");
+                    } else {
+                        compassCountdown = 10;
+                    }
+                } else {
+                    compassCountdown = compassCountdown - 1;
+                }
             }
-        }
 
         if ((hasFeather && hasCompass) != AutoGG.isSpectatorMode){
             if(hasFeather && hasCompass){
