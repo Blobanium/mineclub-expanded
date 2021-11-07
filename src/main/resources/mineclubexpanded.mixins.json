@@ -8,7 +8,8 @@
   "client": [
     "ChatHudListenerMixin",
     "SoundManagerMixin",
-    "InGameHudMixin"
+    "InGameHudMixin",
+    "MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
