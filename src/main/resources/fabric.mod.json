@@ -9,6 +9,7 @@
     "Blobanium"
   ],
   "contact": {
+    "issues": "https://github.com/Blobanium/mineclub-expanded/issues",
     "sources": "https://github.com/Blobanium/mineclub-expanded"
   },
 
@@ -36,5 +37,13 @@
   },
   "recommends": {
     "minecraft": ["1.17.x"]
+  },
+  "custom": {
+    "modmenu":{
+      "links": {
+        "Discord (Mineclub Beehive)": "https://discord.gg/uQhX9mNAxd",
+        "Discord (Development Server)": "https://discord.gg/KfNqUs2uq5"
+      }
+    }
   }
 }
