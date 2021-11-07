@@ -4,7 +4,7 @@ import io.github.blobanium.mineclubexpanded.util.sound.SoundPlayer;
 import net.minecraft.text.Text;
 
 public class OutbidNotifier {
-    private static float pitch;
+    private static float pitch = 1.0F;
 
     public static void onChatMessage(Text message){
         String textMessage = message.getString().replaceAll("\\[","\\\\[");
@@ -14,7 +14,6 @@ public class OutbidNotifier {
             } else {
                 pitch = 1.0F;
             }
-
             SoundPlayer.playSound(pitch);
         }
     }
