@@ -17,7 +17,7 @@ public class TickTracker {
     private static void checkReminder(){
         if(tickNo >= tickTarget){
             if(!hasNotified){
-                //Coming soon: Housing Check Notifier
+
                 hasNotified = true;
             }
         }
