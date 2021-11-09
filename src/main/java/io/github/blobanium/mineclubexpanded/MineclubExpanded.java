@@ -1,7 +1,9 @@
 package io.github.blobanium.mineclubexpanded;
 
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
+import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,5 +21,15 @@ public class MineclubExpanded implements ModInitializer {
 
 		LOGGER.info("Mineclub Expanded Initialized!");
 		ConfigReader.configRegister();
+		DiscordRP.startRP();
+	}
+
+	public static boolean isOnMineclub() {
+		try {
+			return MinecraftClient.getInstance().getCurrentServerEntry().address.equals("play.mineclub.com");
+		} catch (NullPointerException e) {
+			LOGGER.debug("Suppressing Null warning");
+			return false;
+		}
 	}
 }
