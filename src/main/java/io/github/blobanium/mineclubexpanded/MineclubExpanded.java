@@ -3,6 +3,7 @@ package io.github.blobanium.mineclubexpanded;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,6 +23,7 @@ public class MineclubExpanded implements ModInitializer {
 		LOGGER.info("Mineclub Expanded Initialized!");
 		ConfigReader.configRegister();
 		DiscordRP.startRP();
+		DiscordRP.updateStatus("Beta Rich Presence", "v" + String.valueOf(FabricLoader.getInstance().getModContainer("mineclubexpanded").get().getMetadata().getVersion()));
 	}
 
 	public static boolean isOnMineclub() {
