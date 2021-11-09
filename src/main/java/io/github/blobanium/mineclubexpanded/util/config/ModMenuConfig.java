@@ -56,6 +56,12 @@ public class ModMenuConfig implements ModMenuApi {
                     .setSaveConsumer(newValue -> ConfigReader.outbidVolume = newValue)
                     .build());
 
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence"), ConfigReader.richPresence)
+                    .setDefaultValue(false)
+                    .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.config"))
+                    .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
+                    .build());
+
             return builder.build();
         }
     }

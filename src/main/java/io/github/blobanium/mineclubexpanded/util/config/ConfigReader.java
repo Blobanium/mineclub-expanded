@@ -17,6 +17,7 @@ public class ConfigReader {
 	public static boolean outbidNotification = false;
 	public static boolean autogg = false;
 	public static int outbidVolume = 100;
+	public static boolean richPresence = false;
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
@@ -26,6 +27,7 @@ public class ConfigReader {
     	final boolean outbidConfig = CONFIG.getOrDefault("outbid_notification", outbidNotification);
 		final boolean autoggConfig = CONFIG.getOrDefault("auto_gg", autogg);
 		final int outbidVolumeConfig = CONFIG.getOrDefault("outbid_volume", outbidVolume);
+		final boolean richPresenceConfig = CONFIG.getOrDefault("rich_presence", richPresence);
 
 		if(outbidConfig){
 			outbidNotification = true;
@@ -34,13 +36,17 @@ public class ConfigReader {
 			autogg = true;
 		}
 		outbidVolume = outbidVolumeConfig;
+		if(richPresenceConfig){
+			richPresence = true;
+		}
     }
 
     private static String ltProvider(String filename) {
     	return "#Mineclub Expanded Config File."
     	+ "\noutbid_notification=" + outbidNotification
 		+ "\nauto_gg=" + autogg
-		+ "\noutbid_volume=" + outbidVolume;
+		+ "\noutbid_volume=" + outbidVolume
+				+ "\nrich_presence=" + richPresence;
 
     }
 

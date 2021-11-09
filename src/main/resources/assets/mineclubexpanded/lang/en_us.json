@@ -5,5 +5,7 @@
   "mineclub-expanded.config.autogg": "Auto GG",
   "mineclub-expanded.config.autogg.description": "Makes you say gg right after the end of the game.",
   "mineclub-expanded.config.outbidvolume": "Outbid Sound Volume",
-  "mineclub-expanded.config.outbidvolume.description": "Controls the volume of the outbid sound \n§4The option 'Outbid Notification Sound' needs to be turned on for this to work."
+  "mineclub-expanded.config.outbidvolume.description": "Controls the volume of the outbid sound \n§4The option 'Outbid Notification Sound' needs to be turned on for this to work.",
+  "mineclub-expanded.config.richpresence": "Discord Rich Presence",
+  "mineclub-expanded.config.richpresence.config": "Enables Rich Presence"
 }
