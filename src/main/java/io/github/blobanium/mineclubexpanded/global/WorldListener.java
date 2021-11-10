@@ -45,5 +45,29 @@ public class WorldListener {
         if(world.startsWith("housing")){
             DiscordRP.updateStatus("Currently In Housing", "Playing On Mineclub");
         }
+
+        if(world.startsWith("connect4")){
+            DiscordRP.updateStatus("Currently Playing Connect 4", "Playing On Mineclub");
+        }
+
+        if(world.startsWith("match5")){
+            DiscordRP.updateStatus("Currently Playing Match 5", "Playing On Mineclub");
+        }
+
+        if(world.startsWith("luckyshot")){
+            DiscordRP.updateStatus("Currently Playing Lucky Shot", "Playing On Mineclub");
+        }
+
+        if(world.startsWith("ttt")){
+            DiscordRP.updateStatus("Currently Playing Tic Tac Toe", "Playing On Mineclub");
+        }
+
+        if(world.startsWith("sumo")){
+            DiscordRP.updateStatus("Currently Playing Sumo", "Playing On Mineclub");
+        }
+
+        if(world.startsWith("ms")){
+            DiscordRP.updateStatus("Currently Playing Minesweep", "Playing On Mineclub");
+        }
     }
 }
