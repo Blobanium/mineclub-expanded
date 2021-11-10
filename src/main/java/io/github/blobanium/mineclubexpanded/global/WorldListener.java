@@ -12,7 +12,7 @@ public class WorldListener {
             try {
                 if (!MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath().equals(worldName)) {
                     worldName = MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath();
-                    System.out.println(worldName);
+                    MineclubExpanded.LOGGER.debug("WorldName=" + worldName);
                     worldCheck(worldName);
                 }
             } catch (NullPointerException e) {
