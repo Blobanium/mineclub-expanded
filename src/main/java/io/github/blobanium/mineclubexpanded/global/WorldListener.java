@@ -26,5 +26,24 @@ public class WorldListener {
             DiscordRP.updateStatus("In The Lobby", "Playing On Mineclub");
         }
 
+        if(world.equals("gamemap_battle_dome")){
+            DiscordRP.updateStatus("Currently In Battle Dome", "Playing On Mineclub");
+        }
+
+        if(world.equals("gamemap_slime_walls")){
+            DiscordRP.updateStatus("Currently In Slime Walls", "Playing On Mineclub");
+        }
+
+        if(world.equals("gamemap_laser_tag")){
+            DiscordRP.updateStatus("Currently In Laser Tag", "Playing On Mineclub");
+        }
+
+        if(world.equals("gamemap_dodge_ball")){
+            DiscordRP.updateStatus("Currently In Dodge Ball", "Playing On Mineclub");
+        }
+
+        if(world.startsWith("housing")){
+            DiscordRP.updateStatus("Currently In Housing", "Playing On Mineclub");
+        }
     }
 }
