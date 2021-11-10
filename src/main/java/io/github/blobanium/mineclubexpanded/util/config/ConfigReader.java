@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded.util.config;
 
+import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.fabricmc.loader.api.FabricLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,6 +39,10 @@ public class ConfigReader {
 		outbidVolume = outbidVolumeConfig;
 		if(richPresenceConfig){
 			richPresence = true;
+		} else {
+			if(DiscordRP.hasRPStarted && !DiscordRP.hasBlankStatus){
+				DiscordRP.clearStatus();
+			}
 		}
     }
 

@@ -5,18 +5,33 @@ import com.jagrosh.discordipc.IPCListener;
 import com.jagrosh.discordipc.entities.RichPresence;
 import com.jagrosh.discordipc.exceptions.NoDiscordClientException;
 import io.github.blobanium.mineclubexpanded.MineclubExpanded;
+import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 
 import java.time.OffsetDateTime;
 
 public class DiscordRP {
     static final IPCClient client = new IPCClient(907142070140035102L);
     static RichPresence.Builder builder = new RichPresence.Builder();
+    public static boolean hasRPStarted = false;
+    public static boolean hasBlankStatus = true;
 
     public static void startRP() {
         setup(client);
     }
 
     public static void updateStatus(String state, String details){
+        if(ConfigReader.richPresence) {
+            updateStatusInternal(state, details);
+            hasBlankStatus = false;
+        }
+    }
+
+    public static void clearStatus(){
+        updateStatusInternal("","");
+        hasBlankStatus = true;
+    }
+
+    private static void updateStatusInternal(String state, String details){
         builder.setState(state)
                 .setDetails(details)
                 .setStartTimestamp(OffsetDateTime.now());
@@ -28,7 +43,7 @@ public class DiscordRP {
             @Override
             public void onReady(IPCClient client)
             {
-                //Placeholder Method, will remove later.
+                hasRPStarted = true;
                 MineclubExpanded.LOGGER.info("Mineclub Rich presence Ready!");
             }
         });
