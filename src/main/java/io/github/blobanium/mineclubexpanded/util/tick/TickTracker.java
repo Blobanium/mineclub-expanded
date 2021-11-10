@@ -1,5 +1,7 @@
 package io.github.blobanium.mineclubexpanded.util.tick;
 
+import io.github.blobanium.mineclubexpanded.global.WorldListener;
+
 public class TickTracker {
     public static int tickNo = 0;
     private static int tickTarget;
@@ -8,6 +10,7 @@ public class TickTracker {
     public static void onTick(){
         tickNo = tickNo + 1;
         checkReminder();
+        WorldListener.listenWorld();
     }
 
     public static void setReminder(int seconds){

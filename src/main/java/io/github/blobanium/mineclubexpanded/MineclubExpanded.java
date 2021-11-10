@@ -28,7 +28,7 @@ public class MineclubExpanded implements ModInitializer {
 
 	public static boolean isOnMineclub() {
 		try {
-			return MinecraftClient.getInstance().getCurrentServerEntry().address.equals("play.mineclub.com");
+			return MinecraftClient.getInstance().getCurrentServerEntry().address.equals("mineclub.com") || MinecraftClient.getInstance().getCurrentServerEntry().address.equals("play.mineclub.com");
 		} catch (NullPointerException e) {
 			LOGGER.debug("Suppressing Null warning");
 			return false;
