@@ -1,6 +1,7 @@
 package io.github.blobanium.mineclubexpanded.global;
 
 import io.github.blobanium.mineclubexpanded.MineclubExpanded;
+import io.github.blobanium.mineclubexpanded.games.tabletop.RichPresenceTabletopChatListener;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
@@ -13,7 +14,7 @@ public class WorldListener {
             try {
                 if (!MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath().equals(worldName)) {
                     worldName = MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath();
-                    System.out.println("WorldName=" + worldName);
+                    MineclubExpanded.LOGGER.debug("WorldName=" + worldName);
                     worldCheck(worldName);
                 }
             } catch (NullPointerException e) {
@@ -38,6 +39,11 @@ public class WorldListener {
             DiscordRP.updateStatus("Currently In Slime Walls", "Playing On Mineclub");
         }
 
+        //Speedtag
+        if(world.startsWith("master")){
+            DiscordRP.updateStatus("Currently Playing Speed Tag", "Playing On Mineclub");
+        }
+
         //Laser Tag
         if(world.equals("gamemap_laser_tag")){
             DiscordRP.updateStatus("Currently In Laser Tag", "Playing On Mineclub");
@@ -55,37 +61,32 @@ public class WorldListener {
 
         //Connect4
         if(world.startsWith("connect4")){
-            DiscordRP.updateStatus("Currently Playing Connect 4", "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing Connect 4 against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
         }
 
         //Match5
         if(world.startsWith("match5")){
-            DiscordRP.updateStatus("Currently Playing Match 5", "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing Match 5 against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
         }
 
         //Lucky Shot
         if(world.startsWith("luckyshot")){
-            DiscordRP.updateStatus("Currently Playing Lucky Shot", "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing Lucky Shot against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
         }
 
         //Tic Tac Toe
         if(world.startsWith("ttt")){
-            DiscordRP.updateStatus("Currently Playing Tic Tac Toe", "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing Tic Tac Toe against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
         }
 
         //Sumo
         if(world.startsWith("sumo")){
-            DiscordRP.updateStatus("Currently Playing Sumo", "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing Sumo against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
         }
 
         //Minesweep
         if(world.startsWith("ms")){
-            DiscordRP.updateStatus("Currently Playing Minesweep", "Playing On Mineclub");
-        }
-
-        //Speedtag
-        if(world.startsWith("master")){
-            DiscordRP.updateStatus("Currently Playing Speed Tag", "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing Minesweep against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
         }
     }
 }

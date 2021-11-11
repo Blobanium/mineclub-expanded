@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded.mixin;
 
+import io.github.blobanium.mineclubexpanded.games.tabletop.RichPresenceTabletopChatListener;
 import io.github.blobanium.mineclubexpanded.market.OutbidNotifier;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import net.minecraft.client.gui.hud.ChatHudListener;
@@ -35,6 +36,9 @@ public class ChatHudListenerMixin {
             //Broadcast On Chat Message
             if(ConfigReader.outbidNotification) {
                 OutbidNotifier.onChatMessage(message);
+            }
+            if(ConfigReader.richPresence){
+                RichPresenceTabletopChatListener.onChatMessage(message);
             }
         } else {
             if(lastMessage.equals(message.getString())||lastMessage2.equals(message.getString())){
