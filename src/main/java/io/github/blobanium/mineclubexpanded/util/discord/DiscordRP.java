@@ -36,7 +36,8 @@ public class DiscordRP {
         try {
             builder.setState(state)
                     .setDetails(details)
-                    .setStartTimestamp(OffsetDateTime.now());
+                    .setStartTimestamp(OffsetDateTime.now())
+                    .setLargeImage("icon", "play.mineclub.com");
             client.sendRichPresence(builder.build());
         } catch (IllegalStateException e){
             MineclubExpanded.LOGGER.error("IPC not connected! Attempting to reconnect IPC");
