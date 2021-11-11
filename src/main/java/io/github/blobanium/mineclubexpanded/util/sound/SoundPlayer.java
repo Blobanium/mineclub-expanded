@@ -26,6 +26,6 @@ public class SoundPlayer {
     }
 
     private static float getVolume(int volume){
-        return new BigDecimal(volume).divide(new BigDecimal(100), RoundingMode.UNNECESSARY).floatValue();
+        return new BigDecimal(volume).divide(new BigDecimal(100), 2, RoundingMode.CEILING).floatValue();
     }
 }
