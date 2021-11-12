@@ -68,32 +68,32 @@ public class WorldListener {
 
         //Connect4
         if(world.startsWith("connect4")){
-            DiscordRP.updateStatus("Playing Connect 4 against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Connect 4", "Playing On Mineclub");
         }
 
         //Match5
         if(world.startsWith("match5")){
-            DiscordRP.updateStatus("Playing Match 5 against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Match 5", "Playing On Mineclub");
         }
 
         //Lucky Shot
         if(world.startsWith("luckyshot")){
-            DiscordRP.updateStatus("Playing Lucky Shot against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Lucky Shot", "Playing On Mineclub");
         }
 
         //Tic Tac Toe
         if(world.startsWith("ttt")){
-            DiscordRP.updateStatus("Playing Tic Tac Toe against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Tic Tac Toe", "Playing On Mineclub");
         }
 
         //Sumo
         if(world.startsWith("sumo")){
-            DiscordRP.updateStatus("Playing Sumo against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Sumo", "Playing On Mineclub");
         }
 
         //Minesweep
         if(world.startsWith("ms")){
-            DiscordRP.updateStatus("Playing Minesweep against " + RichPresenceTabletopChatListener.matchedUsername, "Playing On Mineclub");
+            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Minesweep", "Playing On Mineclub");
         }
     }
 }
