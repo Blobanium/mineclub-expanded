@@ -10,7 +10,8 @@
     "SoundManagerMixin",
     "InGameHudMixin",
     "MinecraftClientMixin",
-    "ChatScreenMixin"
+    "ChatScreenMixin",
+    "KeyboardMixin"
   ],
   "injectors": {
     "defaultRequire": 1
