@@ -2,12 +2,15 @@ package io.github.blobanium.mineclubexpanded.global;
 
 import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.games.tabletop.RichPresenceTabletopChatListener;
+import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
 
 public class WorldListener {
     private static String worldName;
+    public static String housingName;
 
     public static void listenWorld(){
         if(MineclubExpanded.isOnMineclub()) {
@@ -56,7 +59,12 @@ public class WorldListener {
 
         //ANY Housing Map
         if(world.startsWith("housing")){
-            DiscordRP.updateStatus("Currently In Housing", "Playing On Mineclub");
+            if(FabricLoader.getInstance().isModLoaded("advancedchat")){
+                DiscordRP.updateStatus("Currently In Housing", "Playing On Mineclub");
+            } else {
+                HousingRichPresenceListener.onChatReturn();
+                DiscordRP.updateStatus("Currently In " + housingName + "'s Home", "Playing On Mineclub");
+            }
         }
 
         //Connect4
