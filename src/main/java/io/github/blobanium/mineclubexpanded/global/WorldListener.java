@@ -62,8 +62,7 @@ public class WorldListener {
             if(FabricLoader.getInstance().isModLoaded("advancedchat")){
                 DiscordRP.updateStatus("Currently In Housing", "Playing On Mineclub");
             } else {
-                HousingRichPresenceListener.onChatReturn();
-                DiscordRP.updateStatus("Currently In " + housingName + "'s Home", "Playing On Mineclub");
+                HousingRichPresenceListener.sendHousingPresence();
             }
         }
 
