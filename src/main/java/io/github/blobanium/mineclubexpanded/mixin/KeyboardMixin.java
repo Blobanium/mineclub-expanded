@@ -23,8 +23,9 @@ public class KeyboardMixin {
 
         if(key == 257){
             if(WorldListener.isInHousing){
-                TickTracker.worldname = MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath();
-                TickTracker.setReminder(3);
+                if(MineclubExpanded.lastChatField.startsWith("/home")) {
+                    TickTracker.setReminder(3);
+                }
             }
         }
     }

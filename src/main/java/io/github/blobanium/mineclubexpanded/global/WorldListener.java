@@ -9,7 +9,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
 
 public class WorldListener {
-    private static String worldName;
+    public static String worldName;
     public static boolean isInHousing = false;
 
     public static void listenWorld(){

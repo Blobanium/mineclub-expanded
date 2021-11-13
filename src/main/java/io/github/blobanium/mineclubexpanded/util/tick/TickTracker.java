@@ -7,8 +7,7 @@ import net.minecraft.client.MinecraftClient;
 public class TickTracker {
     public static int tickNo = 0;
     private static int tickTarget;
-    private static boolean hasNotified = false;
-    public static String worldname;
+    private static boolean hasNotified = true;
 
     public static void onTick(){
         tickNo = tickNo + 1;
@@ -24,7 +23,7 @@ public class TickTracker {
     private static void checkReminder(){
         if(tickNo >= tickTarget){
             if(!hasNotified){
-                if (MinecraftClient.getInstance().world != null && worldname.equals(MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath())) {
+                if (WorldListener.worldName.equals(MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath())) {
                     HousingRichPresenceListener.sendHousingPresence();
                 }
                 hasNotified = true;
