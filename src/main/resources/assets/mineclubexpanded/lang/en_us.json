@@ -7,5 +7,5 @@
   "mineclub-expanded.config.outbidvolume": "Outbid Sound Volume",
   "mineclub-expanded.config.outbidvolume.description": "Controls the volume of the outbid sound \n§4The option 'Outbid Notification Sound' needs to be turned on for this to work.",
   "mineclub-expanded.config.richpresence": "Discord Rich Presence",
-  "mineclub-expanded.config.richpresence.config": "Enables Rich Presence \n§4You need to set the server address to 'mineclub.com' or 'play.mineclub.com' for this to work \nAdditionally, RP doesn't support speed tag at the moment"
+  "mineclub-expanded.config.richpresence.config": "Enables Rich Presence \n§4You need to set the server address to 'mineclub.com' or 'play.mineclub.com' for this to work"
 }
