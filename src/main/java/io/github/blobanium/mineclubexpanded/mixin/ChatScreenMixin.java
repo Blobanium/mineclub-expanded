@@ -17,7 +17,6 @@ public abstract class ChatScreenMixin {
     @Inject(at = @At("HEAD"), method =  "onChatFieldUpdate")
     private void onChatFieldUpdate(String chatText, CallbackInfo ci){
         MineclubExpanded.lastChatField = chatText;
-        System.out.println(chatText);
     }
 
     @Inject(at = @At("HEAD"), method =  "init")

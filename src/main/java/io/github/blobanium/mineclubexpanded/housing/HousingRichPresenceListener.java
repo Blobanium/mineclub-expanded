@@ -8,7 +8,6 @@ import net.minecraft.client.MinecraftClient;
 public class HousingRichPresenceListener {
     public static void sendHousingPresence(){
         String message = MineclubExpanded.lastChatField;
-        System.out.println(MineclubExpanded.lastChatField);
         if(message.startsWith("/home")) {
             String finalMessage = message.replaceAll("/home", "");
             if(finalMessage.equals("")){

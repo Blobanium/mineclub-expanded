@@ -16,7 +16,6 @@ public class KeyboardMixin {
     private void onKey(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci){
         //TODO Figure out keypresses
         //ESC = 256, Enter/Return = 257
-        System.out.println(key);
         if(key == 256){
             MineclubExpanded.isChatOpen = false;
         }
