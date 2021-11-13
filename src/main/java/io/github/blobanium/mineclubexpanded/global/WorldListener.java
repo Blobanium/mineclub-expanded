@@ -10,7 +10,7 @@ import net.minecraft.client.world.ClientWorld;
 
 public class WorldListener {
     private static String worldName;
-    public static String housingName;
+    public static boolean isInHousing = false;
 
     public static void listenWorld(){
         if(MineclubExpanded.isOnMineclub()) {
@@ -59,11 +59,14 @@ public class WorldListener {
 
         //ANY Housing Map
         if(world.startsWith("housing")){
+            isInHousing = true;
             if(FabricLoader.getInstance().isModLoaded("advancedchat")){
                 DiscordRP.updateStatus("Currently In Housing", "Playing On Mineclub");
             } else {
                 HousingRichPresenceListener.sendHousingPresence();
             }
+        } else {
+            isInHousing = false;
         }
 
         //Connect4

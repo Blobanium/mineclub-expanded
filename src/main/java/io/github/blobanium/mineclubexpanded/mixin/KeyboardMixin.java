@@ -1,6 +1,10 @@
 package io.github.blobanium.mineclubexpanded.mixin;
 
+import io.github.blobanium.mineclubexpanded.MineclubExpanded;
+import io.github.blobanium.mineclubexpanded.global.WorldListener;
+import io.github.blobanium.mineclubexpanded.util.tick.TickTracker;
 import net.minecraft.client.Keyboard;
+import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -13,6 +17,16 @@ public class KeyboardMixin {
         //TODO Figure out keypresses
         //ESC = 256, Enter/Return = 257
         System.out.println(key);
+        if(key == 256){
+            MineclubExpanded.isChatOpen = false;
+        }
+
+        if(key == 257){
+            if(WorldListener.isInHousing){
+                TickTracker.worldname = MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath();
+                TickTracker.setReminder(3);
+            }
+        }
     }
 
 }

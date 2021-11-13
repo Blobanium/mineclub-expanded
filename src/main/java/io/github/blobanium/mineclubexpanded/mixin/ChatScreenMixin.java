@@ -22,6 +22,6 @@ public abstract class ChatScreenMixin {
 
     @Inject(at = @At("HEAD"), method =  "init")
     private void init(CallbackInfo ci){
-        System.out.println("init");
+        MineclubExpanded.isChatOpen = true;
     }
 }

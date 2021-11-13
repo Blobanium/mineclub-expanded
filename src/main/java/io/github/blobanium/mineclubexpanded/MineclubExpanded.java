@@ -14,6 +14,7 @@ public class MineclubExpanded implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 	public static String lastChatField;
+	public static boolean isChatOpen = false;
 
 	@Override
 	public void onInitialize() {
@@ -24,7 +25,7 @@ public class MineclubExpanded implements ModInitializer {
 		LOGGER.info("Mineclub Expanded Initialized!");
 		ConfigReader.configRegister();
 		DiscordRP.startRP();
-		DiscordRP.updateStatus("Beta Rich Presence", "v" + String.valueOf(FabricLoader.getInstance().getModContainer("mineclubexpanded").get().getMetadata().getVersion()));
+		DiscordRP.updateStatus("Beta Rich Presence", "v" + FabricLoader.getInstance().getModContainer("mineclubexpanded").get().getMetadata().getVersion());
 	}
 
 	public static boolean isOnMineclub() {
