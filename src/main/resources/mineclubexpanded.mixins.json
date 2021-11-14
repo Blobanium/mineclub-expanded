@@ -11,7 +11,8 @@
     "InGameHudMixin",
     "MinecraftClientMixin",
     "ChatScreenMixin",
-    "KeyboardMixin"
+    "KeyboardMixin",
+    "InventoryScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
