@@ -40,6 +40,10 @@ dependencies {
 	include("com.github.jagrosh:DiscordIPC:ff8c5b7")
 	implementation 'org.json:json:20210307'
 	include("org.json:json:20210307")
+
+	//Required Library For Apple M1 Devices
+	implementation group: 'com.cosium.junixsocket', name: 'junixsocket-common', version: '2.0.4.3'
+	include group: 'com.cosium.junixsocket', name: 'junixsocket-common', version: '2.0.4.3'
 }
 
 processResources {
