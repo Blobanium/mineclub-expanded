@@ -46,6 +46,8 @@ dependencies {
 	include group: 'com.cosium.junixsocket', name: 'junixsocket-common', version: '2.0.4.3'
 	implementation group: 'com.cosium.junixsocket', name: 'junixsocket-native-common', version: '2.0.4.3'
 	include group: 'com.cosium.junixsocket', name: 'junixsocket-native-common', version: '2.0.4.3'
+	implementation 'com.github.scijava:native-lib-loader:native-lib-loader-2.4.0'
+	include("com.github.scijava:native-lib-loader:native-lib-loader-2.4.0")
 //Thanks for using https://jar-download.com
 
 }
