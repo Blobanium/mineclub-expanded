@@ -44,6 +44,10 @@ dependencies {
 	//Required Library For Apple M1 Devices
 	implementation group: 'com.cosium.junixsocket', name: 'junixsocket-common', version: '2.0.4.3'
 	include group: 'com.cosium.junixsocket', name: 'junixsocket-common', version: '2.0.4.3'
+	implementation group: 'com.cosium.junixsocket', name: 'junixsocket-native-common', version: '2.0.4.3'
+	include group: 'com.cosium.junixsocket', name: 'junixsocket-native-common', version: '2.0.4.3'
+//Thanks for using https://jar-download.com
+
 }
 
 processResources {
