@@ -12,7 +12,8 @@
     "MinecraftClientMixin",
     "ChatScreenMixin",
     "KeyboardMixin",
-    "InventoryScreenMixin"
+    "InventoryScreenMixin",
+    "ClientLoginNetworkHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
