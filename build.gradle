@@ -40,8 +40,6 @@ dependencies {
 	include("com.github.jagrosh:DiscordIPC:ff8c5b7")
 	implementation 'org.json:json:20210307'
 	include("org.json:json:20210307")
-//Thanks for using https://jar-download.com
-
 }
 
 processResources {
