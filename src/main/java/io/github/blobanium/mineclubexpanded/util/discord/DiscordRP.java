@@ -33,15 +33,17 @@ public class DiscordRP {
     }
 
     private static void updateStatusInternal(String state, String details){
-        try {
-            builder.setState(state)
-                    .setDetails(details)
-                    .setStartTimestamp(OffsetDateTime.now())
-                    .setLargeImage("icon", "play.mineclub.com");
-            client.sendRichPresence(builder.build());
-        } catch (IllegalStateException e){
-            MineclubExpanded.LOGGER.error("IPC not connected! Attempting to reconnect IPC");
-            connectClient();
+        if(MineclubExpanded.supportsRichPresence) {
+            try {
+                builder.setState(state)
+                        .setDetails(details)
+                        .setStartTimestamp(OffsetDateTime.now())
+                        .setLargeImage("icon", "play.mineclub.com");
+                client.sendRichPresence(builder.build());
+            } catch (IllegalStateException e) {
+                MineclubExpanded.LOGGER.error("IPC not connected! Attempting to reconnect IPC");
+                connectClient();
+            }
         }
     }
 

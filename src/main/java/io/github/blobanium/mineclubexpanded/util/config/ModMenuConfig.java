@@ -2,11 +2,13 @@ package io.github.blobanium.mineclubexpanded.util.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
+import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
 
@@ -56,11 +58,20 @@ public class ModMenuConfig implements ModMenuApi {
                     .setSaveConsumer(newValue -> ConfigReader.outbidVolume = newValue)
                     .build());
 
-            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence"), ConfigReader.richPresence)
-                    .setDefaultValue(false)
-                    .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.config"))
-                    .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
-                    .build());
+
+                if(MineclubExpanded.supportsRichPresence) {
+                    general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence"), ConfigReader.richPresence)
+                            .setDefaultValue(false)
+                            .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.description"))
+                            .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
+                            .build());
+                } else {
+                    general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence.unsupported"), ConfigReader.richPresence)
+                            .setDefaultValue(false)
+                            .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.unsupported.description"))
+                            .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
+                            .build());
+                }
 
             return builder.build();
         }

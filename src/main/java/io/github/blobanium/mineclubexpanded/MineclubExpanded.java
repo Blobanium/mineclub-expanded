@@ -15,6 +15,7 @@ public class MineclubExpanded implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 	public static String lastChatField;
 	public static boolean isChatOpen = false;
+	public static boolean supportsRichPresence = true;
 
 	@Override
 	public void onInitialize() {
@@ -24,8 +25,12 @@ public class MineclubExpanded implements ModInitializer {
 
 		LOGGER.info("Mineclub Expanded Initialized!");
 		ConfigReader.configRegister();
-		DiscordRP.startRP();
-		DiscordRP.updateStatus("Beta Rich Presence", "v" + FabricLoader.getInstance().getModContainer("mineclubexpanded").get().getMetadata().getVersion());
+		try {
+			DiscordRP.startRP();
+		} catch (Exception e){
+			LOGGER.error("Failed to start rich presence, Your Device/Install may not support rich presence! \n" + e);
+			supportsRichPresence = false;
+		}
 	}
 
 	public static boolean isOnMineclub() {
