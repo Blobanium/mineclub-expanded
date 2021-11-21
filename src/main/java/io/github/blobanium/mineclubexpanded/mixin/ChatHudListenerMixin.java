@@ -36,22 +36,28 @@ public class ChatHudListenerMixin {
             lastMessage2 = lastMessage;
             lastMessage = message.getString();
             //Broadcast On Chat Message
-            if(ConfigReader.outbidNotification) {
-                OutbidNotifier.onChatMessage(message);
-            }
-            if(ConfigReader.richPresence){
-                RichPresenceTabletopChatListener.onChatMessage(message);
-            }
-            if(WorldListener.isInHousing){
-                if(ConfigReader.richPresence){
-                    if(message.getString().startsWith("ꌄ冈 No player found by name")){
-                        TickTracker.cancelHousingUpdate = true;
-                    }
-                }
-            }
+            onMessage(message);
         } else {
             if(lastMessage.equals(message.getString())||lastMessage2.equals(message.getString())){
                 chatBeingCleared = false;
+            }
+        }
+    }
+
+    private static void onMessage(Text message){
+        if(ConfigReader.outbidNotification) {
+            OutbidNotifier.onChatMessage(message);
+        }
+
+        if(ConfigReader.richPresence){
+            RichPresenceTabletopChatListener.onChatMessage(message);
+        }
+
+        if(WorldListener.isInHousing){
+            if(ConfigReader.richPresence){
+                if(message.getString().startsWith("ꌄ冈 No player found by name")){
+                    TickTracker.cancelHousingUpdate = true;
+                }
             }
         }
     }
