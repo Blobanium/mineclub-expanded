@@ -8,3 +8,28 @@ This Mod is in the beta phase, expect bugs here and there, if you do come across
 
 
 ![](https://i.imgur.com/77kxz8x.png)
+
+
+
+
+## FAQ
+
+### Why doesn't the mod work?
+It is because everything is disabled by default, to enable it, go to its config menu.
+
+### How do i get to the configuration menu?
+You can get to the config in 2 ways, Ingame (Recomended), or by using the Configuration file
+
+#### Configuring Ingame (Recomended)
+1. If you dont have it already, install [Mod Menu](https://www.curseforge.com/minecraft/mc-mods/modmenu) and [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/modmenu)
+2. Click on the "Mods" Button ingame
+3. Scroll down until you see mineclub expanded
+4. Click on the settings button in the top right corner
+5. Your now in the config!
+
+
+#### Using the Configuration file
+1. In your .minecraft folder, click on config
+2. Scroll down until you see the file "MineclubExpanded.properties"
+3. Open the file in notepad
+4. Your now in the config file, to save the config, save the file.
