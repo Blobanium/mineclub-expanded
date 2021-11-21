@@ -23,18 +23,16 @@ public class TickTracker {
     }
 
     private static void checkReminder(){
-        if(tickNo >= tickTarget){
-            if(!hasNotified){
-                if (WorldListener.worldName.equals(MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath())) {
-                    if(cancelHousingUpdate) {
-                        MineclubExpanded.LOGGER.debug("Canceling Housing Update");
-                    } else {
-                        HousingRichPresenceListener.sendHousingPresence();
-                    }
+        if(tickNo >= tickTarget && !hasNotified){
+            if (WorldListener.worldName.equals(MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath())) {
+                if(cancelHousingUpdate) {
+                    MineclubExpanded.LOGGER.debug("Canceling Housing Update");
+                } else {
+                    HousingRichPresenceListener.sendHousingPresence();
                 }
-                cancelHousingUpdate = false;
-                hasNotified = true;
             }
+            cancelHousingUpdate = false;
+            hasNotified = true;
         }
     }
 }
