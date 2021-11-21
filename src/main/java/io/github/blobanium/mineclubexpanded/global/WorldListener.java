@@ -29,34 +29,14 @@ public class WorldListener {
 
     private static void worldCheck(String world){
         //Lobby, AFK Lounge
-        if(world.equals("overworld")){
-            DiscordRP.updateStatus("In The Lobby", "Playing On Mineclub");
-        }
+        checkWorld(0, world, "overworld", "In The Lobby", "Playing On Mineclub");
 
-        //Battle Dome
-        if(world.equals("gamemap_battle_dome")){
-            DiscordRP.updateStatus("Currently In Battle Dome", "Playing On Mineclub");
-        }
-
-        //Slime Walls
-        if(world.equals("gamemap_slime_walls")){
-            DiscordRP.updateStatus("Currently In Slime Walls", "Playing On Mineclub");
-        }
-
-        //Speedtag
-        if(world.startsWith("master")){
-            DiscordRP.updateStatus("Currently Playing Speed Tag", "Playing On Mineclub");
-        }
-
-        //Laser Tag
-        if(world.equals("gamemap_laser_tag")){
-            DiscordRP.updateStatus("Currently In Laser Tag", "Playing On Mineclub");
-        }
-
-        //Dodgeball
-        if(world.equals("gamemap_dodge_ball")){
-            DiscordRP.updateStatus("Currently In Dodge Ball", "Playing On Mineclub");
-        }
+        //Main Games
+        checkWorld(0, world, "gamemap_battle_dome", "Currently In Battle Dome", "Playing On Mineclub");
+        checkWorld(0, world, "gamemap_slime_walls", "Currently In Slime Walls", "Playing On Mineclub");
+        checkWorld(1, world, "master", "Currently Playing Speed Tag", "Playing On Mineclub");
+        checkWorld(0, world, "gamemap_laser_tag", "Currently In Laser Tag", "Playing On Mineclub");
+        checkWorld(0, world, "gamemap_dodge_ball", "Currently In Dodge Ball", "Playing On Mineclub");
 
         //ANY Housing Map
         if(!cancelHousingUpdate) {
@@ -74,34 +54,28 @@ public class WorldListener {
             cancelHousingUpdate = false;
         }
 
-        //Connect4
-        if(world.startsWith("connect4")){
-            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Connect 4", "Playing On Mineclub");
+        //Tabletop Games
+        checkWorld(1, world, "connect4", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Connect 4", "Playing On Mineclub");
+        checkWorld(1, world, "match5", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Match 5", "Playing On Mineclub");
+        checkWorld(1, world, "luckyshot", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Lucky Shot", "Playing On Mineclub");
+        checkWorld(1, world, "ttt", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Tic Tac Toe", "Playing On Mineclub");
+        checkWorld(1, world, "sumo", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Sumo", "Playing On Mineclub");
+        checkWorld(1, world, "ms", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Minesweep", "Playing On Mineclub");
+
+    }
+
+    //
+    private static void checkWorld(int targetType, String world, String targetWorldName, String state, String details){
+        if(targetType == 0){
+            if(world.equals(targetWorldName)){
+                DiscordRP.updateStatus(state, details);
+            }
         }
 
-        //Match5
-        if(world.startsWith("match5")){
-            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Match 5", "Playing On Mineclub");
-        }
-
-        //Lucky Shot
-        if(world.startsWith("luckyshot")){
-            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Lucky Shot", "Playing On Mineclub");
-        }
-
-        //Tic Tac Toe
-        if(world.startsWith("ttt")){
-            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Tic Tac Toe", "Playing On Mineclub");
-        }
-
-        //Sumo
-        if(world.startsWith("sumo")){
-            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Sumo", "Playing On Mineclub");
-        }
-
-        //Minesweep
-        if(world.startsWith("ms")){
-            DiscordRP.updateStatus("Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Minesweep", "Playing On Mineclub");
+        if(targetType == 1){
+            if(world.startsWith(targetWorldName)){
+                DiscordRP.updateStatus(state, details);
+            }
         }
     }
 }
