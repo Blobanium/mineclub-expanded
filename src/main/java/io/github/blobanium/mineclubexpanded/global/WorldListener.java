@@ -38,22 +38,6 @@ public class WorldListener {
         checkWorld(0, world, "gamemap_laser_tag", "Currently In Laser Tag", "Playing On Mineclub");
         checkWorld(0, world, "gamemap_dodge_ball", "Currently In Dodge Ball", "Playing On Mineclub");
 
-        //ANY Housing Map
-        if(!cancelHousingUpdate) {
-            if (world.startsWith("housing")) {
-                isInHousing = true;
-                if (FabricLoader.getInstance().isModLoaded("advancedchat")) {
-                    DiscordRP.updateStatus("Currently In Housing", "Playing On Mineclub");
-                } else {
-                    HousingRichPresenceListener.sendHousingPresence();
-                }
-            } else {
-                isInHousing = false;
-            }
-        } else {
-            cancelHousingUpdate = false;
-        }
-
         //Tabletop Games
         checkWorld(1, world, "connect4", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Connect 4", "Playing On Mineclub");
         checkWorld(1, world, "match5", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Match 5", "Playing On Mineclub");
@@ -62,6 +46,8 @@ public class WorldListener {
         checkWorld(1, world, "sumo", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Sumo", "Playing On Mineclub");
         checkWorld(1, world, "ms", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Minesweep", "Playing On Mineclub");
 
+        //Housing
+        checkHousing(world);
     }
 
     //
@@ -76,6 +62,23 @@ public class WorldListener {
             if(world.startsWith(targetWorldName)){
                 DiscordRP.updateStatus(state, details);
             }
+        }
+    }
+
+    private static void checkHousing(String world){
+        if(!cancelHousingUpdate) {
+            if (world.startsWith("housing")) {
+                isInHousing = true;
+                if (FabricLoader.getInstance().isModLoaded("advancedchat")) {
+                    DiscordRP.updateStatus("Currently In Housing", "Playing On Mineclub");
+                } else {
+                    HousingRichPresenceListener.sendHousingPresence();
+                }
+            } else {
+                isInHousing = false;
+            }
+        } else {
+            cancelHousingUpdate = false;
         }
     }
 }
