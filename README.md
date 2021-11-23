@@ -21,7 +21,7 @@ It is because everything is disabled by default, to enable it, go to its config 
 You can get to the config in 2 ways, Ingame (Recomended), or by using the Configuration file
 
 #### Configuring Ingame (Recomended)
-1. If you dont have it already, install [Mod Menu](https://www.curseforge.com/minecraft/mc-mods/modmenu) and [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/modmenu)
+1. If you dont have it already, install [Mod Menu](https://www.curseforge.com/minecraft/mc-mods/modmenu) and [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/cloth-config)
 2. Click on the "Mods" Button ingame
 3. Scroll down until you see mineclub expanded
 4. Click on the settings button in the top right corner
