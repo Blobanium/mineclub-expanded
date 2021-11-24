@@ -39,13 +39,13 @@ public class WorldListener {
         checkWorld(0, world, "gamemap_dodge_ball", "Currently In Dodge Ball", "Playing On Mineclub");
 
         //Tabletop Games
-        checkWorld(1, world, "connect4", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Connect 4", "Playing On Mineclub");
-        checkWorld(1, world, "match5", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Match 5", "Playing On Mineclub");
-        checkWorld(1, world, "luckyshot", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Lucky Shot", "Playing On Mineclub");
-        checkWorld(1, world, "ttt", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Tic Tac Toe", "Playing On Mineclub");
-        checkWorld(1, world, "sumo", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Sumo", "Playing On Mineclub");
-        checkWorld(1, world, "ms", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Minesweep", "Playing On Mineclub");
-        checkWorld(1, world, "snowball", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Snowball Fight", "Playing On Mineclub");
+        checkWorld(1, world, "connect4", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Connect 4");
+        checkWorld(1, world, "match5", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Match 5");
+        checkWorld(1, world, "luckyshot", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Lucky Shot");
+        checkWorld(1, world, "ttt", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Tic Tac Toe");
+        checkWorld(1, world, "sumo", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Sumo");
+        checkWorld(1, world, "ms", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Minesweep");
+        checkWorld(1, world, "snowball", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Snowball Fight");
 
         //Housing
         checkHousing(world);
