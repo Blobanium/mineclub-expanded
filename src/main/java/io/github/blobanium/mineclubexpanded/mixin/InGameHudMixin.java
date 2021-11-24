@@ -37,7 +37,7 @@ public class InGameHudMixin {
         }
     }
 
-    private static boolean isItemInHotbar(int itemID, int targetItemID, boolean currentValue, int countdown){
+    private boolean isItemInHotbar(int itemID, int targetItemID, boolean currentValue, int countdown){
         if (itemID == targetItemID) {
             if(!currentValue) {
                 returnCountown(targetItemID, countdown);
