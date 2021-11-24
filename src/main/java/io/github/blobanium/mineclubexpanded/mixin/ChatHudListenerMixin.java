@@ -4,6 +4,7 @@ import io.github.blobanium.mineclubexpanded.games.tabletop.RichPresenceTabletopC
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
 import io.github.blobanium.mineclubexpanded.market.OutbidNotifier;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
+import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import io.github.blobanium.mineclubexpanded.util.tick.TickTracker;
 import net.minecraft.client.gui.hud.ChatHudListener;
 import net.minecraft.network.MessageType;
@@ -51,13 +52,15 @@ public class ChatHudListenerMixin {
 
         if(ConfigReader.richPresence){
             RichPresenceTabletopChatListener.onChatMessage(message);
-        }
 
-        if(WorldListener.isInHousing){
-            if(ConfigReader.richPresence){
+            if(WorldListener.isInHousing){
                 if(message.getString().startsWith("ꌄ冈 No player found by name")){
                     TickTracker.cancelHousingUpdate = true;
                 }
+            }
+
+            if(message.getString().startsWith("ꌄ咀")){
+                DiscordRP.updateStatus("Currently in Staff HQ","Playing on Mineclub");
             }
         }
     }
