@@ -40,38 +40,38 @@ public class ModMenuConfig implements ModMenuApi {
         
             ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.market"));
 
-                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.outbidsound"), ConfigReader.outbidNotification)
-                .setDefaultValue(false)
-                .setTooltip(new TranslatableText("mineclub-expanded.config.outbidsound.description"))
-                .setSaveConsumer(newValue -> ConfigReader.outbidNotification = newValue)
-                .build());
+            if(MineclubExpanded.supportsRichPresence) {
+                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence"), ConfigReader.richPresence)
+                        .setDefaultValue(false)
+                        .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.description"))
+                        .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
+                        .build());
+            } else {
+                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence.unsupported"), ConfigReader.richPresence)
+                        .setDefaultValue(false)
+                        .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.unsupported.description"))
+                        .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
+                        .build());
+            }
 
-                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autogg"), ConfigReader.autogg)
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.outbidsound"), ConfigReader.outbidNotification)
                     .setDefaultValue(false)
-                    .setTooltip(new TranslatableText("mineclub-expanded.config.autogg.description"))
-                    .setSaveConsumer(newValue -> ConfigReader.autogg = newValue)
+                    .setTooltip(new TranslatableText("mineclub-expanded.config.outbidsound.description"))
+                    .setSaveConsumer(newValue -> ConfigReader.outbidNotification = newValue)
                     .build());
 
-                general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.outbidvolume"), ConfigReader.outbidVolume, 0, 200)
+            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.outbidvolume"), ConfigReader.outbidVolume, 0, 200)
                     .setDefaultValue(100)
                     .setTooltip(new TranslatableText("mineclub-expanded.config.outbidvolume.description"))
                     .setSaveConsumer(newValue -> ConfigReader.outbidVolume = newValue)
                     .build());
 
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autogg"), ConfigReader.autogg)
+                    .setDefaultValue(false)
+                    .setTooltip(new TranslatableText("mineclub-expanded.config.autogg.description"))
+                    .setSaveConsumer(newValue -> ConfigReader.autogg = newValue)
+                    .build());
 
-                if(MineclubExpanded.supportsRichPresence) {
-                    general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence"), ConfigReader.richPresence)
-                            .setDefaultValue(false)
-                            .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.description"))
-                            .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
-                            .build());
-                } else {
-                    general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence.unsupported"), ConfigReader.richPresence)
-                            .setDefaultValue(false)
-                            .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.unsupported.description"))
-                            .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
-                            .build());
-                }
 
             return builder.build();
         }
