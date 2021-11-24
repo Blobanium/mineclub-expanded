@@ -45,6 +45,7 @@ public class WorldListener {
         checkWorld(1, world, "ttt", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Tic Tac Toe", "Playing On Mineclub");
         checkWorld(1, world, "sumo", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Sumo", "Playing On Mineclub");
         checkWorld(1, world, "ms", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Minesweep", "Playing On Mineclub");
+        checkWorld(1, world, "snowball", "Playing with " + RichPresenceTabletopChatListener.matchedUsername + " in Snowball Fight", "Playing On Mineclub");
 
         //Housing
         checkHousing(world);
