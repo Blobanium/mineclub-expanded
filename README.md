@@ -14,6 +14,12 @@ This Mod is in the beta phase, expect bugs here and there, if you do come across
 
 ## FAQ
 
+### Where do i download the mod?
+The mod download Should be in the [releases](https://github.com/Blobanium/mineclub-expanded/releases) page.
+
+### Is this mod designed for forge or for fabric?
+This mod is designed for fabric.
+
 ### Why doesn't the mod work?
 It is because everything is disabled by default, to enable it, go to its config menu.
 
