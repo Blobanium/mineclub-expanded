@@ -15,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.UUID;
-import java.util.regex.Pattern;
 
 @Mixin(ChatHudListener.class)
 public class ChatHudListenerMixin {
@@ -59,8 +58,9 @@ public class ChatHudListenerMixin {
                 }
             }
 
-            if(message.getString().startsWith("ꌄ咀")){
+            if(message.getString().startsWith("ꌄ咀") && !WorldListener.isAlreadyInStaffHQ){
                 DiscordRP.updateStatus("Currently in Staff HQ","Playing on Mineclub");
+                WorldListener.isAlreadyInStaffHQ = true;
             }
         }
     }

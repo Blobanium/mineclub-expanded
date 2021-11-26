@@ -12,6 +12,7 @@ public class WorldListener {
     public static String worldName;
     public static boolean isInHousing = false;
     public static boolean cancelHousingUpdate = false;
+    public static boolean isAlreadyInStaffHQ = false;
 
     public static void listenWorld(){
         if(MineclubExpanded.isOnMineclub()) {
@@ -55,15 +56,20 @@ public class WorldListener {
     private static void checkWorld(int targetType, String world, String targetWorldName, String state, String details){
         if(targetType == 0){
             if(world.equals(targetWorldName)){
-                DiscordRP.updateStatus(state, details);
+                sendPresence(state, details);
             }
         }
 
         if(targetType == 1){
             if(world.startsWith(targetWorldName)){
-                DiscordRP.updateStatus(state, details);
+                sendPresence(state, details);
             }
         }
+    }
+
+    private static void sendPresence(String state, String details){
+        DiscordRP.updateStatus(state, details);
+        isAlreadyInStaffHQ = false;
     }
 
     private static void checkHousing(String world){
