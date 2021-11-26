@@ -2,10 +2,10 @@ package io.github.blobanium.mineclubexpanded.mixin;
 
 import io.github.blobanium.mineclubexpanded.games.tabletop.RichPresenceTabletopChatListener;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
+import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceTickTracker;
 import io.github.blobanium.mineclubexpanded.market.OutbidNotifier;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
-import io.github.blobanium.mineclubexpanded.util.tick.TickTracker;
 import net.minecraft.client.gui.hud.ChatHudListener;
 import net.minecraft.network.MessageType;
 import net.minecraft.text.Text;
@@ -54,7 +54,7 @@ public class ChatHudListenerMixin {
 
             if(WorldListener.isInHousing){
                 if(message.getString().startsWith("ꌄ冈 No player found by name")){
-                    TickTracker.cancelHousingUpdate = true;
+                    HousingRichPresenceTickTracker.cancelHousingUpdate = true;
                 }
             }
 
