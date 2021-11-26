@@ -2,13 +2,12 @@ package io.github.blobanium.mineclubexpanded.util.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-import io.github.blobanium.mineclubexpanded.MineclubExpanded;
+import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
 
@@ -37,10 +36,10 @@ public class ModMenuConfig implements ModMenuApi {
             builder.setSavingRunnable(ConfigReader::refreshConfig);
         
             ConfigEntryBuilder entryBuilder = builder.entryBuilder();
-        
+
             ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.market"));
 
-            if(MineclubExpanded.supportsRichPresence) {
+            if(DiscordRP.supportsRichPresence) {
                 general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence"), ConfigReader.richPresence)
                         .setDefaultValue(false)
                         .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.description"))

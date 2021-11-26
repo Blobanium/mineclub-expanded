@@ -3,7 +3,6 @@ package io.github.blobanium.mineclubexpanded;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,9 +12,7 @@ public class MineclubExpanded implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
-	public static String lastChatField;
 	public static boolean isChatOpen = false;
-	public static boolean supportsRichPresence = true;
 
 	@Override
 	public void onInitialize() {
@@ -29,7 +26,7 @@ public class MineclubExpanded implements ModInitializer {
 			DiscordRP.startRP();
 		} catch (Exception e){
 			LOGGER.error("Failed to start rich presence, Your Device/Install may not support rich presence! \n" + e);
-			supportsRichPresence = false;
+			DiscordRP.supportsRichPresence = false;
 		}
 	}
 

@@ -8,10 +8,10 @@ import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 
 import java.time.OffsetDateTime;
-import java.util.logging.Logger;
 
 public class DiscordRP {
     static final IPCClient client = new IPCClient(907142070140035102L);
+    public static boolean supportsRichPresence = true;
     static RichPresence.Builder builder = new RichPresence.Builder();
     public static boolean hasRPStarted = false;
     public static boolean hasBlankStatus = true;
@@ -33,7 +33,7 @@ public class DiscordRP {
     }
 
     private static void updateStatusInternal(String state, String details){
-        if(MineclubExpanded.supportsRichPresence) {
+        if(supportsRichPresence) {
             try {
                 builder.setState(state)
                         .setDetails(details)

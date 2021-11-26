@@ -2,9 +2,9 @@ package io.github.blobanium.mineclubexpanded.mixin;
 
 import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
+import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import io.github.blobanium.mineclubexpanded.util.tick.TickTracker;
 import net.minecraft.client.Keyboard;
-import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,7 +22,7 @@ public class KeyboardMixin {
 
         if(key == 257){
             if(WorldListener.isInHousing){
-                if(MineclubExpanded.lastChatField.startsWith("/home")) {
+                if(HousingRichPresenceListener.lastChatField.startsWith("/home")) {
                     TickTracker.setReminder(3);
                 }
             }
