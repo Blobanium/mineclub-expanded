@@ -32,8 +32,11 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": ["1.17.x"],
+    "minecraft": ["1.17.x", "1.18.x"],
     "java": ">=16"
+  },
+  "recommends": {
+    "minecraft": ["1.17.x"]
   },
   "conflicts": {
     "advancedchat": ["*"]
@@ -42,7 +45,8 @@
     "modmenu":{
       "links": {
         "Discord (Mineclub Beehive)": "https://discord.gg/uQhX9mNAxd",
-        "Discord (Development Server)": "https://discord.gg/KfNqUs2uq5"
+        "Discord (Development Server)": "https://discord.gg/KfNqUs2uq5",
+        "Donate": "https://gist.github.com/Blobanium/190179ae9ee3d00f42aad2a86c37625c"
       }
     }
   }
