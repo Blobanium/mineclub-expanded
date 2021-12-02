@@ -62,6 +62,11 @@ public class ChatHudListenerMixin {
                 DiscordRP.updateStatus("Currently in Staff HQ","Playing on Mineclub");
                 WorldListener.isAlreadyInStaffHQ = true;
             }
+
+            if(message.getString().startsWith("ꌄ骐") && WorldListener.isAlreadyInStaffHQ){
+                DiscordRP.updateStatus("In The Lobby","Playing on Mineclub");
+                WorldListener.isAlreadyInStaffHQ = true;
+            }
         }
     }
 }
