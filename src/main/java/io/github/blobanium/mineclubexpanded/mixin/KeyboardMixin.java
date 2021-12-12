@@ -4,6 +4,7 @@ import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceTickTracker;
+import io.github.blobanium.mineclubexpanded.util.feature.Autoreconnect;
 import net.minecraft.client.Keyboard;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,6 +20,7 @@ public class KeyboardMixin {
         //ESC = 256, Enter/Return = 257
         if(key == 256){
             MineclubExpanded.isChatOpen = false;
+            Autoreconnect.cancelAutoReconnect = true;
         }
 
         if(key == 257){

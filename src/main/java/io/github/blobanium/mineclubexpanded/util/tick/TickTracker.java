@@ -4,6 +4,7 @@ import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceTickTracker;
+import io.github.blobanium.mineclubexpanded.util.feature.Autoreconnect;
 import net.minecraft.client.MinecraftClient;
 
 public class TickTracker{
@@ -17,6 +18,7 @@ public class TickTracker{
 
     private static void checkReminder(){
         HousingRichPresenceTickTracker.checkReminder();
+        Autoreconnect.checkReminder();
     }
 
     //public static class TickTrackerExample{

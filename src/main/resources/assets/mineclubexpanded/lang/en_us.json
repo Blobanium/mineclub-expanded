@@ -9,5 +9,7 @@
   "mineclub-expanded.config.richpresence": "Discord Rich Presence",
   "mineclub-expanded.config.richpresence.description": "Enables Rich Presence \n§4You need to set the server address to 'mineclub.com' or 'play.mineclub.com' for this to work",
   "mineclub-expanded.config.richpresence.unsupported": "§mDiscord Rich Presence",
-  "mineclub-expanded.config.richpresence.unsupported.description": "§4There was an error loading in rich presence. \nMost Likely Your System or Mod Configuration Doesn't support rich presence. \nFor now, This option will not work."
+  "mineclub-expanded.config.richpresence.unsupported.description": "§4There was an error loading in rich presence. \nMost Likely Your System or Mod Configuration Doesn't support rich presence. \nFor now, This option will not work.",
+  "mineclub-expanded.config.autoreconnect": "Auto Reconnect",
+  "mineclub-expanded.config.autoreconnect.description": "Makes you reconnect Automatically. \n§4NOT FOR MALICIOUS USE, DO NOT USE THIS FOR MALICIOUS INTENT \nAlso, this feature is currently in a dev-prototype phase and will not work."
 }

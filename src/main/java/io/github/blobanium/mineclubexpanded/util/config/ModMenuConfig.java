@@ -71,6 +71,12 @@ public class ModMenuConfig implements ModMenuApi {
                     .setSaveConsumer(newValue -> ConfigReader.autogg = newValue)
                     .build());
 
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autoreconnect"), ConfigReader.autoReconnect)
+                    .setDefaultValue(false)
+                    .setTooltip(new TranslatableText("mineclub-expanded.config.autoreconnect.description"))
+                    .setSaveConsumer(newValue -> ConfigReader.autoReconnect = newValue)
+                    .build());
+
 
             return builder.build();
         }

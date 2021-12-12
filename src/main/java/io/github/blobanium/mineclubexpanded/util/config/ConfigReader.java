@@ -19,6 +19,7 @@ public class ConfigReader {
 	public static boolean autogg = false;
 	public static int outbidVolume = 100;
 	public static boolean richPresence = false;
+	public static boolean autoReconnect = false;
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
@@ -29,6 +30,7 @@ public class ConfigReader {
 		final boolean autoggConfig = CONFIG.getOrDefault("auto_gg", autogg);
 		final int outbidVolumeConfig = CONFIG.getOrDefault("outbid_volume", outbidVolume);
 		final boolean richPresenceConfig = CONFIG.getOrDefault("rich_presence", richPresence);
+		final boolean autoReconnectConfig = CONFIG.getOrDefault("rich_presence", autoReconnect);
 
 		if(outbidConfig){
 			outbidNotification = true;
@@ -44,16 +46,19 @@ public class ConfigReader {
 				DiscordRP.clearStatus();
 			}
 		}
+		if(autoReconnectConfig){
+			autoReconnect = true;
+		}
     }
 
     private static String ltProvider(String filename) {
-    	return "#Mineclub Expanded Config File."
-    	+ "\noutbid_notification=" + outbidNotification
-		+ "\nauto_gg=" + autogg
-		+ "\noutbid_volume=" + outbidVolume
-				+ "\nrich_presence=" + richPresence;
-
-    }
+		return "#Mineclub Expanded Config File."
+				+ "\noutbid_notification=" + outbidNotification
+				+ "\nauto_gg=" + autogg
+				+ "\noutbid_volume=" + outbidVolume
+				+ "\nrich_presence=" + richPresence
+				+ "\nauto_reconnect=" + autoReconnect;
+	}
 
 
 	public static void refreshConfig(){
