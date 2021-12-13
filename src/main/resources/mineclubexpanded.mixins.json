@@ -13,7 +13,7 @@
     "ChatScreenMixin",
     "KeyboardMixin",
     "InventoryScreenMixin",
-    "ClientLoginNetworkHandlerMixin",
+    "ClientPlayNetworkHandlerMixin",
     "DisconnectedScreenMixin"
   ],
   "injectors": {
