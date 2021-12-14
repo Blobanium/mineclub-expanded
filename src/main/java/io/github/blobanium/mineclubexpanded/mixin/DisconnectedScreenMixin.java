@@ -14,10 +14,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(DisconnectedScreen.class)
 public class DisconnectedScreenMixin {
+    private static boolean doNotReconnect = false;
+
     @Inject(at = @At("TAIL"), method = "<init>")
     private void init(Screen parent, Text title, Text reason, CallbackInfo ci) {
+        doNotReconnect = false;
         MineclubExpanded.LOGGER.warn("Disconnection occurred.\nTitle=" + title.getString() + "\nReason=" + reason.getString());
-        if(ConfigReader.autoReconnect) {
+        if(reason.getString().contains("You were kicked for")){
+            MineclubExpanded.LOGGER.error("Will not reconnect (has been kicked my a moderator, do not use auto-reconnect for malicious intent.)");
+            doNotReconnect = true;
+        }
+        if(ConfigReader.autoReconnect && !doNotReconnect) {
             Autoreconnect.setReminder(5, parent);
         }
     }
