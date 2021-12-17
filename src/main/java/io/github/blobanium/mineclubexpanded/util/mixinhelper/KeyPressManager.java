@@ -1,8 +1,8 @@
 package io.github.blobanium.mineclubexpanded.util.mixinhelper;
 
 import io.github.blobanium.mineclubexpanded.MineclubExpanded;
+import io.github.blobanium.mineclubexpanded.games.AutoGG;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
-import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceTickTracker;
 import io.github.blobanium.mineclubexpanded.util.feature.Autoreconnect;
 
@@ -17,10 +17,14 @@ public class KeyPressManager {
 
         if(key == 257){
             if(WorldListener.isInHousing){
-                if(HousingRichPresenceListener.lastChatField.startsWith("/home")) {
+                if(MineclubExpanded.lastChatField.startsWith("/home")) {
                     HousingRichPresenceTickTracker.setReminder(3);
                 }
             }
+            if(MineclubExpanded.lastChatField.startsWith("/spectate")){
+                AutoGG.isSpectatorMode = true;
+            }
         }
     }
+
 }

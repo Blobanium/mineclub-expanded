@@ -6,6 +6,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ConnectScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.network.ServerAddress;
+import net.minecraft.client.network.ServerInfo;
 import org.apache.commons.lang3.ObjectUtils;
 
 public class Autoreconnect {
@@ -24,8 +25,7 @@ public class Autoreconnect {
     public static void checkReminder(){
         if(TickTracker.tickNo >= tickTarget && !hasNotified){
             if(!cancelAutoReconnect) {
-                MineclubExpanded.LOGGER.info("You would have reconnected, But however Autoreconnect is stil in its prototype phase.");
-                //ConnectScreen.connect(lastScreen, MinecraftClient.getInstance(), new ServerAddress("play.mineclub.com", 25565), null);
+                ConnectScreen.connect(lastScreen, MinecraftClient.getInstance(), new ServerAddress("play.mineclub.com", 25565), MineclubExpanded.mineclub);
             }
             hasNotified = true;
         }

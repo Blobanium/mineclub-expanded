@@ -2,7 +2,6 @@ package io.github.blobanium.mineclubexpanded.mixin;
 
 
 import io.github.blobanium.mineclubexpanded.MineclubExpanded;
-import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import net.minecraft.client.gui.screen.ChatScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,7 +13,7 @@ public abstract class ChatScreenMixin {
 
     @Inject(at = @At("HEAD"), method =  "onChatFieldUpdate")
     private void onChatFieldUpdate(String chatText, CallbackInfo ci){
-        HousingRichPresenceListener.lastChatField = chatText;
+        MineclubExpanded.lastChatField = chatText;
     }
 
     @Inject(at = @At("HEAD"), method =  "init")
