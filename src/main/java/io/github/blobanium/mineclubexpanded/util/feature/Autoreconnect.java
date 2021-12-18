@@ -11,7 +11,7 @@ import org.apache.commons.lang3.ObjectUtils;
 
 public class Autoreconnect {
     private static int tickTarget;
-    private static boolean hasNotified = true;
+    public static boolean hasNotified = true;
     private static Screen lastScreen;
     public static boolean cancelAutoReconnect = true;
 

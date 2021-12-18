@@ -14,7 +14,8 @@
     "KeyboardMixin",
     "InventoryScreenMixin",
     "ClientPlayNetworkHandlerMixin",
-    "DisconnectedScreenMixin"
+    "DisconnectedScreenMixin",
+    "MultiplayerScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
