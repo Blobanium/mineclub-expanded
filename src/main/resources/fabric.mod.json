@@ -42,6 +42,9 @@
   "conflicts": {
     "advancedchat": ["*"]
   },
+  "breaks": {
+   "autoreconnect": ["*"]
+  },
   "custom": {
     "modmenu":{
       "links": {
