@@ -30,7 +30,7 @@ public class ConfigReader {
 		final boolean autoggConfig = CONFIG.getOrDefault("auto_gg", autogg);
 		final int outbidVolumeConfig = CONFIG.getOrDefault("outbid_volume", outbidVolume);
 		final boolean richPresenceConfig = CONFIG.getOrDefault("rich_presence", richPresence);
-		final boolean autoReconnectConfig = CONFIG.getOrDefault("rich_presence", autoReconnect);
+		final boolean autoReconnectConfig = CONFIG.getOrDefault("auto_reconnect", autoReconnect);
 
 		if(outbidConfig){
 			outbidNotification = true;
