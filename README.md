@@ -39,3 +39,5 @@ You can get to the config in 2 ways, Ingame (Recomended), or by using the Config
 2. Scroll down until you see the file "MineclubExpanded.properties"
 3. Open the file in notepad
 4. Your now in the config file, to save the config, save the file.
+
+.
