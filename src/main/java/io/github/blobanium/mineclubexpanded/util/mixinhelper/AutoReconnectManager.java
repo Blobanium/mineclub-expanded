@@ -11,8 +11,8 @@ public class AutoReconnectManager {
 
     public static void onDisconnect(Screen parent, Text title, Text reason) {
         MineclubExpanded.LOGGER.warn("Disconnection occurred.\nTitle=" + title.getString() + "\nReason=" + reason.getString());
-        if (ConfigReader.autoReconnect && !wasUsingMaliciousIntent(reason) && attempts <= 3) {
-            Autoreconnect.setReminder(5, parent);
+        if (ConfigReader.autoReconnect && !wasUsingMaliciousIntent(reason) && attempts <= ConfigReader.autoReconnectAttempts) {
+            Autoreconnect.setReminder(ConfigReader.autoReconnectSeconds, parent);
             attempts = attempts + 1;
         } else if (wasUsingMaliciousIntent(reason)){
             MineclubExpanded.LOGGER.error( "Autoreconnect will not reconnect to Mineclub.\nDo not use Autoreconnect with malicious intent.");

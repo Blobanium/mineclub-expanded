@@ -11,5 +11,9 @@
   "mineclub-expanded.config.richpresence.unsupported": "§mDiscord Rich Presence",
   "mineclub-expanded.config.richpresence.unsupported.description": "§4There was an error loading in rich presence. \nMost Likely Your System or Mod Configuration Doesn't support rich presence. \nFor now, This option will not work.",
   "mineclub-expanded.config.autoreconnect": "Auto Reconnect",
-  "mineclub-expanded.config.autoreconnect.description": "Makes you reconnect Automatically. \n§4NOT FOR MALICIOUS USE, DO NOT USE THIS FOR MALICIOUS INTENT \nAlso, this feature is currently in a dev-prototype phase and will not work."
+  "mineclub-expanded.config.autoreconnect.description": "Makes you reconnect Automatically. \n§4NOT FOR MALICIOUS USE, DO NOT USE THIS FOR MALICIOUS INTENT",
+  "mineclub-expanded.config.autoreconnectattempts": "Auto Reconnect Attempts",
+  "mineclub-expanded.config.autoreconnectattempts.description": "Sets how many attempts auto-reconnect will perform in case of a disconnection",
+  "mineclub-expanded.config.autoreconnectseconds": "Auto Reconnect Seconds",
+  "mineclub-expanded.config.autoreconnectseconds.description": "Sets how many seconds that auto reconnect will wait before reconnecting"
 }
