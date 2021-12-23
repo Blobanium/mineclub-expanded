@@ -77,16 +77,22 @@ public class ModMenuConfig implements ModMenuApi {
                     .setSaveConsumer(newValue -> ConfigReader.autoReconnect = newValue)
                     .build());
 
-            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.autoreconnectattempts"), ConfigReader.outbidVolume, 1, 20)
+            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.autoreconnectattempts"), ConfigReader.autoReconnectAttempts, 1, 20)
                     .setDefaultValue(3)
                     .setTooltip(new TranslatableText("mineclub-expanded.config.autoreconnectattempts.description"))
                     .setSaveConsumer(newValue -> ConfigReader.autoReconnectAttempts = newValue)
                     .build());
 
-            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.autoreconnectseconds"), ConfigReader.outbidVolume, 1, 60)
+            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.autoreconnectseconds"), ConfigReader.autoReconnectSeconds, 1, 60)
                     .setDefaultValue(5)
                     .setTooltip(new TranslatableText("mineclub-expanded.config.autoreconnectseconds.description"))
-                    .setSaveConsumer(newValue -> ConfigReader.outbidVolume = newValue)
+                    .setSaveConsumer(newValue -> ConfigReader.autoReconnectSeconds = newValue)
+                    .build());
+
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.expressconnect"), ConfigReader.expressConnect)
+                    .setDefaultValue(false)
+                    .setTooltip(new TranslatableText("mineclub-expanded.config.expressconnect.description"))
+                    .setSaveConsumer(newValue -> ConfigReader.expressConnect = newValue)
                     .build());
 
 

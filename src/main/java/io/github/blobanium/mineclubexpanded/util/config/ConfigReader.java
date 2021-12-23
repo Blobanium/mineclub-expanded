@@ -22,6 +22,7 @@ public class ConfigReader {
 	public static boolean autoReconnect = false;
 	public static int autoReconnectAttempts = 3;
 	public static int autoReconnectSeconds = 5;
+	public static boolean expressConnect = false;
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
@@ -35,6 +36,7 @@ public class ConfigReader {
 		final boolean autoReconnectConfig = CONFIG.getOrDefault("auto_reconnect", autoReconnect);
 		final int autoReconnectAttemptsConfig = CONFIG.getOrDefault("auto_reconnect_attempts", autoReconnectAttempts);
 		final int autoReconnectSecondsConfig = CONFIG.getOrDefault("auto_reconnect_seconds", autoReconnectSeconds);
+		final boolean expressConnectConfig = CONFIG.getOrDefault("express_connect",	expressConnect);
 
 		if(outbidConfig){
 			outbidNotification = true;
@@ -55,6 +57,9 @@ public class ConfigReader {
 		}
 		autoReconnectAttempts = autoReconnectAttemptsConfig;
 		autoReconnectSeconds = autoReconnectSecondsConfig;
+		if(expressConnectConfig){
+			expressConnect = true;
+		}
     }
 
     private static String ltProvider(String filename) {
@@ -65,7 +70,8 @@ public class ConfigReader {
 				+ "\nrich_presence=" + richPresence
 				+ "\nauto_reconnect=" + autoReconnect
 				+ "\nauto_reconnect_attempts=" + autoReconnectAttempts
-				+ "\nauto_reconnect_seconds=" + autoReconnectSeconds;
+				+ "\nauto_reconnect_seconds=" + autoReconnectSeconds
+				+ "\nexpress_connect=" + expressConnect;
 	}
 
 

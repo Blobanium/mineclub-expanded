@@ -16,6 +16,7 @@ public class MineclubExpanded implements ModInitializer {
 	public static boolean isChatOpen = false;
     public static String lastChatField;
 	public static ServerInfo mineclub = new ServerInfo("Mineclub", "play.mineclub.com", false);
+	public static boolean hasInitialized = false;
 
     @Override
 	public void onInitialize() {
@@ -23,7 +24,6 @@ public class MineclubExpanded implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Mineclub Expanded Initialized!");
 		ConfigReader.configRegister();
 		try {
 			DiscordRP.startRP();
@@ -32,6 +32,8 @@ public class MineclubExpanded implements ModInitializer {
 			DiscordRP.supportsRichPresence = false;
 		}
 		mineclub.setResourcePackPolicy(ServerInfo.ResourcePackPolicy.ENABLED);
+		hasInitialized = true;
+		LOGGER.info("Mineclub Expanded Initialized!");
 	}
 
 	public static boolean isOnMineclub() {

@@ -15,7 +15,8 @@
     "InventoryScreenMixin",
     "ClientPlayNetworkHandlerMixin",
     "DisconnectedScreenMixin",
-    "MultiplayerScreenMixin"
+    "MultiplayerScreenMixin",
+    "TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
