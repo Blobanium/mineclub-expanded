@@ -3,6 +3,7 @@ package io.github.blobanium.mineclubexpanded;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
 import org.apache.logging.log4j.LogManager;
@@ -17,6 +18,7 @@ public class MineclubExpanded implements ModInitializer {
     public static String lastChatField;
 	public static ServerInfo mineclub = new ServerInfo("Mineclub", "play.mineclub.com", false);
 	public static boolean hasInitialized = false;
+	public static String modVersion = String.valueOf(FabricLoader.getInstance().getModContainer("mineclubexpanded").get().getMetadata().getVersion());
 
     @Override
 	public void onInitialize() {
