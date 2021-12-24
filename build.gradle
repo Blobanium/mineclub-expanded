@@ -36,8 +36,8 @@ dependencies {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 	modImplementation "com.terraformersmc:modmenu:2.0.2"
-	implementation "com.github.jagrosh:DiscordIPC:ff8c5b7"
-	include("com.github.jagrosh:DiscordIPC:ff8c5b7")
+	implementation "com.github.Jarva:DiscordIPC:7ac9ac8814"
+	include("com.github.Jarva:DiscordIPC:7ac9ac8814")
 	implementation 'org.json:json:20210307'
 	include("org.json:json:20210307")
 }
