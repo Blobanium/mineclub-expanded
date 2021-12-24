@@ -15,6 +15,7 @@ public class DiscordRP {
     static RichPresence.Builder builder = new RichPresence.Builder();
     public static boolean hasRPStarted = false;
     public static boolean hasBlankStatus = true;
+    public static String defaultDetails = "play.mineclub.com";
 
     public static void startRP() {
         setup(client);

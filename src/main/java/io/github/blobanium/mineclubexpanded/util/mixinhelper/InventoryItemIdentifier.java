@@ -17,10 +17,10 @@ public class InventoryItemIdentifier {
                 fullname = jsonDisplayName.substring(130).replace("\"}],\"text\":\"\"}", "");
                 if(fullname.length() <= 16){
                     WorldListener.cancelHousingUpdate = true;
-                    DiscordRP.updateStatus("Currently In " + fullname + "'s Home", "Playing On Mineclub");
+                    DiscordRP.updateStatus("Currently In " + fullname + "'s Home", DiscordRP.defaultDetails);
                 } else {
                     WorldListener.cancelHousingUpdate = true;
-                    DiscordRP.updateStatus("Currently In " + GradientHelper.convertGradientToString(fullname) + "'s Home", "Playing On Mineclub");
+                    DiscordRP.updateStatus("Currently In " + GradientHelper.convertGradientToString(fullname) + "'s Home", DiscordRP.defaultDetails);
                 }
             }
         }catch(NullPointerException ignored){

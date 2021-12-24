@@ -11,12 +11,12 @@ public class HousingRichPresenceListener {
         if(message.startsWith("/home")) {
             String finalMessage = message.replaceAll("/home", "");
             if(finalMessage.equals("")){
-                DiscordRP.updateStatus("Currently In " + MinecraftClient.getInstance().getSession().getUsername() + "'s Home", "Playing On Mineclub");
+                DiscordRP.updateStatus("Currently In " + MinecraftClient.getInstance().getSession().getUsername() + "'s Home", DiscordRP.defaultDetails);
             }else {
-                DiscordRP.updateStatus("Currently In " + finalMessage + "'s Home", "Playing On Mineclub");
+                DiscordRP.updateStatus("Currently In " + finalMessage + "'s Home", DiscordRP.defaultDetails);
             }
         } else {
-            DiscordRP.updateStatus("Currently In Housing", "Playing On Mineclub");
+            DiscordRP.updateStatus("Currently In Housing", DiscordRP.defaultDetails);
         }
         MineclubExpanded.lastChatField = "";
     }

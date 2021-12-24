@@ -48,12 +48,12 @@ public class ChatListener {
             }
 
             if(message.getString().startsWith("ꌄ咀") && !WorldListener.isAlreadyInStaffHQ){
-                DiscordRP.updateStatus("Currently in Staff HQ","Playing on Mineclub");
+                DiscordRP.updateStatus("Currently in Staff HQ",DiscordRP.defaultDetails);
                 WorldListener.isAlreadyInStaffHQ = true;
             }
 
             if(message.getString().startsWith("ꌄ骐") && WorldListener.isAlreadyInStaffHQ){
-                DiscordRP.updateStatus("In The Lobby","Playing on Mineclub");
+                DiscordRP.updateStatus("In The Lobby",DiscordRP.defaultDetails);
                 WorldListener.isAlreadyInStaffHQ = true;
             }
         }
