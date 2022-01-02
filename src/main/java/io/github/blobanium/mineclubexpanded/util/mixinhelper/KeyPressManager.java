@@ -15,7 +15,7 @@ public class KeyPressManager {
             Autoreconnect.cancelAutoReconnect = true;
         }
 
-        if(key == 257){
+        if(key == 257 && MineclubExpanded.lastChatField != null){
             if(WorldListener.isInHousing){
                 if(MineclubExpanded.lastChatField.startsWith("/home")) {
                     HousingRichPresenceTickTracker.setReminder(3);
