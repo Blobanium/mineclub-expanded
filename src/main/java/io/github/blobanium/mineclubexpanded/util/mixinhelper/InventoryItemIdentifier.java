@@ -11,7 +11,7 @@ public class InventoryItemIdentifier {
 
     public static void checkItem(Slot slot){
         //Player Heads have a Raw ID of 955
-        try {
+        if(slot != null){
             if(Item.getRawId(slot.getStack().getItem()) == 955) {
                 jsonDisplayName = slot.getStack().getNbt().getCompound("display").getString("Name");
                 fullname = jsonDisplayName.substring(130).replace("\"}],\"text\":\"\"}", "");
@@ -23,8 +23,6 @@ public class InventoryItemIdentifier {
                     DiscordRP.updateStatus("Currently In " + GradientHelper.convertGradientToString(fullname) + "'s Home", DiscordRP.defaultDetails);
                 }
             }
-        }catch(NullPointerException ignored){
-            //Supress Null Exception
         }
     }
 }
