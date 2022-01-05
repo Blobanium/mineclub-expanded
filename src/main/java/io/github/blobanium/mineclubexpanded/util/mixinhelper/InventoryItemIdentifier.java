@@ -12,7 +12,7 @@ public class InventoryItemIdentifier {
     public static void checkItem(Slot slot){
         //Player Heads have a Raw ID of 955
         if(slot != null){
-            if(Item.getRawId(slot.getStack().getItem()) == 955) {
+            if(Item.getRawId(slot.getStack().getItem()) == 955 && slot.getStack().getNbt().getCompound("display").getString("Name").length() != 0) {
                 jsonDisplayName = slot.getStack().getNbt().getCompound("display").getString("Name");
                 fullname = jsonDisplayName.substring(130).replace("\"}],\"text\":\"\"}", "");
                 if(fullname.length() <= 16){
