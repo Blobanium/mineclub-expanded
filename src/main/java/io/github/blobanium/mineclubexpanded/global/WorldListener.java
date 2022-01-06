@@ -47,6 +47,8 @@ public class WorldListener {
         checkWorld(1, world, "sumo", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Sumo");
         checkWorld(1, world, "ms", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Minesweep");
         checkWorld(1, world, "snowball", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Snowball Fight");
+        checkWorld(1, world, "shoot", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Playing Shoot The Sheep");
+
 
         //Housing
         checkHousing(world);
