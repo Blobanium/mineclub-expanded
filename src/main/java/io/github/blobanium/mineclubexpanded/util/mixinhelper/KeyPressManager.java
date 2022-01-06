@@ -16,14 +16,17 @@ public class KeyPressManager {
         }
 
         if(key == 257 && MineclubExpanded.lastChatField != null){
-            if(WorldListener.isInHousing){
-                if(MineclubExpanded.lastChatField.startsWith("/home")) {
-                    HousingRichPresenceTickTracker.setReminder(3);
-                }
-            }
-            if(MineclubExpanded.lastChatField.startsWith("/spectate")){
-                AutoGG.isSpectatorMode = true;
-            }
+            onReturn();
+        }
+    }
+
+    private static void onReturn(){
+        if(MineclubExpanded.lastChatField.startsWith("/home") && WorldListener.isInHousing){
+                HousingRichPresenceTickTracker.setReminder(3);
+        }
+
+        if(MineclubExpanded.lastChatField.startsWith("/spectate")){
+            AutoGG.isSpectatorMode = true;
         }
     }
 
