@@ -31,16 +31,10 @@ public class ChatListener {
         if(ConfigReader.richPresence){
             RichPresenceTabletopChatListener.onChatMessage(message);
 
+            staffHQRPUpdate(message);
+
             if(WorldListener.isInHousing && message.getString().startsWith("ꌄ冈 No player found by name")){
-                    HousingRichPresenceTickTracker.cancelHousingUpdate = true;
-            }
-
-            if(message.getString().startsWith("ꌄ咀") && !WorldListener.isAlreadyInStaffHQ){
-                staffHQRPUpdate("Currently in Staff HQ");
-            }
-
-            if(message.getString().startsWith("ꌄ骐") && WorldListener.isAlreadyInStaffHQ){
-                staffHQRPUpdate("In The Lobby");
+                HousingRichPresenceTickTracker.cancelHousingUpdate = true;
             }
         }
     }
@@ -57,8 +51,15 @@ public class ChatListener {
         }
     }
 
-    private static void staffHQRPUpdate(String state){
-        DiscordRP.updateStatus(state,DiscordRP.defaultDetails);
-        WorldListener.isAlreadyInStaffHQ = true;
+    private static void staffHQRPUpdate(Text message){
+        if(message.getString().startsWith("ꌄ骐") && WorldListener.isAlreadyInStaffHQ){
+            DiscordRP.updateStatus("In the lobby",DiscordRP.defaultDetails);
+            WorldListener.isAlreadyInStaffHQ = true;
+        }
+
+        if(message.getString().startsWith("ꌄ咀") && !WorldListener.isAlreadyInStaffHQ){
+            DiscordRP.updateStatus("Currently in Staff HQ",DiscordRP.defaultDetails);
+            WorldListener.isAlreadyInStaffHQ = true;
+        }
     }
 }
