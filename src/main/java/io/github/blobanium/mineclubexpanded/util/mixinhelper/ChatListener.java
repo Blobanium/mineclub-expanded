@@ -36,13 +36,11 @@ public class ChatListener {
             }
 
             if(message.getString().startsWith("ꌄ咀") && !WorldListener.isAlreadyInStaffHQ){
-                DiscordRP.updateStatus("Currently in Staff HQ",DiscordRP.defaultDetails);
-                WorldListener.isAlreadyInStaffHQ = true;
+                staffHQRPUpdate("Currently in Staff HQ");
             }
 
             if(message.getString().startsWith("ꌄ骐") && WorldListener.isAlreadyInStaffHQ){
-                DiscordRP.updateStatus("In The Lobby",DiscordRP.defaultDetails);
-                WorldListener.isAlreadyInStaffHQ = true;
+                staffHQRPUpdate("In The Lobby");
             }
         }
     }
@@ -57,5 +55,10 @@ public class ChatListener {
         } else {
             chatBeingCleared = false;
         }
+    }
+
+    private static void staffHQRPUpdate(String state){
+        DiscordRP.updateStatus(state,DiscordRP.defaultDetails);
+        WorldListener.isAlreadyInStaffHQ = true;
     }
 }
