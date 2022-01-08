@@ -39,19 +39,12 @@ public class ModMenuConfig implements ModMenuApi {
 
             ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.market"));
 
-            if(DiscordRP.supportsRichPresence) {
-                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence"), ConfigReader.richPresence)
-                        .setDefaultValue(false)
-                        .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.description"))
-                        .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
-                        .build());
-            } else {
-                general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.richpresence.unsupported"), ConfigReader.richPresence)
-                        .setDefaultValue(false)
-                        .setTooltip(new TranslatableText("mineclub-expanded.config.richpresence.unsupported.description"))
-                        .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
-                        .build());
-            }
+            general.addEntry(entryBuilder.startBooleanToggle(DynamicModMenuTranslatable.getDiscordRPTranslatable(), ConfigReader.richPresence)
+                    .setDefaultValue(false)
+                    .setTooltip(DynamicModMenuTranslatable.getDiscordRPDescriptionTranslatable())
+                    .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
+                    .build());
+
 
             general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.outbidsound"), ConfigReader.outbidNotification)
                     .setDefaultValue(false)
