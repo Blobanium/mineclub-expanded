@@ -39,56 +39,23 @@ public class ModMenuConfig implements ModMenuApi {
 
             ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.market"));
 
-            general.addEntry(entryBuilder.startBooleanToggle(DynamicModMenuTranslatable.getDiscordRPTranslatable(), ConfigReader.richPresence)
-                    .setDefaultValue(false)
-                    .setTooltip(DynamicModMenuTranslatable.getDiscordRPDescriptionTranslatable())
-                    .setSaveConsumer(newValue -> ConfigReader.richPresence = newValue)
-                    .build());
 
 
-            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.outbidsound"), ConfigReader.outbidNotification)
-                    .setDefaultValue(false)
-                    .setTooltip(new TranslatableText("mineclub-expanded.config.outbidsound.description"))
-                    .setSaveConsumer(newValue -> ConfigReader.outbidNotification = newValue)
-                    .build());
+            general.addEntry(entryBuilder.startBooleanToggle(DynamicModMenuTranslatable.getDiscordRPTranslatable(), ConfigReader.richPresence).setDefaultValue(false).setTooltip(DynamicModMenuTranslatable.getDiscordRPDescriptionTranslatable()).setSaveConsumer(newValue -> ConfigReader.richPresence = newValue).build());
 
-            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.outbidvolume"), ConfigReader.outbidVolume, 0, 200)
-                    .setDefaultValue(100)
-                    .setTooltip(new TranslatableText("mineclub-expanded.config.outbidvolume.description"))
-                    .setSaveConsumer(newValue -> ConfigReader.outbidVolume = newValue)
-                    .build());
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.outbidsound"), ConfigReader.outbidNotification).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.outbidsound.description")).setSaveConsumer(newValue -> ConfigReader.outbidNotification = newValue).build());
 
-            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autogg"), ConfigReader.autogg)
-                    .setDefaultValue(false)
-                    .setTooltip(new TranslatableText("mineclub-expanded.config.autogg.description"))
-                    .setSaveConsumer(newValue -> ConfigReader.autogg = newValue)
-                    .build());
+            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.outbidvolume"), ConfigReader.outbidVolume, 0, 200).setDefaultValue(100).setTooltip(new TranslatableText("mineclub-expanded.config.outbidvolume.description")).setSaveConsumer(newValue -> ConfigReader.outbidVolume = newValue).build());
 
-            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autoreconnect"), ConfigReader.autoReconnect)
-                    .setDefaultValue(false)
-                    .setTooltip(new TranslatableText("mineclub-expanded.config.autoreconnect.description"))
-                    .setSaveConsumer(newValue -> ConfigReader.autoReconnect = newValue)
-                    .build());
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autogg"), ConfigReader.autogg).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.autogg.description")).setSaveConsumer(newValue -> ConfigReader.autogg = newValue).build());
 
-            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.autoreconnectattempts"), ConfigReader.autoReconnectAttempts, 1, 20)
-                    .setDefaultValue(3)
-                    .setTooltip(new TranslatableText("mineclub-expanded.config.autoreconnectattempts.description"))
-                    .setSaveConsumer(newValue -> ConfigReader.autoReconnectAttempts = newValue)
-                    .build());
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.autoreconnect"), ConfigReader.autoReconnect).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.autoreconnect.description")).setSaveConsumer(newValue -> ConfigReader.autoReconnect = newValue).build());
 
-            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.autoreconnectseconds"), ConfigReader.autoReconnectSeconds, 1, 60)
-                    .setDefaultValue(5)
-                    .setTooltip(new TranslatableText("mineclub-expanded.config.autoreconnectseconds.description"))
-                    .setSaveConsumer(newValue -> ConfigReader.autoReconnectSeconds = newValue)
-                    .build());
+            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.autoreconnectattempts"), ConfigReader.autoReconnectAttempts, 1, 20).setDefaultValue(3).setTooltip(new TranslatableText("mineclub-expanded.config.autoreconnectattempts.description")).setSaveConsumer(newValue -> ConfigReader.autoReconnectAttempts = newValue).build());
 
-            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.expressconnect"), ConfigReader.expressConnect)
-                    .setDefaultValue(false)
-                    .setTooltip(new TranslatableText("mineclub-expanded.config.expressconnect.description"))
-                    .setSaveConsumer(newValue -> ConfigReader.expressConnect = newValue)
-                    .build());
+            general.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.autoreconnectseconds"), ConfigReader.autoReconnectSeconds, 1, 60).setDefaultValue(5).setTooltip(new TranslatableText("mineclub-expanded.config.autoreconnectseconds.description")).setSaveConsumer(newValue -> ConfigReader.autoReconnectSeconds = newValue).build());
 
-
+            general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.expressconnect"), ConfigReader.expressConnect).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.expressconnect.description")).setSaveConsumer(newValue -> ConfigReader.expressConnect = newValue).build());
 
             return builder.build();
         }
