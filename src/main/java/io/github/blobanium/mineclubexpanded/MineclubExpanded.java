@@ -32,11 +32,11 @@ public class MineclubExpanded implements ModInitializer {
 				DiscordRP.startRP();
 			} catch (Exception e) {
 				LOGGER.error("Failed to start rich presence, Your Device/Install may not support rich presence! \n" + e);
-				DiscordRP.supportsRichPresence = false;
+				DiscordRP.discordRPErrorcode = 1;
 			}
 		} else {
-			DiscordRP.supportsRichPresence = false;
 			LOGGER.error("Rich Presence doesn't support macOS.");
+			DiscordRP.discordRPErrorcode = 2;
 		}
 		mineclub.setResourcePackPolicy(ServerInfo.ResourcePackPolicy.ENABLED);
 		hasInitialized = true;

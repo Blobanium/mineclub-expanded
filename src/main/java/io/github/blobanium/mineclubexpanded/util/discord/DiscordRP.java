@@ -11,11 +11,12 @@ import java.time.OffsetDateTime;
 
 public class DiscordRP {
     static final IPCClient client = new IPCClient(907142070140035102L);
-    public static boolean supportsRichPresence = true;
     static RichPresence.Builder builder = new RichPresence.Builder();
     public static boolean hasRPStarted = false;
     public static boolean hasBlankStatus = true;
     public static String defaultDetails = "play.mineclub.com";
+    public static int discordRPErrorcode = 0;
+    //0 = Normal State, 1 = Error, 2 = MacOS
 
     public static void startRP() {
         setup(client);
@@ -34,7 +35,7 @@ public class DiscordRP {
     }
 
     private static void updateStatusInternal(String state, String details){
-        if(supportsRichPresence) {
+        if(discordRPErrorcode == 0) {
             try {
                 builder.setState(state)
                         .setDetails(details)
