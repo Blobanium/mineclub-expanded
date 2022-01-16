@@ -12,7 +12,6 @@ public class WorldListener {
     public static String worldName;
     public static boolean isInHousing = false;
     public static boolean cancelHousingUpdate = false;
-    public static boolean isAlreadyInStaffHQ = false;
 
     public static void listenWorld(){
         if(MineclubExpanded.isOnMineclub()) {
@@ -71,7 +70,6 @@ public class WorldListener {
 
     private static void sendPresence(String state, String details){
         DiscordRP.updateStatus(state, details);
-        isAlreadyInStaffHQ = false;
     }
 
     private static void checkHousing(String world){
