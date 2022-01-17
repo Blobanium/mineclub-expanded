@@ -24,10 +24,6 @@ public class KeyPressManager {
         if(MineclubExpanded.lastChatField.startsWith("/home") && WorldListener.isInHousing){
                 HousingRichPresenceTickTracker.setReminder(3);
         }
-
-        if(MineclubExpanded.lastChatField.startsWith("/spectate")){
-            AutoGG.isSpectatorMode = true;
-        }
     }
 
 }

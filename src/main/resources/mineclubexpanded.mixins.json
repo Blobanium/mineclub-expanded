@@ -8,7 +8,6 @@
   "client": [
     "ChatHudListenerMixin",
     "SoundManagerMixin",
-    "InGameHudMixin",
     "MinecraftClientMixin",
     "ChatScreenMixin",
     "KeyboardMixin",
