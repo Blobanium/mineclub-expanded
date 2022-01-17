@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded;
 
+import io.github.blobanium.mineclubexpanded.util.command.CommandParser;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.fabricmc.api.ModInitializer;
@@ -41,6 +42,9 @@ public class MineclubExpanded implements ModInitializer {
 
 		//Set Resource Pack Policy for mineclub to Enabled as Mineclub requires a resource pack.
 		mineclub.setResourcePackPolicy(ServerInfo.ResourcePackPolicy.ENABLED);
+
+		//Parse all commands
+		CommandParser.registerCommand();
 
 		//Finish initializing.
 		hasInitialized = true;
