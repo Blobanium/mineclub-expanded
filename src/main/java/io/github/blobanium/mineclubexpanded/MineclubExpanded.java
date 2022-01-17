@@ -22,11 +22,11 @@ public class MineclubExpanded implements ModInitializer {
 
     @Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-
+		//Registers the config
 		ConfigReader.configRegister();
+
+		//Make sure the mod isn't running off macOS, if it isn't, Start Discord IPC.
+		//To put it into context, DiscordIPC For some reason doesn't support macOS.
 		if(!MinecraftClient.IS_SYSTEM_MAC) {
 			try {
 				DiscordRP.startRP();
@@ -38,7 +38,11 @@ public class MineclubExpanded implements ModInitializer {
 			LOGGER.error("Rich Presence doesn't support macOS.");
 			DiscordRP.discordRPErrorcode = 2;
 		}
+
+		//Set Resource Pack Policy for mineclub to Enabled as Mineclub requires a resource pack.
 		mineclub.setResourcePackPolicy(ServerInfo.ResourcePackPolicy.ENABLED);
+
+		//Finish initializing.
 		hasInitialized = true;
 		LOGGER.info("Mineclub Expanded Initialized!");
 	}
