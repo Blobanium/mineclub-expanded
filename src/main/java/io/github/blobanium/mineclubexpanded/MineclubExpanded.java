@@ -52,11 +52,11 @@ public class MineclubExpanded implements ModInitializer {
 	}
 
 	public static boolean isOnMineclub() {
-		try {
-			return MinecraftClient.getInstance().getCurrentServerEntry().address.equals("mineclub.com") || MinecraftClient.getInstance().getCurrentServerEntry().address.equals("play.mineclub.com");
-		} catch (NullPointerException e) {
-			LOGGER.debug("Suppressing Null warning");
-			return false;
+		if(MinecraftClient.getInstance().getCurrentServerEntry() != null) {
+			String currentServerAddress = MinecraftClient.getInstance().getCurrentServerEntry().address;
+			return currentServerAddress.endsWith("mineclub.com") || currentServerAddress.endsWith(".mineclub.house");
+		}else {
+			return  false;
 		}
 	}
 }

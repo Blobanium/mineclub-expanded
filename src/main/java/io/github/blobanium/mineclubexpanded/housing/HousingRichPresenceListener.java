@@ -6,21 +6,26 @@ import net.minecraft.client.MinecraftClient;
 
 public class HousingRichPresenceListener {
     public static String playerheadName;
+    public static String usernameFromServerIP;
 
-    public static void sendHousingPresence(){
-        String message = MineclubExpanded.lastChatField;
-        if(message.startsWith("/home")) {
-            String finalMessage = message.replaceAll("/home", "");
-            if (finalMessage.equals("")) {
-                DiscordRP.updateStatus("Currently In " + MinecraftClient.getInstance().getSession().getUsername() + "'s Home", DiscordRP.defaultDetails);
-            } else {
-                DiscordRP.updateStatus("Currently In " + finalMessage + "'s Home", DiscordRP.defaultDetails);
-            }
-        } else if(playerheadName != null){
-            DiscordRP.updateStatus("Currently In " + playerheadName + "'s Home", DiscordRP.defaultDetails);
+    public static void sendHousingPresence(boolean fromServerIP){
+        if(fromServerIP){
+            DiscordRP.updateStatus("Currently In " + usernameFromServerIP + "'s Home", DiscordRP.defaultDetails);
         } else {
-            DiscordRP.updateStatus("Currently In Housing", DiscordRP.defaultDetails);
+            String message = MineclubExpanded.lastChatField;
+            if (message.startsWith("/home")) {
+                String finalMessage = message.replaceAll("/home", "");
+                if (finalMessage.equals("")) {
+                    DiscordRP.updateStatus("Currently In " + MinecraftClient.getInstance().getSession().getUsername() + "'s Home", DiscordRP.defaultDetails);
+                } else {
+                    DiscordRP.updateStatus("Currently In " + finalMessage + "'s Home", DiscordRP.defaultDetails);
+                }
+            } else if (playerheadName != null) {
+                DiscordRP.updateStatus("Currently In " + playerheadName + "'s Home", DiscordRP.defaultDetails);
+            } else {
+                DiscordRP.updateStatus("Currently In Housing", DiscordRP.defaultDetails);
+            }
+            MineclubExpanded.lastChatField = "";
         }
-        MineclubExpanded.lastChatField = "";
     }
 }

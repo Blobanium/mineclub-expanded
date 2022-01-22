@@ -21,7 +21,7 @@ public class HousingRichPresenceTickTracker{
                 if(cancelHousingUpdate) {
                     MineclubExpanded.LOGGER.debug("Canceling Housing Update");
                 } else {
-                    HousingRichPresenceListener.sendHousingPresence();
+                    HousingRichPresenceListener.sendHousingPresence(false);
                 }
             }
             cancelHousingUpdate = false;
