@@ -32,14 +32,14 @@ dependencies {
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
-	modApi("me.shedaniel.cloth:cloth-config-fabric:5.0.38") {
+	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
-	modImplementation "com.terraformersmc:modmenu:2.0.2"
+	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 	implementation "com.github.Jarva:DiscordIPC:7ac9ac8814"
 	include("com.github.Jarva:DiscordIPC:7ac9ac8814")
-	implementation 'org.json:json:20210307'
-	include("org.json:json:20210307")
+	implementation 'org.json:json:20211205'
+	include("org.json:json:20211205")
 }
 
 processResources {
