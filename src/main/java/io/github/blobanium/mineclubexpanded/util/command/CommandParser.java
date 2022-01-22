@@ -34,5 +34,12 @@ public class CommandParser {
                             return 0;
                         })
                 )));
+
+        ClientCommandManager.DISPATCHER.register(
+                ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("yourmom").executes(context -> {
+                            context.getSource().sendFeedback(new LiteralText("No your mom."));
+                            return 0;
+                        })
+                ));
     }
 }
