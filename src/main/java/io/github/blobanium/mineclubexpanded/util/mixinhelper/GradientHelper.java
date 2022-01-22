@@ -9,28 +9,14 @@ public class GradientHelper {
         return setUsername(text);
     }
 
-    private static String setUsername(String text){
-        try {
-            u.append(text.charAt(25));
-            u.append(text.charAt(71));
-            u.append(text.charAt(117));
-            u.append(text.charAt(163));
-            u.append(text.charAt(209));
-            u.append(text.charAt(255));
-            u.append(text.charAt(301));
-            u.append(text.charAt(347));
-            u.append(text.charAt(393));
-            u.append(text.charAt(439));
-            u.append(text.charAt(485));
-            u.append(text.charAt(531));
-            u.append(text.charAt(577));
-            u.append(text.charAt(623));
-            u.append(text.charAt(669));
-            u.append(text.charAt(715));
-        } catch (IndexOutOfBoundsException ignored){
-            //This is pretty much ignored.
-        }
+    private static int getPosition(int i){
+        return  (46 * i) - 21;
+    }
 
+    private static String setUsername(String text){
+        for(int i = 1; getPosition(i) <= text.length(); i++){
+            u.append(text.charAt(getPosition(i)));
+        }
         return u.toString();
     }
 }
