@@ -2,7 +2,11 @@
 
 ## NOTE
 
-This Mod is in the beta phase, expect bugs here and there, if you do come across one, open an issue
+    * This Experimental Branch is only to show a proof-of-concept of sending data to a remote discord server via a webhook.
+    * Doing this can make alot of insane things possible: Such as tracking unobtainable rolls, real-time market tracking, etc.
+    *
+    * Right now, There are many flaws to how it is implemented and is not the final product.
+    * If your looking for a stable branch, consider checking the master branch.
 
 ![](https://img.shields.io/github/downloads/blobanium/mineclub-expanded/total?label=Total%20Downloads&style=for-the-badge) ![]()
 

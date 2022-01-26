@@ -57,6 +57,9 @@ public class ModMenuConfig implements ModMenuApi {
 
             general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.expressconnect"), ConfigReader.expressConnect).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.expressconnect.description")).setSaveConsumer(newValue -> ConfigReader.expressConnect = newValue).build());
 
+            general.addEntry(entryBuilder.startStrField(new TranslatableText("mineclub-expanded.config.webhook"), ConfigReader.webhookURL).setDefaultValue("").setTooltip(new TranslatableText("mineclub-expanded.config.webhook.description")).setSaveConsumer(newValue -> ConfigReader.webhookURL = newValue).build());
+
+
             return builder.build();
         }
     }

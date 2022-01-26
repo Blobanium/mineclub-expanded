@@ -18,5 +18,7 @@
   "mineclub-expanded.config.autoreconnectseconds": "Auto Reconnect Seconds",
   "mineclub-expanded.config.autoreconnectseconds.description": "Sets how many seconds that auto reconnect will wait before reconnecting",
   "mineclub-expanded.config.expressconnect": "Express Connect",
-  "mineclub-expanded.config.expressconnect.description": "Connects to mineclub right after minecraft starts up. \nUseful for AFK Clients that would remove the hassle to manually connect to mineclub."
+  "mineclub-expanded.config.expressconnect.description": "Connects to mineclub right after minecraft starts up. \nUseful for AFK Clients that would remove the hassle to manually connect to mineclub.",
+  "mineclub-expanded.config.webhook": "Discord Webhook URL",
+  "mineclub-expanded.config.webhook.description": "Sets the URL on where to send the Webhook to.\n  \n§4WARNING!  \nDo not paste ANYTHING into this option if someone has told you to do so. \n9 times out of 10 they are trying to get you to send (possibly sensitive) info to them. \nUnless you know what your doing, don't paste anything into this box and stay safe."
 }

@@ -23,6 +23,7 @@ public class ConfigReader {
 	public static int autoReconnectAttempts = 3;
 	public static int autoReconnectSeconds = 5;
 	public static boolean expressConnect = false;
+	public static String webhookURL = "";
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
@@ -37,6 +38,7 @@ public class ConfigReader {
 		final int autoReconnectAttemptsConfig = CONFIG.getOrDefault("auto_reconnect_attempts", autoReconnectAttempts);
 		final int autoReconnectSecondsConfig = CONFIG.getOrDefault("auto_reconnect_seconds", autoReconnectSeconds);
 		final boolean expressConnectConfig = CONFIG.getOrDefault("express_connect",	expressConnect);
+		final String webhookURLConfig = CONFIG.getOrDefault("webhook_URL",	webhookURL);
 
 		if(outbidConfig){
 			outbidNotification = true;
@@ -60,6 +62,7 @@ public class ConfigReader {
 		if(expressConnectConfig){
 			expressConnect = true;
 		}
+		webhookURL = webhookURLConfig;
     }
 
     private static String ltProvider(String filename) {
@@ -71,7 +74,8 @@ public class ConfigReader {
 				+ "\nauto_reconnect=" + autoReconnect
 				+ "\nauto_reconnect_attempts=" + autoReconnectAttempts
 				+ "\nauto_reconnect_seconds=" + autoReconnectSeconds
-				+ "\nexpress_connect=" + expressConnect;
+				+ "\nexpress_connect=" + expressConnect
+				+ "\nwebhook_URL=" + webhookURL;
 	}
 
 

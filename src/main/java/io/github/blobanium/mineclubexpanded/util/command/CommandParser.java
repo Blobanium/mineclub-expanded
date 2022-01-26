@@ -1,9 +1,11 @@
 package io.github.blobanium.mineclubexpanded.util.command;
 
+import io.github.blobanium.mineclubexpanded.util.discord.webhook.WebhookExecutor;
 import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
+import java.io.IOException;
 import java.text.NumberFormat;
 
 public class CommandParser {
@@ -38,6 +40,18 @@ public class CommandParser {
         ClientCommandManager.DISPATCHER.register(
                 ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("yourmom").executes(context -> {
                             context.getSource().sendFeedback(new LiteralText("No your mom."));
+                            return 0;
+                        })
+                ));
+
+        ClientCommandManager.DISPATCHER.register(
+                ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("webhook").executes(context -> {
+                    try {
+                        WebhookExecutor.execute();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    context.getSource().sendFeedback(new LiteralText("sent."));
                             return 0;
                         })
                 ));
