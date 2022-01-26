@@ -28,7 +28,7 @@ public class WorldListener {
     }
 
     private static void worldCheck(String world){
-        //Lobby, AFK Lounge
+        //Lobby, AFK Lounge, StaffHQ
         checkWorld(0, world, "overworld", "In The Lobby", DiscordRP.defaultDetails);
 
         //Main Games
@@ -48,6 +48,8 @@ public class WorldListener {
         checkWorld(1, world, "snowball", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Snowball Fight");
         checkWorld(1, world, "shoot", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Playing Shoot The Sheep");
 
+        //Admin Events
+        checkWorld(0, world, "gamemap_admin_event_tnt_run", "Playing TNT Run", "Currently in an Admin Event");
 
         //Housing
         checkHousing(world);
