@@ -20,16 +20,16 @@ public class WebhookExecutor {
     * There are many flaws to this particular approach and is not the final product.
     * The Final product will most likely be executed through a remote verification server and then to discord, instead of having it being sent to discord directly.
      */
-    public static void execute() throws IOException {
+    public static void execute(String title, String description) throws IOException {
         CompletableFuture.runAsync(() -> {
             DiscordWebhook webhook = new DiscordWebhook(ConfigReader.webhookURL);
-            webhook.setContent("Mineclub Expanded");
+            webhook.setContent("Mineclub Expanded (" + username + ")");
             webhook.setAvatarUrl("https://mc-heads.net/avatar/"+ uuid + "/128");
             webhook.setUsername(username);
             webhook.setTts(false);
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                    .setTitle("Test")
-                    .setDescription("This is a test")
+                    .setTitle(title)
+                    .setDescription(description)
                     .setAuthor(username, "https://www.curseforge.com/minecraft/mc-mods/mineclub-expanded", "https://mc-heads.net/avatar/"+ uuid + "/100"));
             try {
                 webhook.execute(); //Handle exception

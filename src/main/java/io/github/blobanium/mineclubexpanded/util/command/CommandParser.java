@@ -47,7 +47,7 @@ public class CommandParser {
         ClientCommandManager.DISPATCHER.register(
                 ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("webhook").executes(context -> {
                     try {
-                        WebhookExecutor.execute();
+                        WebhookExecutor.execute("Test","This Is A Test!");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
