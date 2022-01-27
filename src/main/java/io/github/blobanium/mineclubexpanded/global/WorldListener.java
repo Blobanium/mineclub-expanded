@@ -34,7 +34,6 @@ public class WorldListener {
         //Main Games
         checkWorld(0, world, "gamemap_battle_dome", "Currently In Battle Dome", DiscordRP.defaultDetails);
         checkWorld(0, world, "gamemap_slime_walls", "Currently In Slime Walls", DiscordRP.defaultDetails);
-        checkWorld(1, world, "master", "Currently Playing Speed Tag", DiscordRP.defaultDetails);
         checkWorld(0, world, "gamemap_laser_tag", "Currently In Laser Tag", DiscordRP.defaultDetails);
         checkWorld(0, world, "gamemap_dodge_ball", "Currently In Dodge Ball", DiscordRP.defaultDetails);
 
