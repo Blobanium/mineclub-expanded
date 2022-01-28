@@ -29,13 +29,13 @@ public class WorldListener {
 
     private static void worldCheck(String world){
         //Lobby, AFK Lounge, StaffHQ
-        checkWorld(0, world, "overworld", "In The Lobby", DiscordRP.defaultDetails);
+        checkWorld(0, world, "overworld", "In The Lobby", DiscordRP.defaultDetails());
 
         //Main Games
-        checkWorld(0, world, "gamemap_battle_dome", "Currently In Battle Dome", DiscordRP.defaultDetails);
-        checkWorld(0, world, "gamemap_slime_walls", "Currently In Slime Walls", DiscordRP.defaultDetails);
-        checkWorld(0, world, "gamemap_laser_tag", "Currently In Laser Tag", DiscordRP.defaultDetails);
-        checkWorld(0, world, "gamemap_dodge_ball", "Currently In Dodge Ball", DiscordRP.defaultDetails);
+        checkWorld(0, world, "gamemap_battle_dome", "Currently In Battle Dome", DiscordRP.defaultDetails());
+        checkWorld(0, world, "gamemap_slime_walls", "Currently In Slime Walls", DiscordRP.defaultDetails());
+        checkWorld(0, world, "gamemap_laser_tag", "Currently In Laser Tag", DiscordRP.defaultDetails());
+        checkWorld(0, world, "gamemap_dodge_ball", "Currently In Dodge Ball", DiscordRP.defaultDetails());
 
         //Tabletop Games
         checkWorld(1, world, "connect4", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Connect 4");
@@ -78,7 +78,7 @@ public class WorldListener {
             if (world.startsWith("housing")) {
                 isInHousing = true;
                 if (FabricLoader.getInstance().isModLoaded("advancedchat")) {
-                    DiscordRP.updateStatus("Currently In Housing", DiscordRP.defaultDetails);
+                    DiscordRP.updateStatus("Currently In Housing", DiscordRP.defaultDetails());
                 } else {
                     HousingRichPresenceListener.sendHousingPresence(connectUsingHousingIP);
                     if(connectUsingHousingIP){

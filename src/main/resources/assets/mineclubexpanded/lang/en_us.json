@@ -7,7 +7,7 @@
   "mineclub-expanded.config.outbidvolume": "Outbid Sound Volume",
   "mineclub-expanded.config.outbidvolume.description": "Controls the volume of the outbid sound",
   "mineclub-expanded.config.richpresence": "Discord Rich Presence",
-  "mineclub-expanded.config.richpresence.description": "Enables Rich Presence \n§4You need to set the server address to 'mineclub.com' or 'play.mineclub.com' for this to work",
+  "mineclub-expanded.config.richpresence.description": "Enables Rich Presence \n§4Requires Restarting your client.",
   "mineclub-expanded.config.richpresence.unsupported": "§mDiscord Rich Presence",
   "mineclub-expanded.config.richpresence.unsupported.description.exception": "§4There was an error loading in rich presence. \nReport this to Blobanium or open an issue on mineclub expanded's issues page",
   "mineclub-expanded.config.richpresence.unsupported.description.macos": "§4Discord Rich Presence is not supported on Mac OS Devices",
@@ -19,9 +19,13 @@
   "mineclub-expanded.config.autoreconnectseconds.description": "Sets how many seconds that auto reconnect will wait before reconnecting",
   "mineclub-expanded.config.expressconnect": "Express Connect",
   "mineclub-expanded.config.expressconnect.description": "Connects to mineclub right after minecraft starts up. \nUseful for AFK Clients that would remove the hassle to manually connect to mineclub.",
+  "mineclub-expanded.config.presencedetail": "Rich Presence Detail",
+  "mineclub-expanded.config.presencedetail.description": "Sets the custom details for the Presence",
   "mineclub-expanded.category.main": "Main",
   "mineclub-expanded.category.autoreconnect": "Autoreconnect Options",
   "mineclub-expanded.category.outbid": "Outbid Sound Options",
+  "mineclub-expanded.category.presence": "Rich Presence Options",
   "mineclub-expanded.configtext.outbid": "§4The option 'Outbid Notification Sound' needs to be turned on for this option to work.",
-  "mineclub-expanded.configtext.autoreconnect": "§4The option 'Autoreconnect' needs to be turned on for these options to work."
+  "mineclub-expanded.configtext.autoreconnect": "§4The option 'Autoreconnect' needs to be turned on for these options to work.",
+  "mineclub-expanded.configtext.presence": "§4The option 'Discord Rich Presence' needs to be turned on for this option to work."
 }

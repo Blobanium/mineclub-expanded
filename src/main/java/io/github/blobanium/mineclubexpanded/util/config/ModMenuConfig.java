@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded.util.config;
 
+import com.google.common.collect.Lists;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
@@ -8,6 +9,7 @@ import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 
 
@@ -38,11 +40,14 @@ public class ModMenuConfig implements ModMenuApi {
             ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
             ConfigCategory general = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.main"));
+            ConfigCategory presence = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.presence"));
             ConfigCategory outbid = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.outbid"));
             ConfigCategory autoreconnect = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.autoreconnect"));
 
 
-            general.addEntry(entryBuilder.startBooleanToggle(DynamicModMenuTranslatable.getDiscordRPTranslatable(), ConfigReader.richPresence).setDefaultValue(false).setTooltip(DynamicModMenuTranslatable.getDiscordRPDescriptionTranslatable()).setSaveConsumer(newValue -> ConfigReader.richPresence = newValue).build());
+            general.addEntry(entryBuilder.startBooleanToggle(DynamicModMenuTranslatable.getDiscordRPTranslatable(), ConfigReader.richPresence).setDefaultValue(false).setTooltip(DynamicModMenuTranslatable.getDiscordRPDescriptionTranslatable()).requireRestart().setSaveConsumer(newValue -> ConfigReader.richPresence = newValue).build());
+            presence.addEntry(entryBuilder.startStringDropdownMenu(new TranslatableText("mineclub-expanded.config.presencedetail"), ConfigReader.rpCustomDetails).setDefaultValue("ServerIP").setSuggestionMode(false).setSelections(Lists.newArrayList("ServerIP", "Username", "Mod Version")).setTooltip(new TranslatableText("mineclub-expanded.config.presencedetail.description")).setSaveConsumer(newValue -> ConfigReader.rpCustomDetails = newValue).build());
+            presence.addEntry(entryBuilder.startTextDescription(new TranslatableText("mineclub-expanded.configtext.presence")).build());
 
             general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.outbidsound"), ConfigReader.outbidNotification).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.outbidsound.description")).setSaveConsumer(newValue -> ConfigReader.outbidNotification = newValue).build());
             outbid.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.outbidvolume"), ConfigReader.outbidVolume, 0, 200).setDefaultValue(100).setTooltip(new TranslatableText("mineclub-expanded.config.outbidvolume.description")).setSaveConsumer(newValue -> ConfigReader.outbidVolume = newValue).build());

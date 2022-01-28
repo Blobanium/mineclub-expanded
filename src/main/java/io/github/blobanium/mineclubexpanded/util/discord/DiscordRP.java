@@ -6,6 +6,7 @@ import com.jagrosh.discordipc.entities.RichPresence;
 import com.jagrosh.discordipc.exceptions.NoDiscordClientException;
 import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
+import net.minecraft.client.MinecraftClient;
 
 import java.time.OffsetDateTime;
 
@@ -14,7 +15,6 @@ public class DiscordRP {
     static RichPresence.Builder builder = new RichPresence.Builder();
     public static boolean hasRPStarted = false;
     public static boolean hasBlankStatus = true;
-    public static String defaultDetails = "play.mineclub.com";
     public static int discordRPErrorcode = 0;
     //0 = Normal State, 1 = Error, 2 = MacOS
 
@@ -40,7 +40,7 @@ public class DiscordRP {
                 builder.setState(state)
                         .setDetails(details)
                         .setStartTimestamp(OffsetDateTime.now())
-                        .setLargeImage("icon_new", "v" + MineclubExpanded.modVersion)
+                        .setLargeImage("icon_new", getPresenceImageText())
                         .addButton("Get Mineclub Expanded", "https://modrinth.com/mod/mineclub-expanded");
                 client.sendRichPresence(builder.build());
             } catch (IllegalStateException e) {
@@ -68,6 +68,26 @@ public class DiscordRP {
         } catch (NoDiscordClientException e) {
             MineclubExpanded.LOGGER.error("Unable To Connect To Discord Client");
             e.printStackTrace();
+        }
+    }
+
+    public static String defaultDetails(){
+        if(ConfigReader.rpCustomDetails.equals("ServerIP")){
+            return "IP: play.mineclub.com (1.17+)";
+        }else if(ConfigReader.rpCustomDetails.equals("Username")){
+            return "Playing as " + MinecraftClient.getInstance().getSession().getUsername();
+        }else if(ConfigReader.rpCustomDetails.equals("Mod Version")){
+            return "Using Version v" + MineclubExpanded.modVersion;
+        }else{
+            return "IP: play.mineclub.com (1.17+)";
+        }
+    }
+
+    private static String getPresenceImageText(){
+        if(ConfigReader.rpCustomDetails.equals("Mod Version")){
+            return "play.mineclub.com";
+        }else{
+            return "v" + MineclubExpanded.modVersion;
         }
     }
 }
