@@ -18,5 +18,8 @@
   "mineclub-expanded.config.autoreconnectseconds": "Auto Reconnect Seconds",
   "mineclub-expanded.config.autoreconnectseconds.description": "Sets how many seconds that auto reconnect will wait before reconnecting",
   "mineclub-expanded.config.expressconnect": "Express Connect",
-  "mineclub-expanded.config.expressconnect.description": "Connects to mineclub right after minecraft starts up. \nUseful for AFK Clients that would remove the hassle to manually connect to mineclub."
+  "mineclub-expanded.config.expressconnect.description": "Connects to mineclub right after minecraft starts up. \nUseful for AFK Clients that would remove the hassle to manually connect to mineclub.",
+  "mineclub-expanded.category.main": "Main",
+  "mineclub-expanded.category.autoreconnect": "Autoreconnect Options",
+  "mineclub-expanded.category.outbid": "Outbid Sound Options"
 }
