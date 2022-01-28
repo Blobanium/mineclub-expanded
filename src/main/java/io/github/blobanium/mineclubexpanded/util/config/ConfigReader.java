@@ -12,6 +12,7 @@ import java.nio.file.Files;
 
 public class ConfigReader {
 	//variables
+	public static boolean needsConfigRefresh = false;
 	public static boolean refreshingConfig = false;
 
 	//configs
@@ -60,6 +61,7 @@ public class ConfigReader {
 		if(expressConnectConfig){
 			expressConnect = true;
 		}
+		LOGGER.debug("Regestering done!");
     }
 
     private static String ltProvider(String filename) {
@@ -74,19 +76,24 @@ public class ConfigReader {
 				+ "\nexpress_connect=" + expressConnect;
 	}
 
-
 	public static void refreshConfig(){
-		refreshingConfig = true;
-		try {
-			if(!Files.deleteIfExists(FabricLoader.getInstance().getConfigDir().resolve("MineclubExpanded.properties"))){
-				LOGGER.error("Config file not found. Please ensure the path to the config is correct.\n" + FabricLoader.getInstance().getConfigDir().resolve("LoadingTimer.properties"));
+		if(needsConfigRefresh) {
+			refreshingConfig = true;
+			try {
+				if (!Files.deleteIfExists(FabricLoader.getInstance().getConfigDir().resolve("MineclubExpanded.properties"))) {
+					LOGGER.error("Config file not found. Please ensure the path to the config is correct.\n" + FabricLoader.getInstance().getConfigDir().resolve("LoadingTimer.properties"));
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				LOGGER.fatal("Config Refresh Failed due to a IOException, please report this on our issues thread.");
+				e.printStackTrace();
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			LOGGER.fatal("Config Refresh Failed due to a IOException, please report this on our issues thread.");
-			e.printStackTrace();
+			configRegister();
+			refreshingConfig = false;
 		}
-		configRegister();
-		refreshingConfig = false;
+	}
+
+	public static void onConfigSave(){
+		needsConfigRefresh = true;
 	}
 }

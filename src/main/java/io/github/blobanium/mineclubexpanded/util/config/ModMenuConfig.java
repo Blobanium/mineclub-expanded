@@ -33,7 +33,7 @@ public class ModMenuConfig implements ModMenuApi {
                 .setTitle(new TranslatableText("mineclub-expanded.config"));
 
             // Serialise the config into the config file. This will be called last after all variables are updated.
-            builder.setSavingRunnable(ConfigReader::refreshConfig);
+            builder.setSavingRunnable(ConfigReader::onConfigSave);
         
             ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 

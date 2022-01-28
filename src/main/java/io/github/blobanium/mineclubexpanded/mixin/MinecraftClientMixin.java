@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded.mixin;
 
+import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.tick.TickTracker;
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,5 +13,10 @@ public class MinecraftClientMixin {
     @Inject(at = @At("HEAD"), method = "tick")
     private void tick(CallbackInfo ci){
         TickTracker.onTick();
+    }
+
+    @Inject(at = @At("HEAD"), method = "stop")
+    private void stop(CallbackInfo ci){
+        ConfigReader.refreshConfig();
     }
 }
