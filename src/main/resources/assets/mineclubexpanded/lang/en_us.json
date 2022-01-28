@@ -5,7 +5,7 @@
   "mineclub-expanded.config.autogg": "Auto GG",
   "mineclub-expanded.config.autogg.description": "Makes you say gg right after the end of the game. \n§4This option is not recomended to turn on if you are a Mod+ on mineclub.",
   "mineclub-expanded.config.outbidvolume": "Outbid Sound Volume",
-  "mineclub-expanded.config.outbidvolume.description": "Controls the volume of the outbid sound \n§4The option 'Outbid Notification Sound' needs to be turned on for this to work.",
+  "mineclub-expanded.config.outbidvolume.description": "Controls the volume of the outbid sound",
   "mineclub-expanded.config.richpresence": "Discord Rich Presence",
   "mineclub-expanded.config.richpresence.description": "Enables Rich Presence \n§4You need to set the server address to 'mineclub.com' or 'play.mineclub.com' for this to work",
   "mineclub-expanded.config.richpresence.unsupported": "§mDiscord Rich Presence",
@@ -21,5 +21,7 @@
   "mineclub-expanded.config.expressconnect.description": "Connects to mineclub right after minecraft starts up. \nUseful for AFK Clients that would remove the hassle to manually connect to mineclub.",
   "mineclub-expanded.category.main": "Main",
   "mineclub-expanded.category.autoreconnect": "Autoreconnect Options",
-  "mineclub-expanded.category.outbid": "Outbid Sound Options"
+  "mineclub-expanded.category.outbid": "Outbid Sound Options",
+  "mineclub-expanded.configtext.outbid": "§4The option 'Outbid Notification Sound' needs to be turned on for this option to work.",
+  "mineclub-expanded.configtext.autoreconnect": "§4The option 'Autoreconnect' needs to be turned on for these options to work."
 }
