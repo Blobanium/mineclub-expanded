@@ -36,7 +36,6 @@
     "java": ">=16"
   },
   "recommends": {
-    "minecraft": ["1.17.x"],
     "fabricloader": ">=0.12.9"
   },
   "conflicts": {
