@@ -32,7 +32,8 @@ public class MineclubExpanded implements ModInitializer {
 			try {
 				DiscordRP.startRP();
 			} catch (Exception e) {
-				LOGGER.error("Failed to start rich presence, Your Device/Install may not support rich presence! \n" + e);
+				LOGGER.error("Failed to start rich presence, Your Device/Install may not support rich presence!");
+				e.printStackTrace();
 				DiscordRP.discordRPErrorcode = 1;
 			}
 		} else {
