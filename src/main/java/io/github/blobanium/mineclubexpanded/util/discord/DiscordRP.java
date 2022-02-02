@@ -19,7 +19,18 @@ public class DiscordRP {
     //0 = Normal State, 1 = Error, 2 = MacOS
 
     public static void startRP() {
-        setup(client);
+        if(!MinecraftClient.IS_SYSTEM_MAC) {
+            try {
+                setup(client);
+            } catch (Exception e) {
+                MineclubExpanded.LOGGER.error("Failed to start rich presence, Your Device/Install may not support rich presence!");
+                e.printStackTrace();
+                discordRPErrorcode = 1;
+            }
+        } else {
+            MineclubExpanded.LOGGER.error("Rich Presence doesn't support macOS.");
+            discordRPErrorcode = 2;
+        }
     }
 
     public static void updateStatus(String state, String details){

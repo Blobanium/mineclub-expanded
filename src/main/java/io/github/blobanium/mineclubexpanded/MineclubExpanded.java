@@ -26,20 +26,8 @@ public class MineclubExpanded implements ModInitializer {
 		//Registers the config
 		ConfigReader.configRegister();
 
-		//Make sure the mod isn't running off macOS, if it isn't, Start Discord IPC.
-		//To put it into context, DiscordIPC For some reason doesn't support macOS.
-		if(!MinecraftClient.IS_SYSTEM_MAC) {
-			try {
-				DiscordRP.startRP();
-			} catch (Exception e) {
-				LOGGER.error("Failed to start rich presence, Your Device/Install may not support rich presence!");
-				e.printStackTrace();
-				DiscordRP.discordRPErrorcode = 1;
-			}
-		} else {
-			LOGGER.error("Rich Presence doesn't support macOS.");
-			DiscordRP.discordRPErrorcode = 2;
-		}
+		//Start Discord IPC.
+		DiscordRP.startRP();
 
 		//Set Resource Pack Policy for mineclub to Enabled as Mineclub requires a resource pack.
 		mineclub.setResourcePackPolicy(ServerInfo.ResourcePackPolicy.ENABLED);
