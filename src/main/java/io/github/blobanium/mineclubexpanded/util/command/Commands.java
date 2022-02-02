@@ -11,14 +11,14 @@ public class Commands {
 
     //Custom Model Data
     private static final int STONE = 22;
-    private static final int GOLD = 23;
+    private static final int JADE = 23;
     private static final int SAPPHIRE = 24;
     private static final int AMETHYST = 25;
     private static final int RUBY = 26;
 
     //Values of each ores
     public static final int STONE_VALUE = 5;
-    public static final int GOLD_VALUE = 10;
+    public static final int JADE_VALUE = 10;
     public static final int SAPPHIRE_VALUE = 100;
     public static final int AMETHYST_VALUE = 250;
     public static final int RUBY_VALUE = 600;
@@ -26,7 +26,7 @@ public class Commands {
 
     //The Ore Counts for each
     public static int getStoneCount = 0;
-    public static int getGoldCount = 0;
+    public static int getJadeCount = 0;
     public static int getSapphireCount = 0;
     public static int getAmethystCount = 0;
     public static int getRubyCount = 0;
@@ -42,9 +42,9 @@ public class Commands {
                     returnValue = returnValue + (STONE_VALUE * currentinv.get(i).getCount());
                     getStoneCount = getStoneCount + currentinv.get(i).getCount();
 
-                }else if(currentinv.get(i).getNbt().getInt("CustomModelData") == GOLD){
-                    returnValue = returnValue + (GOLD_VALUE * currentinv.get(i).getCount());
-                    getGoldCount = getGoldCount + currentinv.get(i).getCount();
+                }else if(currentinv.get(i).getNbt().getInt("CustomModelData") == JADE){
+                    returnValue = returnValue + (JADE_VALUE * currentinv.get(i).getCount());
+                    getJadeCount = getJadeCount + currentinv.get(i).getCount();
 
                 }else if(currentinv.get(i).getNbt().getInt("CustomModelData") == SAPPHIRE){
                     returnValue = returnValue + (SAPPHIRE_VALUE * currentinv.get(i).getCount());
@@ -65,7 +65,7 @@ public class Commands {
 
     private static void resetOreCounts(){
         getStoneCount = 0;
-        getGoldCount = 0;
+        getJadeCount = 0;
         getSapphireCount = 0;
         getAmethystCount = 0;
         getRubyCount = 0;

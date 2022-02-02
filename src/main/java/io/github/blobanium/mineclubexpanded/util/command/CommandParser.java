@@ -26,7 +26,7 @@ public class CommandParser {
                 ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("getminingvalue").then(ClientCommandManager.literal("deatiled").executes(context -> {
                             context.getSource().sendFeedback(new LiteralText("§dCurrent value: §r" + NumberFormat.getInstance().format(Commands.getOreValue())
                             + "\n §8Stone: §r" + Commands.getStoneCount + " (Value: " +  NumberFormat.getInstance().format(Commands.getStoneCount * Commands.STONE_VALUE) + ")"
-                            + "\n §6Gold: §r" + Commands.getGoldCount + " (Value: " + NumberFormat.getInstance().format(Commands.getGoldCount * Commands.GOLD_VALUE) + ")"
+                            + "\n §aJade: §r" + Commands.getJadeCount + " (Value: " + NumberFormat.getInstance().format(Commands.getJadeCount * Commands.JADE_VALUE) + ")"
                                     + "\n §bSapphire: §r" + Commands.getSapphireCount + " (Value: " + NumberFormat.getInstance().format(Commands.getSapphireCount * Commands.SAPPHIRE_VALUE) + ")"
                                     + "\n §dAmethyst: §r" + Commands.getAmethystCount + " (Value: " + NumberFormat.getInstance().format(Commands.getAmethystCount * Commands.AMETHYST_VALUE) + ")"
                                     + "\n §cRuby: §r" + Commands.getRubyCount + " (Value: " + NumberFormat.getInstance().format(Commands.getRubyCount * Commands.RUBY_VALUE) + ")"
