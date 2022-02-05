@@ -12,6 +12,7 @@ public class WorldListener {
     public static boolean isInHousing = false;
     public static boolean cancelHousingUpdate = false;
     public static boolean connectUsingHousingIP = false;
+    public static final String adminEventDetails = "Currently in an Admin Event";
 
     public static void listenWorld(){
         if(MineclubExpanded.isOnMineclub()) {
@@ -48,7 +49,8 @@ public class WorldListener {
         checkWorld(1, world, "shoot", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Playing Shoot The Sheep");
 
         //Admin Events
-        checkWorld(0, world, "gamemap_admin_event_tnt_run", "Playing TNT Run", "Currently in an Admin Event");
+        checkWorld(0, world, "gamemap_admin_event_tnt_run", "Playing TNT Run", adminEventDetails);
+        checkWorld(0, world, "gamemap_admin_event_spleef", "Playing Spleef", adminEventDetails);
 
         //Housing
         checkHousing(world);
