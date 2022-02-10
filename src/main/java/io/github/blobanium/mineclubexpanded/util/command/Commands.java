@@ -5,6 +5,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 
+import java.text.NumberFormat;
+
 public class Commands {
     //Vanilla Item
     private static final int GOLD_NUGGET = 861;
@@ -69,5 +71,22 @@ public class Commands {
         getSapphireCount = 0;
         getAmethystCount = 0;
         getRubyCount = 0;
+    }
+
+    public static String miningValueResponseString(boolean detailed){
+        if(!detailed){
+            return miningValueResponseInternalString();
+        } else {
+            return miningValueResponseInternalString()
+                    + "\n §8Stone: §r" + getStoneCount + " (Value: " +  NumberFormat.getInstance().format(getStoneCount * STONE_VALUE) + ")"
+                    + "\n §aJade: §r" + getJadeCount + " (Value: " + NumberFormat.getInstance().format(getJadeCount * JADE_VALUE) + ")"
+                    + "\n §bSapphire: §r" + getSapphireCount + " (Value: " + NumberFormat.getInstance().format(getSapphireCount * SAPPHIRE_VALUE) + ")"
+                    + "\n §dAmethyst: §r" + getAmethystCount + " (Value: " + NumberFormat.getInstance().format(getAmethystCount * AMETHYST_VALUE) + ")"
+                    + "\n §cRuby: §r" + getRubyCount + " (Value: " + NumberFormat.getInstance().format(getRubyCount * RUBY_VALUE) + ")";
+        }
+    }
+
+    private static String miningValueResponseInternalString(){
+        return "§dCurrent value: §r" + NumberFormat.getInstance().format(getOreValue());
     }
 }
