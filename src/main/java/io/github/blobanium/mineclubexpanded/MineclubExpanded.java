@@ -20,6 +20,7 @@ public class MineclubExpanded implements ModInitializer {
 	public static ServerInfo mineclub = new ServerInfo("Mineclub", "play.mineclub.com", false);
 	public static boolean hasInitialized = false;
 	public static String modVersion = String.valueOf(FabricLoader.getInstance().getModContainer("mineclubexpanded").get().getMetadata().getVersion());
+	public static boolean debugmode = false;
 
     @Override
 	public void onInitialize() {
@@ -34,6 +35,13 @@ public class MineclubExpanded implements ModInitializer {
 
 		//Parse all commands
 		CommandParser.registerCommand();
+
+		//Check if the JVM Debug flag is enabled
+		//Put "-Dmcexdebug=true" in your JVM Args to enable
+		if(System.getProperty("mcexdebug") != null && System.getProperty("mcexdebug").equals("true")){
+			debugmode = true;
+			LOGGER.info("Mineclub Expanded Debug mode enabled.");
+		}
 
 		//Finish initializing.
 		hasInitialized = true;
