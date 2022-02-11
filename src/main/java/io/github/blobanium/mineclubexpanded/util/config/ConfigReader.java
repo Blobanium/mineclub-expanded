@@ -25,6 +25,7 @@ public class ConfigReader {
 	public static int autoReconnectSeconds = 5;
 	public static boolean expressConnect = false;
 	public static String rpCustomDetails = "";
+	public static boolean debugAsyncTicks = false;
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
@@ -40,6 +41,7 @@ public class ConfigReader {
 		final int autoReconnectSecondsConfig = CONFIG.getOrDefault("auto_reconnect_seconds", autoReconnectSeconds);
 		final boolean expressConnectConfig = CONFIG.getOrDefault("express_connect",	expressConnect);
 		final String rpCustomDetailsConfig = CONFIG.getOrDefault("rich_presence_detail", rpCustomDetails);
+		final boolean debugAsyncTicksConfig = CONFIG.getOrDefault("express_connect",	debugAsyncTicks);
 
 		if(outbidConfig){
 			outbidNotification = true;
@@ -64,6 +66,9 @@ public class ConfigReader {
 			expressConnect = true;
 		}
 		rpCustomDetails = rpCustomDetailsConfig;
+		if(debugAsyncTicksConfig){
+			debugAsyncTicks = true;
+		}
 		LOGGER.debug("Regestering done!");
     }
 

@@ -1,6 +1,7 @@
 package io.github.blobanium.mineclubexpanded.util.config;
 
 import com.google.common.collect.Lists;
+import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
@@ -41,6 +42,11 @@ public class ClothConfigScreen {
         autoreconnect.addEntry(entryBuilder.startTextDescription(new TranslatableText("mineclub-expanded.configtext.autoreconnect")).build());
 
         general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.expressconnect"), ConfigReader.expressConnect).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.expressconnect.description")).setSaveConsumer(newValue -> ConfigReader.expressConnect = newValue).build());
+        if(MineclubExpanded.debugmode){
+            ConfigCategory debug = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.debug"));
+            debug.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.debug.asyncticks"), ConfigReader.debugAsyncTicks).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.debug.asyncticks.description")).setSaveConsumer(newValue -> ConfigReader.debugAsyncTicks = newValue).build());
+
+        }
 
         return builder.build();
     }

@@ -4,14 +4,31 @@ import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceTickTracker;
+import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.feature.Autoreconnect;
 import io.github.blobanium.mineclubexpanded.util.mixinhelper.ChatListener;
 import net.minecraft.client.MinecraftClient;
 
+import java.util.concurrent.CompletableFuture;
+
 public class TickTracker{
     public static int tickNo = 0;
 
+    private static Runnable runTick(){
+        return () -> {
+            tick();
+        };
+    }
+
     public static void onTick(){
+        if(ConfigReader.debugAsyncTicks){
+            CompletableFuture.runAsync(runTick());
+        } else {
+            tick();
+        }
+    }
+
+    private static void tick(){
         tickNo = tickNo + 1;
         checkReminder();
         WorldListener.listenWorld();
