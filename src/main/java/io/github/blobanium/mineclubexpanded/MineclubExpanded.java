@@ -25,7 +25,7 @@ public class MineclubExpanded implements ModInitializer {
     @Override
 	public void onInitialize() {
 		//Registers the config
-		ConfigReader.configRegister();
+		ConfigReader.configRegister(true);
 
 		//Start Discord IPC.
 		DiscordRP.startRP();

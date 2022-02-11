@@ -29,46 +29,23 @@ public class ConfigReader {
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
-    public static void configRegister(){
+    public static void configRegister(boolean initialize){
     	LOGGER.debug("Registering config..");
     	SimpleConfig CONFIG = SimpleConfig.of("MineclubExpanded").provider(ConfigReader::ltProvider).request();
-    	final boolean outbidConfig = CONFIG.getOrDefault("outbid_notification", outbidNotification);
-		final boolean autoggConfig = CONFIG.getOrDefault("auto_gg", autogg);
-		final int outbidVolumeConfig = CONFIG.getOrDefault("outbid_volume", outbidVolume);
-		final boolean richPresenceConfig = CONFIG.getOrDefault("rich_presence", richPresence);
-		final boolean autoReconnectConfig = CONFIG.getOrDefault("auto_reconnect", autoReconnect);
-		final int autoReconnectAttemptsConfig = CONFIG.getOrDefault("auto_reconnect_attempts", autoReconnectAttempts);
-		final int autoReconnectSecondsConfig = CONFIG.getOrDefault("auto_reconnect_seconds", autoReconnectSeconds);
-		final boolean expressConnectConfig = CONFIG.getOrDefault("express_connect",	expressConnect);
-		final String rpCustomDetailsConfig = CONFIG.getOrDefault("rich_presence_detail", rpCustomDetails);
-		final boolean debugAsyncTicksConfig = CONFIG.getOrDefault("express_connect",	debugAsyncTicks);
 
-		if(outbidConfig){
-			outbidNotification = true;
+		if(initialize) {
+			outbidNotification = CONFIG.getOrDefault("outbid_notification", outbidNotification);
+			autogg = CONFIG.getOrDefault("auto_gg", autogg);
+			outbidVolume = CONFIG.getOrDefault("outbid_volume", outbidVolume);
+			richPresence = CONFIG.getOrDefault("rich_presence", richPresence);
+			autoReconnect = CONFIG.getOrDefault("auto_reconnect", autoReconnect);
+			autoReconnectAttempts = CONFIG.getOrDefault("auto_reconnect_attempts", autoReconnectAttempts);
+			autoReconnectSeconds = CONFIG.getOrDefault("auto_reconnect_seconds", autoReconnectSeconds);
+			expressConnect = CONFIG.getOrDefault("express_connect", expressConnect);
+			rpCustomDetails = CONFIG.getOrDefault("rich_presence_detail", rpCustomDetails);
+			debugAsyncTicks = CONFIG.getOrDefault("debug_async_ticks", debugAsyncTicks);
 		}
-		if(autoggConfig){
-			autogg = true;
-		}
-		outbidVolume = outbidVolumeConfig;
-		if(richPresenceConfig){
-			richPresence = true;
-		} else {
-			if(DiscordRP.hasRPStarted && !DiscordRP.hasBlankStatus){
-				DiscordRP.clearStatus();
-			}
-		}
-		if(autoReconnectConfig){
-			autoReconnect = true;
-		}
-		autoReconnectAttempts = autoReconnectAttemptsConfig;
-		autoReconnectSeconds = autoReconnectSecondsConfig;
-		if(expressConnectConfig){
-			expressConnect = true;
-		}
-		rpCustomDetails = rpCustomDetailsConfig;
-		if(debugAsyncTicksConfig){
-			debugAsyncTicks = true;
-		}
+
 		LOGGER.debug("Regestering done!");
     }
 
@@ -82,7 +59,8 @@ public class ConfigReader {
 				+ "\nauto_reconnect_attempts=" + autoReconnectAttempts
 				+ "\nauto_reconnect_seconds=" + autoReconnectSeconds
 				+ "\nexpress_connect=" + expressConnect
-				+ "\nrich_presence_detail=" + rpCustomDetails;
+				+ "\nrich_presence_detail=" + rpCustomDetails
+				+ "\ndebug_async_ticks=" + debugAsyncTicks;
 	}
 
 	public static void refreshConfig(){
@@ -97,7 +75,7 @@ public class ConfigReader {
 				LOGGER.fatal("Config Refresh Failed due to a IOException, please report this on our issues thread.");
 				e.printStackTrace();
 			}
-			configRegister();
+			configRegister(false);
 			refreshingConfig = false;
 		}
 	}
