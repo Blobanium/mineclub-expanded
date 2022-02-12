@@ -78,15 +78,19 @@ public class Commands {
             return miningValueResponseInternalString();
         } else {
             return miningValueResponseInternalString()
-                    + "\n §8Stone: §r" + getStoneCount + " (Value: " +  NumberFormat.getInstance().format(getStoneCount * STONE_VALUE) + ")"
-                    + "\n §aJade: §r" + getJadeCount + " (Value: " + NumberFormat.getInstance().format(getJadeCount * JADE_VALUE) + ")"
-                    + "\n §bSapphire: §r" + getSapphireCount + " (Value: " + NumberFormat.getInstance().format(getSapphireCount * SAPPHIRE_VALUE) + ")"
-                    + "\n §dAmethyst: §r" + getAmethystCount + " (Value: " + NumberFormat.getInstance().format(getAmethystCount * AMETHYST_VALUE) + ")"
-                    + "\n §cRuby: §r" + getRubyCount + " (Value: " + NumberFormat.getInstance().format(getRubyCount * RUBY_VALUE) + ")";
+                    + "\n §8Stone: §r" + getStoneCount + " (Value: " +  formatNumber(getStoneCount * STONE_VALUE) + ")"
+                    + "\n §aJade: §r" + getJadeCount + " (Value: " + formatNumber(getJadeCount * JADE_VALUE) + ")"
+                    + "\n §bSapphire: §r" + getSapphireCount + " (Value: " + formatNumber(getSapphireCount * SAPPHIRE_VALUE) + ")"
+                    + "\n §dAmethyst: §r" + getAmethystCount + " (Value: " + formatNumber(getAmethystCount * AMETHYST_VALUE) + ")"
+                    + "\n §cRuby: §r" + getRubyCount + " (Value: " + formatNumber(getRubyCount * RUBY_VALUE) + ")";
         }
     }
 
     private static String miningValueResponseInternalString(){
         return "§dCurrent value: §r" + NumberFormat.getInstance().format(getOreValue());
+    }
+    
+    private static String formatNumber(long number){
+        return NumberFormat.getInstance().format(number);
     }
 }
