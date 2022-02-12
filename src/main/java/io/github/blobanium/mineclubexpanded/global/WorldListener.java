@@ -20,7 +20,7 @@ public class WorldListener {
                 if (!MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath().equals(worldName)) {
                     worldName = MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath();
                     MineclubExpanded.LOGGER.debug("WorldName=" + worldName);
-                    worldCheck(worldName);
+                    worldCheck();
                 }
             } catch (NullPointerException e) {
                 //Supress NullPointerException
@@ -28,46 +28,42 @@ public class WorldListener {
         }
     }
 
-    private static void worldCheck(String world){
+    private static void worldCheck(){
         //Lobby, AFK Lounge, StaffHQ
-        checkWorld(0, world, "overworld", "In The Lobby", DiscordRP.defaultDetails());
+        checkWorld(0, "overworld", "In The Lobby", DiscordRP.defaultDetails());
 
         //Main Games
-        checkWorld(0, world, "gamemap_battle_dome", "Currently In Battle Dome", DiscordRP.defaultDetails());
-        checkWorld(0, world, "gamemap_slime_walls", "Currently In Slime Walls", DiscordRP.defaultDetails());
-        checkWorld(0, world, "gamemap_laser_tag", "Currently In Laser Tag", DiscordRP.defaultDetails());
-        checkWorld(0, world, "gamemap_dodge_ball", "Currently In Dodge Ball", DiscordRP.defaultDetails());
+        checkWorld(0, "gamemap_battle_dome", "Currently In Battle Dome", DiscordRP.defaultDetails());
+        checkWorld(0, "gamemap_slime_walls", "Currently In Slime Walls", DiscordRP.defaultDetails());
+        checkWorld(0, "gamemap_laser_tag", "Currently In Laser Tag", DiscordRP.defaultDetails());
+        checkWorld(0, "gamemap_dodge_ball", "Currently In Dodge Ball", DiscordRP.defaultDetails());
 
         //Tabletop Games
-        checkWorld(1, world, "connect4", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Connect 4");
-        checkWorld(1, world, "match5", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Match 5");
-        checkWorld(1, world, "luckyshot", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Lucky Shot");
-        checkWorld(1, world, "ttt", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Tic Tac Toe");
-        checkWorld(1, world, "sumo", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Sumo");
-        checkWorld(1, world, "ms", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Minesweep");
-        checkWorld(1, world, "snowball", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Currently Playing Snowball Fight");
-        checkWorld(1, world, "shoot", "Playing with " + RichPresenceTabletopChatListener.matchedUsername, "Playing Shoot The Sheep");
+        checkWorld(1, "connect4", "Playing with " + getTableTopUsername(), "Currently Playing Connect 4");
+        checkWorld(1, "match5", "Playing with " + getTableTopUsername(), "Currently Playing Match 5");
+        checkWorld(1, "luckyshot", "Playing with " + getTableTopUsername(), "Currently Playing Lucky Shot");
+        checkWorld(1, "ttt", "Playing with " + getTableTopUsername(), "Currently Playing Tic Tac Toe");
+        checkWorld(1, "sumo", "Playing with " + getTableTopUsername(), "Currently Playing Sumo");
+        checkWorld(1, "ms", "Playing with " + getTableTopUsername(), "Currently Playing Minesweep");
+        checkWorld(1, "snowball", "Playing with " + getTableTopUsername(), "Currently Playing Snowball Fight");
+        checkWorld(1, "shoot", "Playing with " + getTableTopUsername(), "Playing Shoot The Sheep");
 
         //Admin Events
-        checkWorld(0, world, "gamemap_admin_event_tnt_run", "Playing TNT Run", adminEventDetails);
-        checkWorld(0, world, "gamemap_admin_event_spleef", "Playing Spleef", adminEventDetails);
+        checkWorld(0, "gamemap_admin_event_tnt_run", "Playing TNT Run", adminEventDetails);
+        checkWorld(0, "gamemap_admin_event_spleef", "Playing Spleef", adminEventDetails);
 
         //Housing
-        checkHousing(world);
+        checkHousing();
     }
 
     //
-    private static void checkWorld(int targetType, String world, String targetWorldName, String state, String details){
-        if(targetType == 0){
-            if(world.equals(targetWorldName)){
-                sendPresence(state, details);
-            }
+    private static void checkWorld(int targetType, String targetWorldName, String state, String details){
+        if(targetType == 0 && worldName.equals(targetWorldName)){
+            sendPresence(state, details);
         }
 
-        if(targetType == 1){
-            if(world.startsWith(targetWorldName)){
-                sendPresence(state, details);
-            }
+        if(targetType == 1 && worldName.startsWith(targetWorldName)){
+            sendPresence(state, details);
         }
     }
 
@@ -75,9 +71,9 @@ public class WorldListener {
         DiscordRP.updateStatus(state, details);
     }
 
-    private static void checkHousing(String world){
+    private static void checkHousing(){
         if(!cancelHousingUpdate) {
-            if (world.startsWith("housing")) {
+            if (worldName.startsWith("housing")) {
                 isInHousing = true;
                 if (FabricLoader.getInstance().isModLoaded("advancedchat")) {
                     DiscordRP.updateStatus("Currently In Housing", DiscordRP.defaultDetails());
@@ -93,5 +89,9 @@ public class WorldListener {
         } else {
             cancelHousingUpdate = false;
         }
+    }
+    
+    private static String getTableTopUsername(){
+        return  RichPresenceTabletopChatListener.matchedUsername;
     }
 }
