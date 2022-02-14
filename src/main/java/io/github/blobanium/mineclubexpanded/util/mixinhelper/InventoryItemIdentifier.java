@@ -10,7 +10,7 @@ public class InventoryItemIdentifier {
 
     public static void checkItem(Slot slot){
         //Player Heads have a Raw ID of 955
-        if(slot != null){
+        if(slot != null && slot.getStack().getNbt() != null){
             ItemStack stack = slot.getStack();
             String namestring = stack.getNbt().getCompound("display").getString("Name");
             if(Item.getRawId(stack.getItem()) == 955 && namestring.length() != 0) {
