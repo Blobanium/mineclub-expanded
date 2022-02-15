@@ -6,6 +6,7 @@ import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.world.ClientWorld;
 
 public class WorldListener {
     public static String worldName;
@@ -15,16 +16,11 @@ public class WorldListener {
     public static final String adminEventDetails = "Currently in an Admin Event";
 
     public static void listenWorld(){
-        if(MineclubExpanded.isOnMineclub()) {
-            try {
-                if (!MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath().equals(worldName)) {
-                    worldName = MinecraftClient.getInstance().world.getRegistryKey().getValue().getPath();
-                    MineclubExpanded.LOGGER.debug("WorldName=" + worldName);
-                    worldCheck();
-                }
-            } catch (NullPointerException e) {
-                //Supress NullPointerException
-            }
+        ClientWorld world = MinecraftClient.getInstance().world;
+        if(MineclubExpanded.isOnMineclub() && world != null && !world.getRegistryKey().getValue().getPath().equals(worldName)) {
+            worldName = world.getRegistryKey().getValue().getPath();
+            MineclubExpanded.LOGGER.debug("WorldName=" + worldName);
+            worldCheck();
         }
     }
 
