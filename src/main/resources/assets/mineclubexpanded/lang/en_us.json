@@ -21,10 +21,13 @@
   "mineclub-expanded.config.expressconnect.description": "Connects to mineclub right after minecraft starts up. \nUseful for AFK Clients that would remove the hassle to manually connect to mineclub.",
   "mineclub-expanded.config.presencedetail": "Rich Presence Detail",
   "mineclub-expanded.config.presencedetail.description": "Sets the custom details for the Presence",
+  "mineclub-expanded.config.debug.asyncticks": "Async Ticks",
+  "mineclub-expanded.config.debug.asyncticks.description": "Makes tick operations within mineclub expanded async \n§4Does not affect tick operations within the vanilla minecraft client",
   "mineclub-expanded.category.main": "Main",
   "mineclub-expanded.category.autoreconnect": "Autoreconnect Options",
   "mineclub-expanded.category.outbid": "Outbid Sound Options",
   "mineclub-expanded.category.presence": "Rich Presence Options",
+  "mineclub-expanded.category.debug": "Debug Menu",
   "mineclub-expanded.configtext.outbid": "§4The option 'Outbid Notification Sound' needs to be turned on for this option to work.",
   "mineclub-expanded.configtext.autoreconnect": "§4The option 'Autoreconnect' needs to be turned on for these options to work.",
   "mineclub-expanded.configtext.presence": "§4The option 'Discord Rich Presence' needs to be turned on for this option to work."
