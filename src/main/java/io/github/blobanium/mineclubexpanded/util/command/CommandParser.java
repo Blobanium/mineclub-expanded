@@ -1,10 +1,9 @@
 package io.github.blobanium.mineclubexpanded.util.command;
 
+import io.github.blobanium.mineclubexpanded.util.command.commnads.GetMiningValue;
 import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-
-import java.text.NumberFormat;
 
 public class CommandParser {
     public static void registerCommand() {
@@ -17,14 +16,14 @@ public class CommandParser {
 
         ClientCommandManager.DISPATCHER.register(
                 ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("getminingvalue").executes(context -> {
-                    context.getSource().sendFeedback(new LiteralText(Commands.miningValueResponseString(false)));
+                    context.getSource().sendFeedback(new LiteralText(GetMiningValue.miningValueResponseString(false)));
                     return 0;
                         })
                 ));
 
         ClientCommandManager.DISPATCHER.register(
                 ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("getminingvalue").then(ClientCommandManager.literal("deatiled").executes(context -> {
-                            context.getSource().sendFeedback(new LiteralText(Commands.miningValueResponseString(true)));
+                            context.getSource().sendFeedback(new LiteralText(GetMiningValue.miningValueResponseString(true)));
                             return 0;
                         })
                 )));

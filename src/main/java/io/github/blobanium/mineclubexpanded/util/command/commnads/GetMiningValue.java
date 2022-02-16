@@ -1,4 +1,4 @@
-package io.github.blobanium.mineclubexpanded.util.command;
+package io.github.blobanium.mineclubexpanded.util.command.commnads;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Item;
@@ -7,7 +7,8 @@ import net.minecraft.util.collection.DefaultedList;
 
 import java.text.NumberFormat;
 
-public class Commands {
+
+public class GetMiningValue {
     //Vanilla Item
     private static final int GOLD_NUGGET = 861;
 
