@@ -1,6 +1,5 @@
 package io.github.blobanium.mineclubexpanded.util.config;
 
-import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.fabricmc.loader.api.FabricLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,6 +25,7 @@ public class ConfigReader {
 	public static boolean expressConnect = false;
 	public static String rpCustomDetails = "";
 	public static boolean debugAsyncTicks = false;
+	public static int debugAsyncTickThreads = 2;
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
@@ -44,6 +44,7 @@ public class ConfigReader {
 			expressConnect = CONFIG.getOrDefault("express_connect", expressConnect);
 			rpCustomDetails = CONFIG.getOrDefault("rich_presence_detail", rpCustomDetails);
 			debugAsyncTicks = CONFIG.getOrDefault("debug_async_ticks", debugAsyncTicks);
+			debugAsyncTickThreads = CONFIG.getOrDefault("debug_async_tick_threads", debugAsyncTickThreads);
 		}
 
 		LOGGER.debug("Regestering done!");
@@ -60,7 +61,8 @@ public class ConfigReader {
 				+ "\nauto_reconnect_seconds=" + autoReconnectSeconds
 				+ "\nexpress_connect=" + expressConnect
 				+ "\nrich_presence_detail=" + rpCustomDetails
-				+ "\ndebug_async_ticks=" + debugAsyncTicks;
+				+ "\ndebug_async_ticks=" + debugAsyncTicks
+				+ "\ndebug_async_tick_threads=" + debugAsyncTickThreads;
 	}
 
 	public static void refreshConfig(){

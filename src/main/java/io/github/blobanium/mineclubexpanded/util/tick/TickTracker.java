@@ -1,18 +1,17 @@
 package io.github.blobanium.mineclubexpanded.util.tick;
 
-import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
-import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceTickTracker;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.feature.Autoreconnect;
 import io.github.blobanium.mineclubexpanded.util.mixinhelper.ChatListener;
-import net.minecraft.client.MinecraftClient;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.ForkJoinTask;
 
 public class TickTracker{
     public static int tickNo = 0;
+    public static ForkJoinPool tickProcessor = new ForkJoinPool(ConfigReader.debugAsyncTickThreads);
 
     private static Runnable runTick(){
         return () -> {
@@ -22,7 +21,7 @@ public class TickTracker{
 
     public static void onTick(){
         if(ConfigReader.debugAsyncTicks){
-            CompletableFuture.runAsync(runTick());
+            tickProcessor.execute(ForkJoinTask.adapt(runTick()));
         } else {
             tick();
         }

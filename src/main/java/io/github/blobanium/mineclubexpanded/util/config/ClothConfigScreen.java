@@ -45,7 +45,7 @@ public class ClothConfigScreen {
         if(MineclubExpanded.debugmode){
             ConfigCategory debug = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.debug"));
             debug.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.debug.asyncticks"), ConfigReader.debugAsyncTicks).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.debug.asyncticks.description")).setSaveConsumer(newValue -> ConfigReader.debugAsyncTicks = newValue).build());
-
+            debug.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.debug.asynctickthreads"), ConfigReader.debugAsyncTickThreads, 1, Runtime.getRuntime().availableProcessors()).setDefaultValue(2).setTooltip(new TranslatableText("mineclub-expanded.config.debug.asynctickthreads")).setSaveConsumer(newValue -> ConfigReader.debugAsyncTickThreads = newValue).build());
         }
 
         return builder.build();
