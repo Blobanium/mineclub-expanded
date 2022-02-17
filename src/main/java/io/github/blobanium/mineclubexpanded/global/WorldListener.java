@@ -40,7 +40,7 @@ public class WorldListener {
         checkWorld(1, "luckyshot", "Playing with " + getTableTopUsername(), "Currently Playing Lucky Shot");
         checkWorld(1, "ttt", "Playing with " + getTableTopUsername(), "Currently Playing Tic Tac Toe");
         checkWorld(1, "sumo", "Playing with " + getTableTopUsername(), "Currently Playing Sumo");
-        checkWorld(1, "ms", "Playing with " + getTableTopUsername(), "Currently Playing Minesweep");
+        checkWorld(1, "tag", "Playing with " + getTableTopUsername(), "Currently Playing Tag");
         checkWorld(1, "snowball", "Playing with " + getTableTopUsername(), "Currently Playing Snowball Fight");
         checkWorld(1, "shoot", "Playing with " + getTableTopUsername(), "Playing Shoot The Sheep");
 
