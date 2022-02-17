@@ -23,6 +23,8 @@
   "mineclub-expanded.config.presencedetail.description": "Sets the custom details for the Presence",
   "mineclub-expanded.config.debug.asyncticks": "Async Ticks",
   "mineclub-expanded.config.debug.asyncticks.description": "Makes tick operations within mineclub expanded async \n§4Does not affect tick operations within the vanilla minecraft client",
+  "mineclub-expanded.config.debug.asynctickthreads": "Async Ticks Thread Count",
+  "mineclub-expanded.config.debug.asynctickthreads.description": "Sets the number of threads your processor will use for Async Ticks",
   "mineclub-expanded.category.main": "Main",
   "mineclub-expanded.category.autoreconnect": "Autoreconnect Options",
   "mineclub-expanded.category.outbid": "Outbid Sound Options",
