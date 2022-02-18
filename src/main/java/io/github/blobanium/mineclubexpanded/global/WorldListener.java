@@ -47,6 +47,7 @@ public class WorldListener {
         //Admin Events
         checkWorld(0, "gamemap_admin_event_tnt_run", "Playing TNT Run", adminEventDetails);
         checkWorld(0, "gamemap_admin_event_spleef", "Playing Spleef", adminEventDetails);
+        checkWorld(0, "gamemap_admin_event_brawl", "Playing Brawl", adminEventDetails);
 
         //Housing
         checkHousing();
