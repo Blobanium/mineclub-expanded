@@ -20,6 +20,7 @@ public class WorldListener {
         if(MineclubExpanded.isOnMineclub() && world != null && !world.getRegistryKey().getValue().getPath().equals(worldName)) {
             worldName = world.getRegistryKey().getValue().getPath();
             MineclubExpanded.LOGGER.debug("WorldName=" + worldName);
+            WorldID.updateWorldID();
             worldCheck();
         }
     }
