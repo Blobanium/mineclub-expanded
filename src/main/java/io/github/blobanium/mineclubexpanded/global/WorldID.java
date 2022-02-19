@@ -68,4 +68,28 @@ public class WorldID {
         //Return Unknown if a world is not on this list.
         else {return UNKNOWN;}
     }
+
+    public static String getName(){
+        return switch (worldID){
+            case UNKNOWN -> "Unknown";
+            case LOBBY -> "Lobby";
+            case HOUSING -> "Housing";
+            case BATTLE_DOME -> "Battle Dome";
+            case SLIME_WALLS -> "Slime Walls";
+            case LASER_TAG -> "Laser Tag";
+            case DODGE_BALL -> "Dodge Ball";
+            case CONNECT_4 -> "Connect 4";
+            case MATCH_5 -> "Match 5";
+            case LUCKY_SHOT -> "Lucky Shot";
+            case TIC_TAC_TOE -> "Tic Tac Toe";
+            case SUMO -> "Sumo";
+            case TAG -> "Tag";
+            case SNOWBALL_FIGHT -> "Snowball Fight";
+            case SHOOT_THE_SHEEP -> "Shoot The Sheep";
+            case TNT_RUN -> "TNT Run";
+            case SPLEEF -> "Spleef";
+            case BRAWL -> "Brawl";
+            default -> throw new IllegalStateException("Unexpected value: " + worldID);
+        };
+    }
 }
