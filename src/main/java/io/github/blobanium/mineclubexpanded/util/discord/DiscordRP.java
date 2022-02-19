@@ -14,10 +14,8 @@ public class DiscordRP {
     static final IPCClient client = new IPCClient(907142070140035102L);
     static RichPresence.Builder builder = new RichPresence.Builder();
     public static boolean hasRPStarted = false;
-    public static boolean hasBlankStatus = true;
     public static int discordRPErrorcode = 0;
     //0 = Normal State, 1 = Error, 2 = MacOS
-
     public static void startRP() {
         if(!MinecraftClient.IS_SYSTEM_MAC) {
             try {
@@ -34,19 +32,7 @@ public class DiscordRP {
     }
 
     public static void updateStatus(String state, String details){
-        if(ConfigReader.richPresence) {
-            updateStatusInternal(state, details);
-            hasBlankStatus = false;
-        }
-    }
-
-    public static void clearStatus(){
-        updateStatusInternal("","");
-        hasBlankStatus = true;
-    }
-
-    private static void updateStatusInternal(String state, String details){
-        if(discordRPErrorcode == 0) {
+        if(discordRPErrorcode == 0 && ConfigReader.richPresence) {
             try {
                 builder.setState(state)
                         .setDetails(details)
@@ -83,15 +69,12 @@ public class DiscordRP {
     }
 
     public static String defaultDetails(){
-        if(ConfigReader.rpCustomDetails.equals("ServerIP")){
-            return "IP: play.mineclub.com (1.17+)";
-        }else if(ConfigReader.rpCustomDetails.equals("Username")){
-            return "Playing as " + MinecraftClient.getInstance().getSession().getUsername();
-        }else if(ConfigReader.rpCustomDetails.equals("Mod Version")){
-            return "Using Version v" + MineclubExpanded.modVersion;
-        }else{
-            return "IP: play.mineclub.com (1.17+)";
-        }
+        return switch (ConfigReader.rpCustomDetails) {
+            case "ServerIP" -> "IP: play.mineclub.com (1.17+)";
+            case "Username" -> "Playing as " + MinecraftClient.getInstance().getSession().getUsername();
+            case "Mod Version" -> "Using Version v" + MineclubExpanded.modVersion;
+            default -> "IP: play.mineclub.com (1.17+)";
+        };
     }
 
     private static String getPresenceImageText(){
