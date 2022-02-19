@@ -1,24 +1,27 @@
 package io.github.blobanium.mineclubexpanded.util.mixinhelper;
 
-import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.games.tabletop.RichPresenceTabletopChatListener;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceTickTracker;
 import io.github.blobanium.mineclubexpanded.market.OutbidNotifier;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
-import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import net.minecraft.text.Text;
 
 public class ChatListener {
-    private static boolean chatBeingCleared = false;
-
-    private static int msgsLastTick = 0;
     private static int tickmsg = 0;
+
+    private static boolean chatBeingCleared(){
+        if (tickmsg >= 5){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public static void onChatMessage(Text message){
         //Detect If A Chat message is being deleted on mineclub.
         tickmsg = tickmsg + 1;
-        if(!chatBeingCleared) {
+        if(!chatBeingCleared()) {
             onMessage(message);
         }
     }
@@ -38,14 +41,6 @@ public class ChatListener {
     }
 
     public static void onTick(){
-        msgsLastTick = tickmsg;
         tickmsg = 0;
-
-        if(msgsLastTick > 5){
-            MineclubExpanded.LOGGER.info("Chat Being Cleared (" + msgsLastTick + "msgs last tick)");
-            chatBeingCleared = true;
-        } else {
-            chatBeingCleared = false;
-        }
     }
 }
