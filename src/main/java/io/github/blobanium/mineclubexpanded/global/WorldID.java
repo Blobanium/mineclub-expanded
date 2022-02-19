@@ -11,6 +11,7 @@ public class WorldID {
     //WorldIDs
     public static final int UNKNOWN = 0;
     public static final int LOBBY = 1;
+    public static final int HOUSING = 2;
 
     public static final int BATTLE_DOME = 100;
     public static final int SLIME_WALLS = 101;
@@ -46,20 +47,25 @@ public class WorldID {
             case "gamemap_admin_event_spleef" -> SPLEEF;
             case "gamemap_admin_event_brawl" -> BRAWL;
 
-            //
             default -> getStartsWithID(WorldListener.worldName);
         };
     }
 
     private static int getStartsWithID(String id){
-        if(id.startsWith("connect4")) {return CONNECT_4;}
-        else if(id.startsWith("match5")) {return MATCH_5;}
+        //Housing
+        if(id.startsWith("housing"))        {return HOUSING;}
+
+        //Tabletop Games
+        else if(id.startsWith("connect4"))  {return CONNECT_4;}
+        else if(id.startsWith("match5"))    {return MATCH_5;}
         else if(id.startsWith("luckyshot")) {return LUCKY_SHOT;}
-        else if(id.startsWith("ttt")) {return TIC_TAC_TOE;}
-        else if(id.startsWith("sumo")) {return SUMO;}
-        else if(id.startsWith("tag")) {return TAG;}
-        else if(id.startsWith("snowball")) {return SNOWBALL_FIGHT;}
-        else if(id.startsWith("shoot")) {return SHOOT_THE_SHEEP;}
-        else{return UNKNOWN;}
+        else if(id.startsWith("ttt"))       {return TIC_TAC_TOE;}
+        else if(id.startsWith("sumo"))      {return SUMO;}
+        else if(id.startsWith("tag"))       {return TAG;}
+        else if(id.startsWith("snowball"))  {return SNOWBALL_FIGHT;}
+        else if(id.startsWith("shoot"))     {return SHOOT_THE_SHEEP;}
+
+        //Return Unknown if a world is not on this list.
+        else {return UNKNOWN;}
     }
 }
