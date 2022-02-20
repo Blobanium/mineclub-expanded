@@ -34,11 +34,11 @@ public class DiscordRP {
     public static void updateStatus(String state, String details){
         if(discordRPErrorcode == 0 && ConfigReader.richPresence) {
             try {
-                builder.setState(state)
-                        .setDetails(details)
-                        .setStartTimestamp(OffsetDateTime.now())
-                        .setLargeImage("icon_new", getPresenceImageText())
-                        .addButton("Get Mineclub Expanded", "https://modrinth.com/mod/mineclub-expanded");
+                if(details.equals("")){
+                    builder.setState(state).setStartTimestamp(OffsetDateTime.now()).setLargeImage("icon_new", getPresenceImageText()).addButton("Get Mineclub Expanded", "https://modrinth.com/mod/mineclub-expanded");
+                }else {
+                    builder.setState(state).setDetails(details).setStartTimestamp(OffsetDateTime.now()).setLargeImage("icon_new", getPresenceImageText()).addButton("Get Mineclub Expanded", "https://modrinth.com/mod/mineclub-expanded");
+                }
                 client.sendRichPresence(builder.build());
             } catch (IllegalStateException e) {
                 MineclubExpanded.LOGGER.error("IPC not connected! Attempting to reconnect IPC");

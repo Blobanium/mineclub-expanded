@@ -1,12 +1,22 @@
 package io.github.blobanium.mineclubexpanded.global;
 
+import io.github.blobanium.mineclubexpanded.games.tabletop.RichPresenceTabletopChatListener;
+import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
+
 public class WorldID {
     public static int worldID;
-    private static String housingUsernamePlaceHolder;
 
 
     public static void updateWorldID(){
         worldID = newWorldID();
+    }
+
+    public static void sendPresence(){
+        String state = generateStateString();
+        String details = generateDetailsString();
+        if(!state.equals("")){
+            DiscordRP.updateStatus(state, details);
+        }
     }
 
     //WorldIDs
@@ -97,14 +107,33 @@ public class WorldID {
         };
     }
 
-    public static String generateStateString(){
+    public static String getWorldCatagory(){
         return switch (worldID){
-            case LOBBY -> "Currently in the lobby";
-            case HOUSING -> housingUsernamePlaceHolder;
-            case BATTLE_DOME, SLIME_WALLS, LASER_TAG, DODGE_BALL -> "Currently Playing " + getName();
-            case CONNECT_4, MATCH_5, LUCKY_SHOT, TIC_TAC_TOE, SUMO, TAG, SNOWBALL_FIGHT, SHOOT_THE_SHEEP -> "Tabletop: " + getName();
-            case TNT_RUN, SPLEEF, BRAWL, INFECTED -> "Admin Event: " + getName();
+            case LOBBY -> "Lobby";
+            case HOUSING -> "Housing";
+            case BATTLE_DOME, SLIME_WALLS, LASER_TAG, DODGE_BALL -> "Main";
+            case CONNECT_4, MATCH_5, LUCKY_SHOT, TIC_TAC_TOE, SUMO, TAG, SNOWBALL_FIGHT, SHOOT_THE_SHEEP -> "Tabletop";
+            case TNT_RUN, SPLEEF, BRAWL, INFECTED -> "Admin Event";
             default -> throw new IllegalStateException("Unexpected value: " + worldID);
+        };
+    }
+
+    public static String generateStateString() {
+        String category = getWorldCatagory();
+        return switch (category) {
+            case "Lobby" -> "Currently in the lobby";
+            case "Main" -> "Currently Playing " + getName();
+            case "Tabletop" -> "Tabletop: " + getName();
+            case "Admin Event" -> "Admin Event: " + getName();
+            default -> "";
+        };
+    }
+
+    public static String generateDetailsString() {
+        String category = getWorldCatagory();
+        return switch (category) {
+            case "Tabletop" -> "Playing with " + RichPresenceTabletopChatListener.matchedUsername;
+            default -> "";
         };
     }
 }
