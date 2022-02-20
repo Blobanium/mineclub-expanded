@@ -5,6 +5,7 @@ import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 
 public class WorldID {
     public static int worldID;
+    public static String tabletopusername;
 
 
     public static void updateWorldID(){
@@ -13,9 +14,8 @@ public class WorldID {
 
     public static void sendPresence(){
         String state = generateStateString();
-        String details = generateDetailsString();
         if(!state.equals("")){
-            DiscordRP.updateStatus(state, details);
+            DiscordRP.updateStatus(state, generateDetailsString());
         }
     }
 
@@ -69,14 +69,14 @@ public class WorldID {
         if(id.startsWith("housing"))        {return HOUSING;}
 
         //Tabletop Games
-        else if(id.startsWith("connect4"))  {return CONNECT_4;}
-        else if(id.startsWith("match5"))    {return MATCH_5;}
-        else if(id.startsWith("luckyshot")) {return LUCKY_SHOT;}
-        else if(id.startsWith("ttt"))       {return TIC_TAC_TOE;}
-        else if(id.startsWith("sumo"))      {return SUMO;}
-        else if(id.startsWith("tag"))       {return TAG;}
-        else if(id.startsWith("snowball"))  {return SNOWBALL_FIGHT;}
-        else if(id.startsWith("shoot"))     {return SHOOT_THE_SHEEP;}
+        else if(id.startsWith("connect_four")){return CONNECT_4;}
+        else if(id.startsWith("match_five"))  {return MATCH_5;}
+        else if(id.startsWith("lucky_shot"))  {return LUCKY_SHOT;}
+        else if(id.startsWith("tic_tac_toe")) {return TIC_TAC_TOE;}
+        else if(id.startsWith("sumo"))        {return SUMO;}
+        else if(id.startsWith("tag"))         {return TAG;}
+        else if(id.startsWith("snowball"))    {return SNOWBALL_FIGHT;}
+        else if(id.startsWith("shoot"))       {return SHOOT_THE_SHEEP;}
 
         //Return Unknown if a world is not on this list.
         else {return UNKNOWN;}
@@ -130,10 +130,9 @@ public class WorldID {
     }
 
     public static String generateDetailsString() {
-        String category = getWorldCatagory();
-        return switch (category) {
-            case "Tabletop" -> "Playing with " + RichPresenceTabletopChatListener.matchedUsername;
-            default -> "";
+        return switch (worldID) {
+            case CONNECT_4, MATCH_5, LUCKY_SHOT, TIC_TAC_TOE, SUMO, TAG, SNOWBALL_FIGHT, SHOOT_THE_SHEEP -> "Playing with " + RichPresenceTabletopChatListener.matchedUsername;
+            default -> DiscordRP.defaultDetails();
         };
     }
 }
