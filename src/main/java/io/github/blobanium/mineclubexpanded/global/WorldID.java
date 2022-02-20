@@ -2,6 +2,7 @@ package io.github.blobanium.mineclubexpanded.global;
 
 public class WorldID {
     public static int worldID;
+    private static String housingUsernamePlaceHolder;
 
 
     public static void updateWorldID(){
@@ -89,6 +90,17 @@ public class WorldID {
             case TNT_RUN -> "TNT Run";
             case SPLEEF -> "Spleef";
             case BRAWL -> "Brawl";
+            default -> throw new IllegalStateException("Unexpected value: " + worldID);
+        };
+    }
+
+    public static String generateStateString(){
+        return switch (worldID){
+            case LOBBY -> "Currently in the lobby";
+            case HOUSING -> housingUsernamePlaceHolder;
+            case BATTLE_DOME, SLIME_WALLS, LASER_TAG, DODGE_BALL -> "Currently Playing " + getName();
+            case CONNECT_4, MATCH_5, LUCKY_SHOT, TIC_TAC_TOE, SUMO, TAG, SNOWBALL_FIGHT, SHOOT_THE_SHEEP -> "Tabletop: " + getName();
+            case TNT_RUN, SPLEEF, BRAWL -> "Admin Event: " + getName();
             default -> throw new IllegalStateException("Unexpected value: " + worldID);
         };
     }
