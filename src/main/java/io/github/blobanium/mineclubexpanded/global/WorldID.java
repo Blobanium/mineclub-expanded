@@ -31,6 +31,7 @@ public class WorldID {
     public static final int TNT_RUN = 300;
     public static final int SPLEEF = 301;
     public static final int BRAWL = 302;
+    public static final int INFECTED = 303;
 
     public static int newWorldID(){
         return switch (WorldListener.worldName){
@@ -47,6 +48,7 @@ public class WorldID {
             case "gamemap_admin_event_tnt_run" -> TNT_RUN;
             case "gamemap_admin_event_spleef" -> SPLEEF;
             case "gamemap_admin_event_brawl" -> BRAWL;
+            case "gamemap_admin_event_infected" -> INFECTED;
 
             default -> getStartsWithID(WorldListener.worldName);
         };
@@ -90,6 +92,7 @@ public class WorldID {
             case TNT_RUN -> "TNT Run";
             case SPLEEF -> "Spleef";
             case BRAWL -> "Brawl";
+            case INFECTED -> "Infected";
             default -> throw new IllegalStateException("Unexpected value: " + worldID);
         };
     }
@@ -100,7 +103,7 @@ public class WorldID {
             case HOUSING -> housingUsernamePlaceHolder;
             case BATTLE_DOME, SLIME_WALLS, LASER_TAG, DODGE_BALL -> "Currently Playing " + getName();
             case CONNECT_4, MATCH_5, LUCKY_SHOT, TIC_TAC_TOE, SUMO, TAG, SNOWBALL_FIGHT, SHOOT_THE_SHEEP -> "Tabletop: " + getName();
-            case TNT_RUN, SPLEEF, BRAWL -> "Admin Event: " + getName();
+            case TNT_RUN, SPLEEF, BRAWL, INFECTED -> "Admin Event: " + getName();
             default -> throw new IllegalStateException("Unexpected value: " + worldID);
         };
     }
