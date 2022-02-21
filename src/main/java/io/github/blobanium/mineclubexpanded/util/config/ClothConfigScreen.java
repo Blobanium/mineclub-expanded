@@ -27,7 +27,7 @@ public class ClothConfigScreen {
 
 
         general.addEntry(entryBuilder.startBooleanToggle(DynamicModMenuTranslatable.getDiscordRPTranslatable(), ConfigReader.richPresence).setDefaultValue(false).setTooltip(DynamicModMenuTranslatable.getDiscordRPDescriptionTranslatable()).requireRestart().setSaveConsumer(newValue -> ConfigReader.richPresence = newValue).build());
-        presence.addEntry(entryBuilder.startStringDropdownMenu(new TranslatableText("mineclub-expanded.config.presencedetail"), ConfigReader.rpCustomDetails).setDefaultValue("ServerIP").setSuggestionMode(false).setSelections(Lists.newArrayList("ServerIP", "Username", "Mod Version")).setTooltip(new TranslatableText("mineclub-expanded.config.presencedetail.description")).setSaveConsumer(newValue -> ConfigReader.rpCustomDetails = newValue).build());
+        presence.addEntry(entryBuilder.startStringDropdownMenu(new TranslatableText("mineclub-expanded.config.presencedetail"), ConfigReader.rpCustomDetails).setDefaultValue("Compact").setSuggestionMode(false).setSelections(Lists.newArrayList("Compact", "ServerIP", "Username", "Mod Version")).setTooltip(new TranslatableText("mineclub-expanded.config.presencedetail.description")).setSaveConsumer(newValue -> ConfigReader.rpCustomDetails = newValue).build());
         presence.addEntry(entryBuilder.startTextDescription(new TranslatableText("mineclub-expanded.configtext.presence")).build());
 
         general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.outbidsound"), ConfigReader.outbidNotification).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.outbidsound.description")).setSaveConsumer(newValue -> ConfigReader.outbidNotification = newValue).build());

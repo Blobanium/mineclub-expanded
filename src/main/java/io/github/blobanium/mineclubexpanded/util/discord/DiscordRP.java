@@ -76,7 +76,7 @@ public class DiscordRP {
                 case "ServerIP" -> "IP: play.mineclub.com (1.17+)";
                 case "Username" -> "Playing as " + MinecraftClient.getInstance().getSession().getUsername();
                 case "Mod Version" -> "Using Version v" + MineclubExpanded.modVersion;
-                default -> "IP: play.mineclub.com (1.17+)";
+                default -> null;
             };
         }
 
