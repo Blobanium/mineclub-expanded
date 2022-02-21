@@ -34,11 +34,11 @@ public class DiscordRP {
     public static void updateStatus(String state, String details){
         if(discordRPErrorcode == 0 && ConfigReader.richPresence) {
             try {
-                if(details.equals("")){
-                    builder.setState(state).setStartTimestamp(OffsetDateTime.now()).setLargeImage("icon_new", getPresenceImageText()).addButton("Get Mineclub Expanded", "https://modrinth.com/mod/mineclub-expanded");
-                }else {
-                    builder.setState(state).setDetails(details).setStartTimestamp(OffsetDateTime.now()).setLargeImage("icon_new", getPresenceImageText()).addButton("Get Mineclub Expanded", "https://modrinth.com/mod/mineclub-expanded");
-                }
+                builder.setState(state)
+                        .setDetails(details)
+                        .setStartTimestamp(OffsetDateTime.now())
+                        .setLargeImage("icon_new", Defaults.getPresenceImageText())
+                        .addButton("Get Mineclub Expanded", "https://modrinth.com/mod/mineclub-expanded");
                 client.sendRichPresence(builder.build());
             } catch (IllegalStateException e) {
                 MineclubExpanded.LOGGER.error("IPC not connected! Attempting to reconnect IPC");
@@ -68,20 +68,24 @@ public class DiscordRP {
         }
     }
 
-    public static String defaultDetails(){
-        return switch (ConfigReader.rpCustomDetails) {
-            case "ServerIP" -> "IP: play.mineclub.com (1.17+)";
-            case "Username" -> "Playing as " + MinecraftClient.getInstance().getSession().getUsername();
-            case "Mod Version" -> "Using Version v" + MineclubExpanded.modVersion;
-            default -> "IP: play.mineclub.com (1.17+)";
-        };
-    }
+    public static class Defaults{
+        //This nested class stores all of the default items for Rich Presence
 
-    private static String getPresenceImageText(){
-        if(ConfigReader.rpCustomDetails.equals("Mod Version")){
-            return "play.mineclub.com";
-        }else{
-            return "v" + MineclubExpanded.modVersion;
+        public static String defaultDetails(){
+            return switch (ConfigReader.rpCustomDetails) {
+                case "ServerIP" -> "IP: play.mineclub.com (1.17+)";
+                case "Username" -> "Playing as " + MinecraftClient.getInstance().getSession().getUsername();
+                case "Mod Version" -> "Using Version v" + MineclubExpanded.modVersion;
+                default -> "IP: play.mineclub.com (1.17+)";
+            };
+        }
+
+        private static String getPresenceImageText(){
+            if(ConfigReader.rpCustomDetails.equals("Mod Version")){
+                return "play.mineclub.com";
+            }else{
+                return "v" + MineclubExpanded.modVersion;
+            }
         }
     }
 }

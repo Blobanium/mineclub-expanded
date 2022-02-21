@@ -11,20 +11,20 @@ public class HousingRichPresenceListener {
 
     public static void sendHousingPresence(boolean fromServerIP){
         if(fromServerIP){
-            DiscordRP.updateStatus(rpHousingState(usernameFromServerIP), DiscordRP.defaultDetails());
+            DiscordRP.updateStatus(rpHousingState(usernameFromServerIP), DiscordRP.Defaults.defaultDetails());
         } else {
             String message = MineclubExpanded.lastChatField;
             if (message.startsWith("/home")) {
                 String finalMessage = message.replaceAll("/home", "");
                 if (finalMessage.equals("")) {
-                    DiscordRP.updateStatus(rpHousingState(MinecraftClient.getInstance().getSession().getUsername()), DiscordRP.defaultDetails());
+                    DiscordRP.updateStatus(rpHousingState(MinecraftClient.getInstance().getSession().getUsername()), DiscordRP.Defaults.defaultDetails());
                 } else {
-                    DiscordRP.updateStatus(rpHousingState(finalMessage), DiscordRP.defaultDetails());
+                    DiscordRP.updateStatus(rpHousingState(finalMessage), DiscordRP.Defaults.defaultDetails());
                 }
             } else if (playerheadName != null) {
-                DiscordRP.updateStatus(rpHousingState(playerheadName), DiscordRP.defaultDetails());
+                DiscordRP.updateStatus(rpHousingState(playerheadName), DiscordRP.Defaults.defaultDetails());
             } else {
-                DiscordRP.updateStatus("Currently In Housing", DiscordRP.defaultDetails());
+                DiscordRP.updateStatus("Currently In Housing", DiscordRP.Defaults.defaultDetails());
             }
             MineclubExpanded.lastChatField = "";
         }

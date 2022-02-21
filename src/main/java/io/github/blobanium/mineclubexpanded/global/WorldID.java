@@ -132,7 +132,7 @@ public class WorldID {
     public static String generateDetailsString() {
         return switch (worldID) {
             case CONNECT_4, MATCH_5, LUCKY_SHOT, TIC_TAC_TOE, SUMO, TAG, SNOWBALL_FIGHT, SHOOT_THE_SHEEP -> "Playing with " + RichPresenceTabletopChatListener.matchedUsername;
-            default -> DiscordRP.defaultDetails();
+            default -> DiscordRP.Defaults.defaultDetails();
         };
     }
 }

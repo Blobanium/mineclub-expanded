@@ -38,7 +38,7 @@ public class WorldListener {
             if (worldName.startsWith("housing")) {
                 isInHousing = true;
                 if (FabricLoader.getInstance().isModLoaded("advancedchat")) {
-                    DiscordRP.updateStatus("Currently In Housing", DiscordRP.defaultDetails());
+                    DiscordRP.updateStatus("Currently In Housing", DiscordRP.Defaults.defaultDetails());
                 } else {
                     HousingRichPresenceListener.sendHousingPresence(connectUsingHousingIP);
                     if(connectUsingHousingIP){
