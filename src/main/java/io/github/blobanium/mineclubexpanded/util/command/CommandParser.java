@@ -1,6 +1,7 @@
 package io.github.blobanium.mineclubexpanded.util.command;
 
 import io.github.blobanium.mineclubexpanded.util.command.commnads.GetMiningValue;
+import io.github.blobanium.mineclubexpanded.util.command.commnads.ItemSerialID;
 import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -31,6 +32,13 @@ public class CommandParser {
         ClientCommandManager.DISPATCHER.register(
                 ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("yourmom").executes(context -> {
                             context.getSource().sendFeedback(new LiteralText("No your mom."));
+                            return 0;
+                        })
+                ));
+
+        ClientCommandManager.DISPATCHER.register(
+                ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("getserial").executes(context -> {
+                            context.getSource().sendFeedback(new LiteralText(ItemSerialID.getItemSerial()));
                             return 0;
                         })
                 ));
