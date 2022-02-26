@@ -3,7 +3,9 @@ package io.github.blobanium.mineclubexpanded;
 import io.github.blobanium.mineclubexpanded.util.command.CommandParser;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
+import io.github.blobanium.mineclubexpanded.util.tooltip.TooltipInjector;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
@@ -42,6 +44,8 @@ public class MineclubExpanded implements ModInitializer {
 			debugmode = true;
 			LOGGER.info("Mineclub Expanded Debug mode enabled.");
 		}
+
+		ItemTooltipCallback.EVENT.register(TooltipInjector::inject);
 
 		//Finish initializing.
 		hasInitialized = true;
