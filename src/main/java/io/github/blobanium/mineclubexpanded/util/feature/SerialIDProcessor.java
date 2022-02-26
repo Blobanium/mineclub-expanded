@@ -9,17 +9,16 @@ public class SerialIDProcessor {
     public static String getID(NbtCompound nbt){
         if(nbt != null) {
             String clubId = nbt.getCompound("PublicBukkitValues").getString(getKey());
-            if (nbt == null) {
-                return null;
-            } else if (clubId.equals("MINECOIN")) {
-                return null;
-            } else if (clubId.equals("")) {
-                return "Your phone doesnt have a serial number";
-            } else if (clubId.equals("FAKE")){
+            if (nbt == null || clubId.equals("MINECOIN") || clubId.equals("") || clubId.equals("FAKE")) {
                 return null;
             }
-            int serial = Math.abs(UUID.fromString(clubId).hashCode());
-            return "#" + serial;
+            int preSerial = UUID.fromString(clubId).hashCode();
+            int serial = Math.abs(preSerial);
+            if(preSerial == serial) {
+                return "§9#" + serial;
+            } else {
+                return "§d#" + serial;
+            }
         }
         return null;
     }
