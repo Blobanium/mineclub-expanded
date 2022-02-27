@@ -32,5 +32,7 @@
   "mineclub-expanded.category.debug": "Debug Menu",
   "mineclub-expanded.configtext.outbid": "§4The option 'Outbid Notification Sound' needs to be turned on for this option to work.",
   "mineclub-expanded.configtext.autoreconnect": "§4The option 'Autoreconnect' needs to be turned on for these options to work.",
-  "mineclub-expanded.configtext.presence": "§4The option 'Discord Rich Presence' needs to be turned on for this option to work."
+  "mineclub-expanded.configtext.presence": "§4The option 'Discord Rich Presence' needs to be turned on for this option to work.",
+  "mineclub-expanded.config.hideserialid": "Hide Item ID's",
+  "mineclub-expanded.config.hideserialid.description": "Hides All Item ID's From the tooltip"
 }
