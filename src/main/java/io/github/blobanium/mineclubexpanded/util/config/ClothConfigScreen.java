@@ -43,7 +43,7 @@ public class ClothConfigScreen {
 
         general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.expressconnect"), ConfigReader.expressConnect).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.expressconnect.description")).setSaveConsumer(newValue -> ConfigReader.expressConnect = newValue).build());
 
-        general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.hideserialid"), ConfigReader.expressConnect).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.hideserialid.description")).setSaveConsumer(newValue -> ConfigReader.hideSerialID = newValue).build());
+        general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.hideserialid"), ConfigReader.hideSerialID).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.hideserialid.description")).setSaveConsumer(newValue -> ConfigReader.hideSerialID = newValue).build());
 
         if(MineclubExpanded.debugmode){
             ConfigCategory debug = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.debug"));
