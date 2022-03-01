@@ -24,6 +24,7 @@ public class ClothConfigScreen {
         ConfigCategory presence = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.presence"));
         ConfigCategory outbid = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.outbid"));
         ConfigCategory autoreconnect = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.autoreconnect"));
+        ConfigCategory serial = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.serial"));
 
 
         general.addEntry(entryBuilder.startBooleanToggle(DynamicModMenuTranslatable.getDiscordRPTranslatable(), ConfigReader.richPresence).setDefaultValue(false).setTooltip(DynamicModMenuTranslatable.getDiscordRPDescriptionTranslatable()).requireRestart().setSaveConsumer(newValue -> ConfigReader.richPresence = newValue).build());
@@ -44,6 +45,9 @@ public class ClothConfigScreen {
         general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.expressconnect"), ConfigReader.expressConnect).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.expressconnect.description")).setSaveConsumer(newValue -> ConfigReader.expressConnect = newValue).build());
 
         general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.hideserialid"), ConfigReader.hideSerialID).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.hideserialid.description")).setSaveConsumer(newValue -> ConfigReader.hideSerialID = newValue).build());
+        serial.addEntry(entryBuilder.startStringDropdownMenu(new TranslatableText("mineclub-expanded.config.serialcolor"),  ConfigReader.serialColor).setDefaultValue("White").setSuggestionMode(false).setSelections(Lists.newArrayList("White", "Dark Blue", "Dark Green", "Dark Aqua", "Dark Red", "Dark Purple", "Gold", "Gray", "Dark Gray", "Blue", "Green", "Aqua", "Red", "Light Purple", "Yellow")).setTooltip(new TranslatableText("mineclub-expanded.config.serialcolor.description")).setSaveConsumer(newValue ->  ConfigReader.serialColor = newValue).build());
+
+
 
         if(MineclubExpanded.debugmode){
             ConfigCategory debug = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.debug"));

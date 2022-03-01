@@ -1,6 +1,7 @@
 package io.github.blobanium.mineclubexpanded.util.feature;
 
 import io.github.blobanium.mineclubexpanded.global.WorldID;
+import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import net.minecraft.nbt.NbtCompound;
 
 import java.util.UUID;
@@ -14,11 +15,7 @@ public class SerialIDProcessor {
             }
             int preSerial = UUID.fromString(clubId).hashCode();
             int serial = Math.abs(preSerial);
-            if(preSerial == serial) {
-                return "§9#" + serial;
-            } else {
-                return "§d#" + serial;
-            }
+            return getPrefixString() + serial;
         }
         return null;
     }
@@ -29,5 +26,26 @@ public class SerialIDProcessor {
         }else{
             return "mineclub-lobby:club_id";
         }
+    }
+
+    private static String getPrefixString(){
+        return switch (ConfigReader.serialColor){
+            case "Dark Blue" -> "§1#";
+            case "Dark Green" -> "§2#";
+            case "Dark Aqua" -> "§3#";
+            case "Dark Red" -> "§4#";
+            case "Dark Purple" -> "§5#";
+            case "Gold" -> "§6#";
+            case "Gray" -> "§7#";
+            case "Dark Gray" -> "§8#";
+            case "Blue" -> "§9#";
+            case "Green" -> "§a#";
+            case "Aqua" -> "§b#";
+            case "Red" -> "§c#";
+            case "Light Purple" -> "§d#";
+            case "Yellow" -> "§e#";
+            //case "White" -> "§f#"; (Ignored, Tooltip already outputs White text by default)
+            default -> "#";
+        };
     }
 }
