@@ -28,6 +28,7 @@ public class ConfigReader {
 	public static int debugAsyncTickThreads = 2;
 	public static boolean hideSerialID = false;
 	public static String serialColor = "";
+	public static boolean showDigits = false;
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
@@ -49,6 +50,7 @@ public class ConfigReader {
 			debugAsyncTickThreads = CONFIG.getOrDefault("debug_async_tick_threads", debugAsyncTickThreads);
 			hideSerialID = CONFIG.getOrDefault("hide_serial_id", hideSerialID);
 			serialColor = CONFIG.getOrDefault("serial_color", serialColor);
+			showDigits = CONFIG.getOrDefault("serial_id_digits", showDigits);
 		}
 
 		LOGGER.debug("Regestering done!");
@@ -68,7 +70,8 @@ public class ConfigReader {
 				+ "\ndebug_async_ticks=" + debugAsyncTicks
 				+ "\ndebug_async_tick_threads=" + debugAsyncTickThreads
 				+ "\nhide_serial_id=" + hideSerialID
-				+ "\nserial_color=" + serialColor;
+				+ "\nserial_color=" + serialColor
+				+ "\nserial_id_digits=" + showDigits;
 	}
 
 	public static void refreshConfig(){

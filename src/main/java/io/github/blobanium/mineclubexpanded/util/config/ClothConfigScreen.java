@@ -46,6 +46,7 @@ public class ClothConfigScreen {
 
         general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.hideserialid"), ConfigReader.hideSerialID).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.hideserialid.description")).setSaveConsumer(newValue -> ConfigReader.hideSerialID = newValue).build());
         serial.addEntry(entryBuilder.startStringDropdownMenu(new TranslatableText("mineclub-expanded.config.serialcolor"),  ConfigReader.serialColor).setDefaultValue("White").setSuggestionMode(false).setSelections(Lists.newArrayList("White", "Dark Blue", "Dark Green", "Dark Aqua", "Dark Red", "Dark Purple", "Gold", "Gray", "Dark Gray", "Blue", "Green", "Aqua", "Red", "Light Purple", "Yellow")).setTooltip(new TranslatableText("mineclub-expanded.config.serialcolor.description")).setSaveConsumer(newValue ->  ConfigReader.serialColor = newValue).build());
+        serial.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.showdigits"), ConfigReader.showDigits).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.showdigits.description")).setSaveConsumer(newValue -> ConfigReader.showDigits = newValue).build());
 
 
 

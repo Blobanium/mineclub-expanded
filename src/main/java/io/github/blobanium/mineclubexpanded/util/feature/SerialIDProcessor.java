@@ -15,7 +15,7 @@ public class SerialIDProcessor {
             }
             int preSerial = UUID.fromString(clubId).hashCode();
             int serial = Math.abs(preSerial);
-            return getPrefixString() + serial;
+            return getPrefixString() + serial + getDigits(serial);
         }
         return null;
     }
@@ -47,5 +47,13 @@ public class SerialIDProcessor {
             //case "White" -> "§f#"; (Ignored, Tooltip already outputs White text by default)
             default -> "#";
         };
+    }
+
+    private static String getDigits(int value){
+        if(ConfigReader.showDigits){
+            return " (" + String.valueOf(value).length() + ")";
+        } else{
+            return "";
+        }
     }
 }
