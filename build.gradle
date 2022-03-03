@@ -40,6 +40,8 @@ dependencies {
 	include("com.github.Jarva:DiscordIPC:7ac9ac8814")
 	implementation 'org.json:json:20211205'
 	include("org.json:json:20211205")
+	implementation "com.google.apis:google-api-services-sheets:v4-rev20210629-1.32.1"
+	include("com.google.apis:google-api-services-sheets:v4-rev20210629-1.32.1")
 }
 
 processResources {
