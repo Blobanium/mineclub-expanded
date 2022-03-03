@@ -13,33 +13,24 @@ import java.security.GeneralSecurityException;
 
 public class SpreadsheetUtil {
 
-    public static void test() throws IOException, GeneralSecurityException {
-        // The ID of the spreadsheet to retrieve data from.
+    public static String test(String range) throws IOException, GeneralSecurityException {
         String spreadsheetId = "1EvqhTx3f2m1yzF5-MbgW5QvP7zEe_M_pCWBs3c2f0D0";
-
-        // The A1 notation of the values to retrieve.
-        String range = "B3";
-
-        // How values should be represented in the output.
-        // The default render option is ValueRenderOption.FORMATTED_VALUE.
         String valueRenderOption = "UNFORMATTED_VALUE";
-
-        // How dates, times, and durations should be represented in the output.
-        // This is ignored if value_render_option is
-        // FORMATTED_VALUE.
-        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
         String dateTimeRenderOption = "FORMATTED_STRING";
+        String majorDimension = "COLUMNS";
 
         Sheets sheetsService = createSheetsService();
         Sheets.Spreadsheets.Values.Get request =
                 sheetsService.spreadsheets().values().get(spreadsheetId, range);
         request.setValueRenderOption(valueRenderOption);
         request.setDateTimeRenderOption(dateTimeRenderOption);
+        request.setMajorDimension(majorDimension);
         request.setKey("AIzaSyCncY4J8Me3y1lf1KdCsLWi11t1A6o6Emw");
 
         ValueRange response = request.execute();
 
-        System.out.println(response);
+
+        return response.get("values").toString();
     }
 
     public static Sheets createSheetsService() throws IOException, GeneralSecurityException {
@@ -68,13 +59,15 @@ public class SpreadsheetUtil {
                 .build();
     }
 
-    public static void testInternal(){
+    public static String testInternal(String range){
         try {
-            test();
+            return test(range);
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
+            return null;
         }
     }
 
