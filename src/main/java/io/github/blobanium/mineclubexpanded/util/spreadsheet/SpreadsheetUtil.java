@@ -13,11 +13,14 @@ import java.security.GeneralSecurityException;
 
 public class SpreadsheetUtil {
 
+    private static final String importedID = "1dZ-EL_uU2a2KEMLo6ztGjnWSJTSf_z1caNLP5sUk-I0";
+    private static final String mcbetsID = "1EvqhTx3f2m1yzF5-MbgW5QvP7zEe_M_pCWBs3c2f0D0";
+
     public static String test(String range) throws IOException, GeneralSecurityException {
-        String spreadsheetId = "1EvqhTx3f2m1yzF5-MbgW5QvP7zEe_M_pCWBs3c2f0D0";
+        String spreadsheetId = importedID;
         String valueRenderOption = "UNFORMATTED_VALUE";
         String dateTimeRenderOption = "FORMATTED_STRING";
-        String majorDimension = "COLUMNS";
+        String majorDimension = "ROWS";
 
         Sheets sheetsService = createSheetsService();
         Sheets.Spreadsheets.Values.Get request =
