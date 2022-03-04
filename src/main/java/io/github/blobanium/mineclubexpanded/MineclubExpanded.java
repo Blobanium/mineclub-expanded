@@ -4,6 +4,7 @@ import io.github.blobanium.mineclubexpanded.util.command.CommandParser;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.discord.DiscordRP;
 import io.github.blobanium.mineclubexpanded.util.spreadsheet.SpreadsheetUtil;
+import io.github.blobanium.mineclubexpanded.util.spreadsheet.SpreadsheetValueParser;
 import io.github.blobanium.mineclubexpanded.util.tooltip.TooltipInjector;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
@@ -48,8 +49,7 @@ public class MineclubExpanded implements ModInitializer {
 
 		ItemTooltipCallback.EVENT.register(TooltipInjector::inject);
 
-		String testint = SpreadsheetUtil.testInternal("C257:AV257");
-		System.out.println(testint);
+		SpreadsheetValueParser.setValue();
 		//Finish initializing.
 		hasInitialized = true;
 		LOGGER.info("Mineclub Expanded Initialized!");
