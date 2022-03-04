@@ -48,7 +48,7 @@ public class MineclubExpanded implements ModInitializer {
 
 		ItemTooltipCallback.EVENT.register(TooltipInjector::inject);
 
-		String testint = SpreadsheetUtil.testInternal("C257:AX257");
+		String testint = SpreadsheetUtil.testInternal("C257:AV257");
 		System.out.println(testint);
 		//Finish initializing.
 		hasInitialized = true;
