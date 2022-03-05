@@ -20,7 +20,7 @@ public class SerialIDProcessor {
         return null;
     }
 
-    private static String getKey(){
+    public static String getKey(){
         if(WorldID.worldID == WorldID.HOUSING){
             return "mineclubhousing:club_id";
         }else{

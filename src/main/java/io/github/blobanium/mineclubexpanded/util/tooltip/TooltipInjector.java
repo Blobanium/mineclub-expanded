@@ -17,5 +17,8 @@ public class TooltipInjector {
         if(id != null && !ConfigReader.hideSerialID) {
             text.add(new LiteralText("ID: " + id));
         }
+        if(stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE")){
+
+        }
     }
 }
