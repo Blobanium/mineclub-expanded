@@ -1,5 +1,14 @@
 package io.github.blobanium.mineclubexpanded.util.spreadsheet;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.Duration;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 import static java.lang.Integer.parseInt;
 
 public class SpreadsheetValueParser {
@@ -7,7 +16,11 @@ public class SpreadsheetValueParser {
     public static String values[] = null;
 
     public static void setValue(){
-        getSheetsString = SpreadsheetUtil.testInternal("C257:AV257").replace("[", "").replace("]", "").replace(" ", "");
+        try {
+            getSheetsString = SpreadsheetUtil.testInternal("C"+ getToday() + ":AV" + getToday()).replace("[", "").replace("]", "").replace(" ", "");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         values = getSheetsString.split(",");
         System.out.println(getItemValue("Blue Bhat"));
     }
@@ -31,5 +44,15 @@ public class SpreadsheetValueParser {
             case "Blue Saber" -> parseInt(values[14]);
             default -> 0;
         };
+    }
+
+    private static long getToday() throws ParseException {
+        String endDateSource = (Calendar.getInstance().get(Calendar.MONTH) + 1) + "-" + Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "-" + Calendar.getInstance().get(Calendar.YEAR);
+        SimpleDateFormat obj = new SimpleDateFormat("MM-dd-yyyy");
+        Date startDate = obj.parse("6-20-2021");
+        Date endDate = obj.parse(endDateSource);
+        long difference = endDate.getTime() - startDate.getTime();
+        long days_difference = TimeUnit.MILLISECONDS.toDays(difference);
+        return days_difference + 1;
     }
 }
