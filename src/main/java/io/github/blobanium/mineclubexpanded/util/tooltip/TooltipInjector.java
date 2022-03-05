@@ -2,11 +2,13 @@ package io.github.blobanium.mineclubexpanded.util.tooltip;
 
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
 import io.github.blobanium.mineclubexpanded.util.feature.SerialIDProcessor;
+import io.github.blobanium.mineclubexpanded.util.spreadsheet.SpreadsheetValueParser;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 public class TooltipInjector {
@@ -17,8 +19,8 @@ public class TooltipInjector {
         if(id != null && !ConfigReader.hideSerialID) {
             text.add(new LiteralText("ID: " + id));
         }
-        if(stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE")){
-
+        if(stack.getNbt() != null && stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE")){
+            text.add(new LiteralText("MC Bets value: " + NumberFormat.getInstance().format(SpreadsheetValueParser.getItemValue(stack.getNbt().getInt("CustomModelData"), stack))));
         }
     }
 }

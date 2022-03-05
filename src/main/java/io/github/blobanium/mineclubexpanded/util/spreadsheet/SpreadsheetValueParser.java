@@ -1,5 +1,7 @@
 package io.github.blobanium.mineclubexpanded.util.spreadsheet;
 
+import net.minecraft.item.ItemStack;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,6 +14,49 @@ public class SpreadsheetValueParser {
     public static String getSheetsString = null;
     public static String values[] = null;
 
+    //Custom Model Data
+    private static final int STORE_ITEM = 183;
+    private static final int BETA_TITLE = 87;
+    private static final int RED_HAT = 278;
+    private static final int BLUE_HAT = 274;
+    private static final int GREEN_HAT = 275;
+    private static final int PURPLE_HAT = 276;
+    private static final int RED_SABER = 349;
+    private static final int PURPLE_SABER = 352;
+    private static final int GREEN_SABER = 351;
+    private static final int BLUE_SABER = 350;
+    private static final int EASTER_HAT = 530;
+    private static final int EASTER_BASKET = 531;
+    private static final int EASTER_TITLE = 98;
+    private static final int SPRING_CROWN = 417;
+    private static final int SPRING_FLOWERS = 418;
+    private static final int SPRING_TITLE = 99;
+    private static final int SUMMER_BUTTERFLY = 424;
+    private static final int SUMMER_NET = 425;
+    private static final int SUMMER_TITLE = 200;
+    private static final int NIXE_FIGURE = 133;
+    private static final int HYLIX_FIGURE = 134;
+    private static final int EXECUTIVE_FIGURE = 135;
+    private static final int RASHO_FIGURE = 178;
+    private static final int AUTUMN_CROWN = 763;
+    private static final int AUTUMN_PLUSHIE = 764;
+    private static final int AUTUMN_TITLE = 345;
+    private static final int HALLOWEEN_BEANIE = 805;
+    private static final int HALLOWEEN_BASKET = 806;
+    private static final int HALLOWEEN_TITLE = 346;
+    private static final int WINTER_HAT = 955;
+    private static final int WINTER_PLUSHIE = 956;
+    private static final int WINTER_TITLE = 380;
+    private static final int CHRISTMAS_HAT = 1099;
+    private static final int CHRISTMAS_CANE = 1100;
+    private static final int CHRISTMAS_TITLE = 394;
+    private static final int ANIVERSARY_HAT = 1117;
+    private static final int ANIVERSARY_CAKE = 1118;
+    private static final int ANIVERSARY_TITLE = 398;
+    private static final int VALENTINES_CROWN = 1173;
+    private static final int VALENTINES_BOW = 1174;
+    private static final int VALENTINES_TITLE = 501;
+
     public static void setValue(){
         try {
             getSheetsString = SpreadsheetUtil.testInternal("C"+ getToday() + ":AV" + getToday()).replace("[", "").replace("]", "").replace(" ", "");
@@ -21,54 +66,60 @@ public class SpreadsheetValueParser {
         values = getSheetsString.split(",");
     }
 
-    public static int getItemValue(String item){
-        return switch(item){
+    public static int getItemValue(int customModelData, ItemStack stack){
+        return switch(customModelData){
+            case STORE_ITEM -> getStoreItemValue(stack);
+            case BETA_TITLE -> parseInt(values[6]);
+            case BLUE_HAT -> parseInt(values[7]);
+            case PURPLE_HAT -> parseInt(values[8]);
+            case GREEN_HAT -> parseInt(values[9]);
+            case RED_HAT -> parseInt(values[10]);
+            case RED_SABER -> parseInt(values[11]);
+            case PURPLE_SABER -> parseInt(values[12]);
+            case GREEN_SABER -> parseInt(values[13]);
+            case BLUE_SABER -> parseInt(values[14]);
+            case EASTER_HAT -> parseInt(values[15]);
+            case EASTER_BASKET -> parseInt(values[16]);
+            case EASTER_TITLE -> parseInt(values[17]);
+            case SPRING_CROWN -> parseInt(values[18]);
+            case SPRING_FLOWERS -> parseInt(values[19]);
+            case SPRING_TITLE -> parseInt(values[20]);
+            case SUMMER_BUTTERFLY -> parseInt(values[21]);
+            case SUMMER_NET -> parseInt(values[22]);
+            case SUMMER_TITLE -> parseInt(values[23]);
+            case NIXE_FIGURE -> parseInt(values[24]);
+            case HYLIX_FIGURE -> parseInt(values[25]);
+            case EXECUTIVE_FIGURE -> parseInt(values[26]);
+            case RASHO_FIGURE -> parseInt(values[27]);
+            case AUTUMN_CROWN -> parseInt(values[28]);
+            case AUTUMN_PLUSHIE -> parseInt(values[29]);
+            case AUTUMN_TITLE -> parseInt(values[30]);
+            case HALLOWEEN_BEANIE -> parseInt(values[31]);
+            case HALLOWEEN_BASKET -> parseInt(values[32]);
+            case HALLOWEEN_TITLE -> parseInt(values[33]);
+            case WINTER_HAT -> parseInt(values[34]);
+            case WINTER_PLUSHIE -> parseInt(values[35]);
+            case WINTER_TITLE -> parseInt(values[36]);
+            case CHRISTMAS_HAT -> parseInt(values[37]);
+            case CHRISTMAS_CANE -> parseInt(values[38]);
+            case CHRISTMAS_TITLE -> parseInt(values[39]);
+            case ANIVERSARY_HAT -> parseInt(values[40]);
+            case ANIVERSARY_CAKE -> parseInt(values[41]);
+            case ANIVERSARY_TITLE -> parseInt(values[42]);
+            case VALENTINES_CROWN -> parseInt(values[43]);
+            case VALENTINES_BOW -> parseInt(values[44]);
+            case VALENTINES_TITLE -> parseInt(values[45]);
+            default -> 0;
+        };
+    }
+
+    private static int getStoreItemValue(ItemStack stack){
+        String tempString = null;
+        return switch(tempString){
             case "Premium Token" -> parseInt(values[0]);
             case "Mythical Box" -> parseInt(values[1]);
             case "Epic Box" -> parseInt(values[2]);
             case "Rare Box" -> parseInt(values[3]);
-            case "Beta Hat" -> parseInt(values[4]);
-            case "Beta Saber" -> parseInt(values[5]);
-            case "Beta Title" -> parseInt(values[6]);
-            case "Blue Bhat" -> parseInt(values[7]);
-            case "Purple Bhat" -> parseInt(values[8]);
-            case "Green Bhat" -> parseInt(values[9]);
-            case "Red Bhat" -> parseInt(values[10]);
-            case "Red Saber" -> parseInt(values[11]);
-            case "Purple Saber" -> parseInt(values[12]);
-            case "Green Saber" -> parseInt(values[13]);
-            case "Blue Saber" -> parseInt(values[14]);
-            case "Easter Hat" -> parseInt(values[15]);
-            case "Easter Basket" -> parseInt(values[16]);
-            case "Easter Title" -> parseInt(values[17]);
-            case "Spring Crown" -> parseInt(values[18]);
-            case "Spring Flowers" -> parseInt(values[19]);
-            case "Spring Title" -> parseInt(values[20]);
-            case "Summer Butterfly" -> parseInt(values[21]);
-            case "Summer Net" -> parseInt(values[22]);
-            case "Summer Title" -> parseInt(values[23]);
-            case "Nixe Beta Figure" -> parseInt(values[24]);
-            case "Hylix Beta Figure" -> parseInt(values[25]);
-            case "Executive Beta Figure" -> parseInt(values[26]);
-            case "Rasho Beta Figure" -> parseInt(values[27]);
-            case "Autumn Crown" -> parseInt(values[28]);
-            case "Autumn Plushie" -> parseInt(values[29]);
-            case "Autumn Title" -> parseInt(values[30]);
-            case "Halloween Beanie" -> parseInt(values[31]);
-            case "Halloween Basket" -> parseInt(values[32]);
-            case "Halloween Title" -> parseInt(values[33]);
-            case "Winter Hat" -> parseInt(values[34]);
-            case "Winter Plushie" -> parseInt(values[35]);
-            case "Winter Title" -> parseInt(values[36]);
-            case "Christmas Hat" -> parseInt(values[37]);
-            case "Christmas Cane" -> parseInt(values[38]);
-            case "Christmas Title" -> parseInt(values[39]);
-            case "Anniversary Hat" -> parseInt(values[40]);
-            case "Anniversary Cake" -> parseInt(values[41]);
-            case "Anniversary Title" -> parseInt(values[42]);
-            case "Valentines Hat" -> parseInt(values[43]);
-            case "Valentines Bow" -> parseInt(values[44]);
-            case "Valentines Title" -> parseInt(values[45]);
             default -> 0;
         };
     }

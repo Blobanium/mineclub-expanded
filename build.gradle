@@ -40,8 +40,24 @@ dependencies {
 	include("com.github.Jarva:DiscordIPC:7ac9ac8814")
 	implementation 'org.json:json:20211205'
 	include("org.json:json:20211205")
+
+	//Apparently Google Spreadsheets API needs all of these libraries. And these are non-Minecraft mods.
 	implementation "com.google.apis:google-api-services-sheets:v4-rev20210629-1.32.1"
 	include("com.google.apis:google-api-services-sheets:v4-rev20210629-1.32.1")
+	implementation "com.google.http-client:google-http-client:1.41.4"
+	include("com.google.http-client:google-http-client:1.41.4")
+	implementation "com.google.http-client:google-http-client-gson:1.41.4"
+	include("com.google.http-client:google-http-client-gson:1.41.4")
+	implementation "com.google.api-client:google-api-client:1.33.2"
+	include("com.google.api-client:google-api-client:1.33.2")
+	implementation "com.google.oauth-client:google-oauth-client:1.33.1"
+	include("com.google.oauth-client:google-oauth-client:1.33.1")
+	implementation "io.opencensus:opencensus-api:0.31.0"
+	include("io.opencensus:opencensus-api:0.31.0")
+	implementation "io.opencensus:opencensus-contrib-http-util:0.31.0"
+	include("io.opencensus:opencensus-contrib-http-util:0.31.0")
+	implementation "io.grpc:grpc-context:1.44.1"
+	include("io.grpc:grpc-context:1.44.1")
 }
 
 processResources {
