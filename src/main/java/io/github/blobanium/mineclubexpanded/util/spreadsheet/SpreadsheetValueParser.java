@@ -19,7 +19,6 @@ public class SpreadsheetValueParser {
             e.printStackTrace();
         }
         values = getSheetsString.split(",");
-        System.out.println(getItemValue("Blue Bhat"));
     }
 
     public static int getItemValue(String item){
