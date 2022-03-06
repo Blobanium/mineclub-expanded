@@ -5,6 +5,7 @@ import io.github.blobanium.mineclubexpanded.util.feature.SerialIDProcessor;
 import io.github.blobanium.mineclubexpanded.util.spreadsheet.SpreadsheetValueParser;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
@@ -22,7 +23,8 @@ public class TooltipInjector {
         if(stack.getNbt() != null && stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE")){
             try {
                 int value = SpreadsheetValueParser.getItemValue(stack.getNbt().getInt("CustomModelData"), stack);
-                text.add(new LiteralText("MC Bets value: " + NumberFormat.getInstance().format(value)));
+                TooltipProcessor.getPrecentValue(stack);
+                text.add(new LiteralText("MC Bets Value: " + NumberFormat.getInstance().format(value) + " (" + TooltipProcessor.getPrecentValue(stack) + ")"));
             } catch (IndexOutOfBoundsException ignored){
                 //This is technically ignored and will only show if a value does exist for that specified item.
             }
