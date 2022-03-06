@@ -20,7 +20,12 @@ public class TooltipInjector {
             text.add(new LiteralText("ID: " + id));
         }
         if(stack.getNbt() != null && stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE")){
-            text.add(new LiteralText("MC Bets value: " + NumberFormat.getInstance().format(SpreadsheetValueParser.getItemValue(stack.getNbt().getInt("CustomModelData"), stack))));
+            try {
+                int value = SpreadsheetValueParser.getItemValue(stack.getNbt().getInt("CustomModelData"), stack);
+                text.add(new LiteralText("MC Bets value: " + NumberFormat.getInstance().format(value)));
+            } catch (IndexOutOfBoundsException ignored){
+                //This is technically ignored and will only show if a value does exist for that specified item.
+            }
         }
     }
 }

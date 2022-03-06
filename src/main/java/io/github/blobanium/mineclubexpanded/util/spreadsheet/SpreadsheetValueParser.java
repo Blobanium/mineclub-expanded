@@ -66,7 +66,7 @@ public class SpreadsheetValueParser {
         values = getSheetsString.split(",");
     }
 
-    public static int getItemValue(int customModelData, ItemStack stack){
+    public static int getItemValue(int customModelData, ItemStack stack) throws IndexOutOfBoundsException{
         return switch(customModelData){
             case STORE_ITEM -> getStoreItemValue(stack);
             case BETA_TITLE -> parseInt(values[6]);
@@ -109,7 +109,7 @@ public class SpreadsheetValueParser {
             case VALENTINES_CROWN -> parseInt(values[43]);
             case VALENTINES_BOW -> parseInt(values[44]);
             case VALENTINES_TITLE -> parseInt(values[45]);
-            default -> 0;
+            default -> throw new IndexOutOfBoundsException();
         };
     }
 
@@ -120,7 +120,7 @@ public class SpreadsheetValueParser {
             case "Mythical Box" -> parseInt(values[1]);
             case "Epic Box" -> parseInt(values[2]);
             case "Rare Box" -> parseInt(values[3]);
-            default -> 0;
+            default -> throw new IndexOutOfBoundsException();
         };
     }
 
