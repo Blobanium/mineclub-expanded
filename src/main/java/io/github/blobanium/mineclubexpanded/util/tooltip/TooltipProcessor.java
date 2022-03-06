@@ -23,4 +23,23 @@ public class TooltipProcessor {
             return 5;
         }
     }
+
+    public static String simplifiedCount(long count) {
+        if (count < 1000) return "" + count;
+        int exp = (int) (Math.log(count) / Math.log(1000));
+        int exp2 = (int) (Math.log(count) / Math.log(10));
+        int decimal = exp2 - (exp*3);
+        return String.format("%."+ getDecimalPlace(decimal) +"f%c",
+                count / Math.pow(1000, exp),
+                "kMBTqQ".charAt(exp-1));
+    }
+
+    private static int getDecimalPlace(int value){
+        return switch (value){
+            case 0 -> 2;
+            case 1 -> 1;
+            case 2 -> 0;
+            default -> (-(value) + 2);
+        };
+    }
 }
