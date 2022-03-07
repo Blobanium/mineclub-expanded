@@ -56,10 +56,13 @@ public class SpreadsheetValueParser {
     private static final int VALENTINES_CROWN = 1173;
     private static final int VALENTINES_BOW = 1174;
     private static final int VALENTINES_TITLE = 501;
+    private static final int LEPRECHAUN_HAT = 1214;
+    private static final int LEPRECHAUN_TREASURES = 1215;
+    private static final int LEPRECHAUN_TITLE = 505;
 
     public static void setValue(){
         try {
-            getSheetsString = SpreadsheetUtil.testInternal("C"+ getToday() + ":AV" + getToday()).replace("[", "").replace("]", "").replace(" ", "");
+            getSheetsString = SpreadsheetUtil.testInternal("C"+ getToday() + ":AY" + getToday()).replace("[", "").replace("]", "").replace(" ", "");
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -109,6 +112,9 @@ public class SpreadsheetValueParser {
             case VALENTINES_CROWN -> parseInt(values[43]);
             case VALENTINES_BOW -> parseInt(values[44]);
             case VALENTINES_TITLE -> parseInt(values[45]);
+            case LEPRECHAUN_HAT -> parseInt(values[46]);
+            case LEPRECHAUN_TREASURES -> parseInt(values[47]);
+            case LEPRECHAUN_TITLE -> parseInt(values[48]);
             default -> throw new IndexOutOfBoundsException();
         };
     }
