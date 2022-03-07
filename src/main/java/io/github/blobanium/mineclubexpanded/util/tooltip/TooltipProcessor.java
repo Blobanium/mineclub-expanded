@@ -14,9 +14,9 @@ public class TooltipProcessor {
         int spreadsheetValue = SpreadsheetValueParser.getItemValue(stack.getNbt().getInt("CustomModelData"), stack);
         float precent = (((((float) mineclubValue / spreadsheetValue) - 1) * 100));
         if(precent != Math.abs(precent)) {
-            return "§c" + String.format("%.2f", precent) + "%";
+            return " §c(" + String.format("%.2f", precent) + "%)";
         } else {
-            return "§a" + String.format("%.2f", precent) + "%";
+            return " §a(" + String.format("%.2f", precent) + "%)";
         }
     }
 
