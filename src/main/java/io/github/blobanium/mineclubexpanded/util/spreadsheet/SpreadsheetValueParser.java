@@ -13,6 +13,7 @@ import static java.lang.Integer.parseInt;
 public class SpreadsheetValueParser {
     public static String getSheetsString = null;
     public static String values[] = null;
+    public static String sheetDate = null;
 
     //Custom Model Data
     private static final int STORE_ITEM = 183;
@@ -132,6 +133,7 @@ public class SpreadsheetValueParser {
 
     private static long getToday() throws ParseException {
         String endDateSource = (Calendar.getInstance().get(Calendar.MONTH) + 1) + "-" + Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "-" + Calendar.getInstance().get(Calendar.YEAR);
+        sheetDate = endDateSource;
         SimpleDateFormat obj = new SimpleDateFormat("MM-dd-yyyy");
         Date startDate = obj.parse("6-20-2021");
         Date endDate = obj.parse(endDateSource);

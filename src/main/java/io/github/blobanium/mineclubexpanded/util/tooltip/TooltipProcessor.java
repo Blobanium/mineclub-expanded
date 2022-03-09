@@ -46,4 +46,8 @@ public class TooltipProcessor {
             default -> (-(value) + 2);
         };
     }
+
+    public static String getDate(){
+
+    }
 }
