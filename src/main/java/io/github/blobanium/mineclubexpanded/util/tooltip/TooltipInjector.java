@@ -10,6 +10,7 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
 import java.text.NumberFormat;
+import java.util.Calendar;
 import java.util.List;
 
 public class TooltipInjector {
@@ -24,7 +25,7 @@ public class TooltipInjector {
             try {
                 int value = SpreadsheetValueParser.getItemValue(stack.getNbt().getInt("CustomModelData"), stack);
                 TooltipProcessor.getPrecentValue(stack);
-                text.add(new LiteralText("MC Bets " + SpreadsheetValueParser.sheetDate + ": " + TooltipProcessor.simplifiedCount(value) + TooltipProcessor.getPrecentValue(stack)));
+                text.add(new LiteralText("MC Bets " + SpreadsheetValueParser.month + " " + SpreadsheetValueParser.day + ": " + TooltipProcessor.simplifiedCount(value) + TooltipProcessor.getPrecentValue(stack)));
             } catch (IndexOutOfBoundsException ignored){
                 //This is technically ignored and will only show if a value does exist for that specified item.
             }
