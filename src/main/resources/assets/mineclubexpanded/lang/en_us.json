@@ -34,5 +34,10 @@
   "mineclub-expanded.configtext.autoreconnect": "§4The option 'Autoreconnect' needs to be turned on for these options to work.",
   "mineclub-expanded.configtext.presence": "§4The option 'Discord Rich Presence' needs to be turned on for this option to work.",
   "mineclub-expanded.config.hideserialid": "Hide Item ID's",
-  "mineclub-expanded.config.hideserialid.description": "Hides All Item ID's From the tooltip"
+  "mineclub-expanded.config.hideserialid.description": "Hides All Item ID's From the tooltip",
+  "mineclub-expanded.category.serial": "Serial ID Options",
+  "mineclub-expanded.config.serialcolor": "Serial ID Color",
+  "mineclub-expanded.config.serialcolor.description": "Changes the color of where the ID is displayed",
+  "mineclub-expanded.config.showdigits": "Show The Number of digits an ID has.",
+  "mineclub-expanded.config.showdigits.description": "Self explanatory"
 }
