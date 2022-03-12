@@ -140,12 +140,12 @@ public class SpreadsheetValueParser {
         String endDateSource = (Calendar.getInstance().get(Calendar.MONTH) + 1) + "-" + Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "-" + Calendar.getInstance().get(Calendar.YEAR);
         sheetDate = endDateSource;
         month = TooltipProcessor.getMonth(Calendar.getInstance().get(Calendar.MONTH) + 1);
-        day = String.valueOf(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        day = String.valueOf(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1);
         SimpleDateFormat obj = new SimpleDateFormat("MM-dd-yyyy");
         Date startDate = obj.parse("6-20-2021");
         Date endDate = obj.parse(endDateSource);
         long difference = endDate.getTime() - startDate.getTime();
         long days_difference = TimeUnit.MILLISECONDS.toDays(difference);
-        return days_difference + 2;
+        return days_difference + 1;
     }
 }
