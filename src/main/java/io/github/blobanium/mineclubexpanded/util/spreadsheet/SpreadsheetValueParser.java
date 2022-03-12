@@ -146,6 +146,6 @@ public class SpreadsheetValueParser {
         Date endDate = obj.parse(endDateSource);
         long difference = endDate.getTime() - startDate.getTime();
         long days_difference = TimeUnit.MILLISECONDS.toDays(difference);
-        return days_difference + 1;
+        return days_difference + 2;
     }
 }
