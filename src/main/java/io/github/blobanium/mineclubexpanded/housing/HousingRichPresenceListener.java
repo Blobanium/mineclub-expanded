@@ -14,7 +14,7 @@ public class HousingRichPresenceListener {
             DiscordRP.updateStatus(rpHousingState(usernameFromServerIP), DiscordRP.Defaults.defaultDetails());
         } else {
             String message = MineclubExpanded.lastChatField;
-            if (message.startsWith("/home")) {
+            if (message != null && message.startsWith("/home")) {
                 String finalMessage = message.replaceAll("/home", "");
                 if (finalMessage.equals("")) {
                     DiscordRP.updateStatus(rpHousingState(MinecraftClient.getInstance().getSession().getUsername()), DiscordRP.Defaults.defaultDetails());
