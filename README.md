@@ -1,16 +1,12 @@
 # Mineclub Expanded
 
-## NOTE
+## What is this?
 
-This Mod is in the beta phase, expect bugs here and there, if you do come across one, open an issue
+This is a client side enhancement mod for the minecraft server "Mineclub."
 
-![](https://img.shields.io/github/downloads/blobanium/mineclub-expanded/total?label=Total%20Downloads&style=for-the-badge) ![]()
+## Compiling
 
-
-![](https://i.imgur.com/77kxz8x.png)
-
-
-
+Clone the repository and run `./gradlew build`, as is standard procedure with any mod, or `gradlew build` on Windows.
 
 ## FAQ
 
