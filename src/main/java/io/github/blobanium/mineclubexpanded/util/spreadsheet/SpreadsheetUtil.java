@@ -14,7 +14,6 @@ import java.security.GeneralSecurityException;
 public class SpreadsheetUtil {
 
     private static final String importedID = "1dZ-EL_uU2a2KEMLo6ztGjnWSJTSf_z1caNLP5sUk-I0";
-    private static final String mcbetsID = "1EvqhTx3f2m1yzF5-MbgW5QvP7zEe_M_pCWBs3c2f0D0";
 
     public static String test(String range) throws IOException, GeneralSecurityException {
         String spreadsheetId = importedID;
@@ -50,6 +49,8 @@ public class SpreadsheetUtil {
         //   "https://www.googleapis.com/auth/drive.readonly"
         //   "https://www.googleapis.com/auth/spreadsheets"
         //   "https://www.googleapis.com/auth/spreadsheets.readonly"
+
+        @SuppressWarnings("deprecation")
         GoogleCredential credential = new GoogleCredential.Builder()
                 .setTransport(httpTransport)
                 .setJsonFactory(jsonFactory)
