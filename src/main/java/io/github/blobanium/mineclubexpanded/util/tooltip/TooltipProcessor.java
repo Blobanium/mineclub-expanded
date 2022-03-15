@@ -12,7 +12,7 @@ public class TooltipProcessor {
     public static String getPrecentValue(ItemStack stack){
         try {
             int mineclubValue = parseInt(stack.getNbt().getCompound("display").getList("Lore", NbtElement.STRING_TYPE).getString(getIndex(stack)).substring(35).replace("ꌆ鲭\"}", "").replace(",", ""));
-            int spreadsheetValue = SpreadsheetValueParser.getItemValue(stack.getNbt().getInt("CustomModelData"), stack);
+            int spreadsheetValue = SpreadsheetValueParser.getItemValue(stack);
             float precent = (((((float) mineclubValue / spreadsheetValue) - 1) * 100));
             if (precent != Math.abs(precent)) {
                 return " §c(" + String.format("%.2f", precent) + "%)";

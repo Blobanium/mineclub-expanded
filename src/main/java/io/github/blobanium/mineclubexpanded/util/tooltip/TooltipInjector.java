@@ -23,7 +23,7 @@ public class TooltipInjector {
         }
         if(stack.getNbt() != null && stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE")){
             try {
-                int value = SpreadsheetValueParser.getItemValue(stack.getNbt().getInt("CustomModelData"), stack);
+                int value = SpreadsheetValueParser.getItemValue(stack);
                 TooltipProcessor.getPrecentValue(stack);
                 text.add(new LiteralText("MC Bets " + SpreadsheetValueParser.month + " " + SpreadsheetValueParser.day + ": " + TooltipProcessor.simplifiedCount(value) + TooltipProcessor.getPrecentValue(stack)));
             } catch (IndexOutOfBoundsException ignored){

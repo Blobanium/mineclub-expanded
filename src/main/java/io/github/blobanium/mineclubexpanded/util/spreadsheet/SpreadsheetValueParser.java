@@ -75,9 +75,8 @@ public class SpreadsheetValueParser {
         values = getSheetsString.split(",");
     }
 
-    public static int getItemValue(int customModelData, ItemStack stack) throws IndexOutOfBoundsException{
-        return switch(customModelData){
-            case STORE_ITEM -> getStoreItemValue(stack);
+    public static int getItemValue(ItemStack stack) throws IndexOutOfBoundsException{
+        return switch(stack.getNbt().getInt("CustomModelData")){
             case BETA_TITLE -> parseInt(values[6]);
             case BLUE_HAT -> parseInt(values[7]);
             case PURPLE_HAT -> parseInt(values[8]);
@@ -96,10 +95,6 @@ public class SpreadsheetValueParser {
             case SUMMER_BUTTERFLY -> parseInt(values[21]);
             case SUMMER_NET -> parseInt(values[22]);
             case SUMMER_TITLE -> parseInt(values[23]);
-            case NIXE_FIGURE -> parseInt(values[24]);
-            case HYLIX_FIGURE -> parseInt(values[25]);
-            case EXECUTIVE_FIGURE -> parseInt(values[26]);
-            case RASHO_FIGURE -> parseInt(values[27]);
             case AUTUMN_CROWN -> parseInt(values[28]);
             case AUTUMN_PLUSHIE -> parseInt(values[29]);
             case AUTUMN_TITLE -> parseInt(values[30]);
@@ -121,17 +116,6 @@ public class SpreadsheetValueParser {
             case LEPRECHAUN_HAT -> parseInt(values[46]);
             case LEPRECHAUN_TREASURES -> parseInt(values[47]);
             case LEPRECHAUN_TITLE -> parseInt(values[48]);
-            default -> throw new IndexOutOfBoundsException();
-        };
-    }
-
-    private static int getStoreItemValue(ItemStack stack){
-        String tempString = null;
-        return switch(tempString){
-            case "Premium Token" -> parseInt(values[0]);
-            case "Mythical Box" -> parseInt(values[1]);
-            case "Epic Box" -> parseInt(values[2]);
-            case "Rare Box" -> parseInt(values[3]);
             default -> throw new IndexOutOfBoundsException();
         };
     }
