@@ -14,6 +14,7 @@ import java.security.GeneralSecurityException;
 public class SpreadsheetUtil {
 
     private static final String importedID = "1dZ-EL_uU2a2KEMLo6ztGjnWSJTSf_z1caNLP5sUk-I0";
+    private static final String defaultKey = "AIzaSyCncY4J8Me3y1lf1KdCsLWi11t1A6o6Emw";
 
     public static String test(String range) throws IOException, GeneralSecurityException {
         String spreadsheetId = importedID;
@@ -27,7 +28,7 @@ public class SpreadsheetUtil {
         request.setValueRenderOption(valueRenderOption);
         request.setDateTimeRenderOption(dateTimeRenderOption);
         request.setMajorDimension(majorDimension);
-        request.setKey("AIzaSyCncY4J8Me3y1lf1KdCsLWi11t1A6o6Emw");
+        request.setKey(defaultKey);
 
         ValueRange response = request.execute();
 
