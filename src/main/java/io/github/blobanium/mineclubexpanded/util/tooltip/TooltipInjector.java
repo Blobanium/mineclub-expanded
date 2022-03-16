@@ -5,12 +5,9 @@ import io.github.blobanium.mineclubexpanded.util.feature.SerialIDProcessor;
 import io.github.blobanium.mineclubexpanded.util.spreadsheet.SpreadsheetValueParser;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
-import java.text.NumberFormat;
-import java.util.Calendar;
 import java.util.List;
 
 public class TooltipInjector {
@@ -23,9 +20,12 @@ public class TooltipInjector {
         }
         if(stack.getNbt() != null && stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE")){
             try {
-                int value = SpreadsheetValueParser.getItemValue(stack);
-                TooltipProcessor.getPrecentValue(stack);
-                text.add(new LiteralText("MC Bets " + SpreadsheetValueParser.month + " " + SpreadsheetValueParser.day + ": " + TooltipProcessor.simplifiedCount(value) + TooltipProcessor.getPrecentValue(stack)));
+                if(!SpreadsheetValueParser.hasLoadFailed) {
+                    int value = SpreadsheetValueParser.getItemValue(stack);
+                    text.add(new LiteralText("MC Bets " + SpreadsheetValueParser.month + " " + SpreadsheetValueParser.day + ": " + TooltipProcessor.simplifiedCount(value) + TooltipProcessor.getPrecentValue(stack)));
+                } else {
+                    text.add(new LiteralText("§a Failed to get MC Bets Spreadsheet data. Try restarting MC!"));
+                }
             } catch (IndexOutOfBoundsException ignored){
                 //This is technically ignored and will only show if a value does exist for that specified item.
             }

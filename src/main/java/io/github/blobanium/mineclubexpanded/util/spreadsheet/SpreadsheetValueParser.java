@@ -1,6 +1,6 @@
 package io.github.blobanium.mineclubexpanded.util.spreadsheet;
 
-import io.github.blobanium.mineclubexpanded.util.tooltip.TooltipInjector;
+import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.util.tooltip.TooltipProcessor;
 import net.minecraft.item.ItemStack;
 
@@ -19,6 +19,8 @@ public class SpreadsheetValueParser {
 
     public static String month = null;
     public static String day = null;
+
+    public static boolean hasLoadFailed = false;
 
     //Custom Model Data
     private static final int STORE_ITEM = 183;
@@ -68,7 +70,15 @@ public class SpreadsheetValueParser {
 
     public static void setValue(){
         try {
-            getSheetsString = SpreadsheetUtil.testInternal("C"+ getToday() + ":AY" + getToday()).replace("[", "").replace("]", "").replace(" ", "");
+            String presetValue = SpreadsheetUtil.testInternal("C"+ getToday() + ":AY" + getToday()).replace("[", "").replace("]", "").replace(" ", "");
+            if(presetValue != null) {
+                getSheetsString = presetValue;
+                hasLoadFailed = true;
+            }else{
+                MineclubExpanded.LOGGER.error("Failed to load spreadsheet values");
+                Thread.dumpStack();
+                hasLoadFailed = true;
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
