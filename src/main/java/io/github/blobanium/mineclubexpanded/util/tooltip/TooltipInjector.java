@@ -20,11 +20,11 @@ public class TooltipInjector {
         }
         if(stack.getNbt() != null && stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE")){
             try {
-                if(!SpreadsheetValueParser.hasLoadFailed) {
+                if(SpreadsheetValueParser.hasLoadFailed) {
                     int value = SpreadsheetValueParser.getItemValue(stack);
                     text.add(new LiteralText("MC Bets " + SpreadsheetValueParser.month + " " + SpreadsheetValueParser.day + ": " + TooltipProcessor.simplifiedCount(value) + TooltipProcessor.getPrecentValue(stack)));
                 } else {
-                    text.add(new LiteralText("§a Failed to get MC Bets Spreadsheet data. Try restarting MC!"));
+                    text.add(new LiteralText("§cFailed to get MC Bets Spreadsheet data. Try restarting MC!"));
                 }
             } catch (IndexOutOfBoundsException ignored){
                 //This is technically ignored and will only show if a value does exist for that specified item.
