@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded.mixin;
 
+import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import net.minecraft.client.MinecraftClient;
@@ -17,6 +18,10 @@ public class ConnectScreenMixin {
         if(address.getAddress().contains(".mineclub.house")){
             HousingRichPresenceListener.usernameFromServerIP = address.getAddress().replace(".mineclub.house","");
             WorldListener.connectUsingHousingIP = true;
+        }else{
+            if(!address.getAddress().contains(".mineclub.")){
+                MineclubExpanded.LOGGER.warn("Using Mineclub Expanded on other servers could result in some instability! If you notice any crashing, report it to Blobanium.");
+            }
         }
     }
 }
