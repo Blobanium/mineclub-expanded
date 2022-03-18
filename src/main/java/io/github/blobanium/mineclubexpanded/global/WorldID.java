@@ -114,6 +114,7 @@ public class WorldID {
             case BATTLE_DOME, SLIME_WALLS, LASER_TAG, DODGE_BALL -> "Main";
             case CONNECT_4, MATCH_5, LUCKY_SHOT, TIC_TAC_TOE, SUMO, TAG, SNOWBALL_FIGHT, SHOOT_THE_SHEEP -> "Tabletop";
             case TNT_RUN, SPLEEF, BRAWL, INFECTED -> "Admin Event";
+            case UNKNOWN -> "???";
             default -> throw new IllegalStateException("Unexpected value: " + worldID);
         };
     }
