@@ -53,6 +53,8 @@ public class ClothConfigScreen {
         serial.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.showdigits"), ConfigReader.showDigits).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.showdigits.description")).setSaveConsumer(newValue -> ConfigReader.showDigits = newValue).build());
 
 
+        general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.hidemcbetsdata"), ConfigReader.hidemcBetsData).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.hidemcbetsdata.description")).setSaveConsumer(newValue -> ConfigReader.hidemcBetsData = newValue).build());
+
 
         if(MineclubExpanded.debugmode){
             ConfigCategory debug = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.debug"));

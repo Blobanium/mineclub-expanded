@@ -18,7 +18,7 @@ public class TooltipInjector {
         if(id != null && !ConfigReader.hideSerialID) {
             text.add(new LiteralText("ID: " + id));
         }
-        if(stack.getNbt() != null && stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE")){
+        if(stack.getNbt() != null && stack.getNbt().getCompound("PublicBukkitValues").getString(SerialIDProcessor.getKey()).equals("FAKE") && !ConfigReader.hidemcBetsData){
             try {
                 if(SpreadsheetValueParser.hasLoadFailed) {
                     int value = SpreadsheetValueParser.getItemValue(stack);
