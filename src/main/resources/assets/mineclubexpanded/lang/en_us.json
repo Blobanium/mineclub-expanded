@@ -39,5 +39,6 @@
   "mineclub-expanded.config.serialcolor": "Serial ID Color",
   "mineclub-expanded.config.serialcolor.description": "Changes the color of where the ID is displayed",
   "mineclub-expanded.config.showdigits": "Show The Number of digits an ID has.",
-  "mineclub-expanded.config.showdigits.description": "Self explanatory"
+  "mineclub-expanded.config.showdigits.description": "Self explanatory",
+  "mineclub-expanded.config.debug.overridekey": "Override Google Spreadsheets API Key"
 }

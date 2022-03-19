@@ -8,6 +8,8 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.model.ValueRange;
+import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
+
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
@@ -17,23 +19,30 @@ public class SpreadsheetUtil {
     private static final String defaultKey = "AIzaSyCncY4J8Me3y1lf1KdCsLWi11t1A6o6Emw";
 
     public static String test(String range) throws IOException, GeneralSecurityException {
-        String spreadsheetId = importedID;
         String valueRenderOption = "UNFORMATTED_VALUE";
         String dateTimeRenderOption = "FORMATTED_STRING";
         String majorDimension = "ROWS";
 
         Sheets sheetsService = createSheetsService();
         Sheets.Spreadsheets.Values.Get request =
-                sheetsService.spreadsheets().values().get(spreadsheetId, range);
+                sheetsService.spreadsheets().values().get(importedID, range);
         request.setValueRenderOption(valueRenderOption);
         request.setDateTimeRenderOption(dateTimeRenderOption);
         request.setMajorDimension(majorDimension);
-        request.setKey(defaultKey);
+        request.setKey(getOrDefaultKey());
 
         ValueRange response = request.execute();
 
 
         return response.get("values").toString();
+    }
+
+    public static String getOrDefaultKey(){
+        if(ConfigReader.overrideKey.equals("")){
+            return defaultKey;
+        } else {
+            return ConfigReader.overrideKey;
+        }
     }
 
     public static Sheets createSheetsService() throws IOException, GeneralSecurityException {
@@ -67,10 +76,7 @@ public class SpreadsheetUtil {
     public static String testInternal(String range){
         try {
             return test(range);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } catch (GeneralSecurityException e) {
+        } catch (IOException | GeneralSecurityException e) {
             e.printStackTrace();
             return null;
         }

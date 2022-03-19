@@ -6,9 +6,13 @@ import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.world.gen.feature.LakeFeature;
 
 public class ClothConfigScreen {
+    //Yes, this class needs some cleanup, but idk how im going to do it though... if you do however, feel free to make a pull request.
+
     public static Screen createConfig(Screen parent){
 
         final ConfigBuilder builder = ConfigBuilder.create()
@@ -54,6 +58,7 @@ public class ClothConfigScreen {
             ConfigCategory debug = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.debug"));
             debug.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.debug.asyncticks"), ConfigReader.debugAsyncTicks).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.debug.asyncticks.description")).setSaveConsumer(newValue -> ConfigReader.debugAsyncTicks = newValue).build());
             debug.addEntry(entryBuilder.startIntSlider(new TranslatableText("mineclub-expanded.config.debug.asynctickthreads"), ConfigReader.debugAsyncTickThreads, 1, Runtime.getRuntime().availableProcessors()).setDefaultValue(2).setTooltip(new TranslatableText("mineclub-expanded.config.debug.asynctickthreads.description")).setSaveConsumer(newValue -> ConfigReader.debugAsyncTickThreads = newValue).build());
+            debug.addEntry(entryBuilder.startStrField(new TranslatableText("mineclub-expanded.config.debug.overridekey"), ConfigReader.overrideKey).setDefaultValue("").setSaveConsumer(newValue -> ConfigReader.overrideKey = newValue).build());
         }
 
         return builder.build();
