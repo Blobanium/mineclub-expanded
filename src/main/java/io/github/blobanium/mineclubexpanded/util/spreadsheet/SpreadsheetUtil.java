@@ -51,15 +51,6 @@ public class SpreadsheetUtil {
         GoogleClientSecrets.Details secret = new GoogleClientSecrets.Details();
         secret.setClientId("347965176614-f3sp9g6bba9q7geo8pl82ml9tsbb9qj1.apps.googleusercontent.com");
 
-        // https://developers.google.com/sheets/quickstart/java#step_3_set_up_the_sample
-        //
-        // Authorize using one of the following scopes:
-        //   "https://www.googleapis.com/auth/drive"
-        //   "https://www.googleapis.com/auth/drive.file"
-        //   "https://www.googleapis.com/auth/drive.readonly"
-        //   "https://www.googleapis.com/auth/spreadsheets"
-        //   "https://www.googleapis.com/auth/spreadsheets.readonly"
-
         @SuppressWarnings("deprecation")
         GoogleCredential credential = new GoogleCredential.Builder()
                 .setTransport(httpTransport)
