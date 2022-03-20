@@ -70,7 +70,8 @@ public class SpreadsheetValueParser {
 
     public static void setValue(){
         try {
-            String presetValue = SpreadsheetUtil.testInternal("C"+ getToday() + ":AY" + getToday()).replace("[", "").replace("]", "").replace(" ", "");
+            String presetValue = SpreadsheetUtil.testInternal("Dynamic!B2:AX2").replace("[", "").replace("]", "").replace(" ", "");
+            getToday();
             if(presetValue != null) {
                 getSheetsString = presetValue;
                 hasLoadFailed = true;
