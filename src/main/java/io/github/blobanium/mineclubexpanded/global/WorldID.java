@@ -39,9 +39,6 @@ public class WorldID {
     public static final int SHOOT_THE_SHEEP = 207;
 
     public static final int TNT_RUN = 300;
-    public static final int SPLEEF = 301;
-    public static final int BRAWL = 302;
-    public static final int INFECTED = 303;
 
     public static int newWorldID(){
         return switch (WorldListener.worldName){
@@ -55,10 +52,7 @@ public class WorldID {
             case "gamemap_dodge_ball" -> DODGE_BALL;
 
             //Admin Events
-            case "gamemap_admin_event_tnt_run" -> TNT_RUN;
-            case "gamemap_admin_event_spleef" -> SPLEEF;
-            case "gamemap_admin_event_brawl" -> BRAWL;
-            case "gamemap_admin_event_infected" -> INFECTED;
+            case "gamemap_admin_event" -> TNT_RUN;
 
             default -> getStartsWithID(WorldListener.worldName);
         };
@@ -99,10 +93,7 @@ public class WorldID {
             case TAG -> "Tag";
             case SNOWBALL_FIGHT -> "Snowball Fight";
             case SHOOT_THE_SHEEP -> "Shoot The Sheep";
-            case TNT_RUN -> "TNT Run";
-            case SPLEEF -> "Spleef";
-            case BRAWL -> "Brawl";
-            case INFECTED -> "Infected";
+            case TNT_RUN -> "Admin Event";
             default -> throw new IllegalStateException("Unexpected value: " + worldID);
         };
     }
@@ -113,7 +104,7 @@ public class WorldID {
             case HOUSING -> "Housing";
             case BATTLE_DOME, SLIME_WALLS, LASER_TAG, DODGE_BALL -> "Main";
             case CONNECT_4, MATCH_5, LUCKY_SHOT, TIC_TAC_TOE, SUMO, TAG, SNOWBALL_FIGHT, SHOOT_THE_SHEEP -> "Tabletop";
-            case TNT_RUN, SPLEEF, BRAWL, INFECTED -> "Admin Event";
+            case TNT_RUN -> "";
             case UNKNOWN -> "???";
             default -> throw new IllegalStateException("Unexpected value: " + worldID);
         };
