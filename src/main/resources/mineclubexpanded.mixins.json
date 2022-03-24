@@ -15,7 +15,8 @@
     "DisconnectedScreenMixin",
     "MultiplayerScreenMixin",
     "TitleScreenMixin",
-    "ConnectScreenMixin"
+    "ConnectScreenMixin",
+    "BossBarHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

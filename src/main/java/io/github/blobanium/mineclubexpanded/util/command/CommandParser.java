@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded.util.command;
 
+import io.github.blobanium.mineclubexpanded.games.adminevent.AdminEventDecoder;
 import io.github.blobanium.mineclubexpanded.util.command.commnads.GetMiningValue;
 import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
 import net.minecraft.text.LiteralText;
@@ -31,6 +32,17 @@ public class CommandParser {
         ClientCommandManager.DISPATCHER.register(
                 ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("yourmom").executes(context -> {
                             context.getSource().sendFeedback(new LiteralText("No your mom."));
+                            return 0;
+                        })
+                ));
+
+        ClientCommandManager.DISPATCHER.register(
+                ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("adminevent").executes(context -> {
+                    AdminEventDecoder.decodeBossBar(AdminEventDecoder.lastString);
+                            context.getSource().sendFeedback(new LiteralText(
+                                    "Game: " + AdminEventDecoder.adminEvent +
+                                    "\nHost: " + AdminEventDecoder.host +
+                                    "\nTime Left: " + AdminEventDecoder.timeleft));
                             return 0;
                         })
                 ));
