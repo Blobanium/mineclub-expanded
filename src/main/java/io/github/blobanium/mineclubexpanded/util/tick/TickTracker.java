@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded.util.tick;
 
+import io.github.blobanium.mineclubexpanded.games.adminevent.AdminEventNotifier;
 import io.github.blobanium.mineclubexpanded.global.WorldListener;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceTickTracker;
 import io.github.blobanium.mineclubexpanded.util.config.ConfigReader;
@@ -32,6 +33,7 @@ public class TickTracker{
         checkReminder();
         WorldListener.listenWorld();
         ChatListener.onTick();
+        AdminEventNotifier.checkEvent();
     }
 
     private static void checkReminder(){

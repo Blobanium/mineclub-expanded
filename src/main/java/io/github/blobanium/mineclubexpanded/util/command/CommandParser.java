@@ -38,7 +38,7 @@ public class CommandParser {
 
         ClientCommandManager.DISPATCHER.register(
                 ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("adminevent").executes(context -> {
-                    AdminEventDecoder.decodeBossBar(AdminEventDecoder.lastString);
+                    AdminEventDecoder.decodeBossBar();
                             context.getSource().sendFeedback(new LiteralText(
                                     "Game: " + AdminEventDecoder.adminEvent +
                                     "\nHost: " + AdminEventDecoder.host +

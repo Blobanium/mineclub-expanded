@@ -8,22 +8,25 @@ public class AdminEventDecoder {
     public static String timeleft = null;
     public static boolean isStarting = false;
 
-    public static void decodeBossBar(String text){
-        adminEvent = switch (String.valueOf(text.charAt(0))){
-            case "颐", "荽" -> "TNT Run";
-            case "萱", "苧" -> "Spleef";
-            case "芋", "芣" -> "Brawl";
-            case "岐", "巅" -> "Infected";
-            case "迭", "追" -> "Sword Game";
-            default -> null;
-        };
+    public static void decodeBossBar(){
+        String text = lastString;
+        if(text.length() != 0) {
+            adminEvent = switch (String.valueOf(text.charAt(0))) {
+                case "颐", "荽" -> "TNT Run";
+                case "萱", "苧" -> "Spleef";
+                case "芋", "芣" -> "Brawl";
+                case "岐", "巅" -> "Infected";
+                case "迭", "追" -> "Sword Game";
+                default -> null;
+            };
 
-        if(text.length() == 10){
-            isStarting = false;
-            timeleft = getTime(text);
-            host = getHost(String.valueOf(text.charAt(8)));
-        } else if(text.length() == 6){
-            isStarting = true;
+            if (text.length() == 10) {
+                isStarting = false;
+                timeleft = getTime(text);
+                host = getHost(String.valueOf(text.charAt(8)));
+            } else if (text.length() == 6) {
+                isStarting = true;
+            }
         }
     }
 
