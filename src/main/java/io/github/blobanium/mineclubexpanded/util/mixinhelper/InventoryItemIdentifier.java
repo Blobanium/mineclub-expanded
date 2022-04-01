@@ -1,6 +1,8 @@
 package io.github.blobanium.mineclubexpanded.util.mixinhelper;
 
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
+import io.github.blobanium.mineclubexpanded.util.AprilFoolsException;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.slot.Slot;
