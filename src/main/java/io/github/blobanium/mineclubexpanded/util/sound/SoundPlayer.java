@@ -14,14 +14,14 @@ import java.math.RoundingMode;
 
 public class SoundPlayer {
 
-    public static void playSound(float pitch){
-        SoundEvent sound = registerSound();
+    public static void playSound(float pitch, SoundEvent event){
+        SoundEvent sound = registerSound(event);
         PositionedSoundInstance posSound = PositionedSoundInstance.master(sound, pitch, getVolume(ConfigReader.outbidVolume));
         MinecraftClient.getInstance().getSoundManager().play(posSound);
     }
 
-    private static SoundEvent registerSound(){
-        Identifier soundId = new Identifier(SoundEvents.ENTITY_BEE_DEATH.getId().toString());
+    private static SoundEvent registerSound(SoundEvent event){
+        Identifier soundId = new Identifier(event.getId().toString());
         return Registry.SOUND_EVENT.get(soundId);
     }
 
