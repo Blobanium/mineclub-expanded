@@ -55,6 +55,8 @@ public class ClothConfigScreen {
 
         general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.hidemcbetsdata"), ConfigReader.hidemcBetsData).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.hidemcbetsdata.description")).setSaveConsumer(newValue -> ConfigReader.hidemcBetsData = newValue).build());
 
+        general.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("mineclub-expanded.config.admineventnotif"), ConfigReader.adminEventNotification).setDefaultValue(false).setTooltip(new TranslatableText("mineclub-expanded.config.admineventnotif.description")).setSaveConsumer(newValue -> ConfigReader.adminEventNotification = newValue).build());
+
 
         if(MineclubExpanded.debugmode){
             ConfigCategory debug = builder.getOrCreateCategory(new TranslatableText("mineclub-expanded.category.debug"));

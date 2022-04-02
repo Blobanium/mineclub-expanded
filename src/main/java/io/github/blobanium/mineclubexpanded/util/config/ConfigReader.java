@@ -31,6 +31,7 @@ public class ConfigReader {
 	public static boolean showDigits = false;
 	public static String overrideKey = "";
 	public static boolean hidemcBetsData = false;
+	public static boolean adminEventNotification = false;
 
     public static final Logger LOGGER = LogManager.getLogger("Mineclub Expanded");
 
@@ -55,6 +56,7 @@ public class ConfigReader {
 			showDigits = CONFIG.getOrDefault("serial_id_digits", showDigits);
 			overrideKey = CONFIG.getOrDefault("debug_override_key", overrideKey);
 			hidemcBetsData = CONFIG.getOrDefault("hide_mcbets_data", hidemcBetsData);
+			adminEventNotification = CONFIG.getOrDefault("admin_event_notification", adminEventNotification);
 		}
 
 		LOGGER.debug("Regestering done!");
@@ -77,7 +79,8 @@ public class ConfigReader {
 				+ "\nserial_color=" + serialColor
 				+ "\nserial_id_digits=" + showDigits
 				+ "\ndebug_override_key=" + overrideKey
-				+ "\nhide_mcbets_data=" + hidemcBetsData;
+				+ "\nhide_mcbets_data=" + hidemcBetsData
+				+ "\nadmin_event_notification=" + adminEventNotification;
 	}
 
 	public static void refreshConfig(){
