@@ -23,7 +23,7 @@ public class CommandParser {
                 ));
 
         ClientCommandManager.DISPATCHER.register(
-                ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("getminingvalue").then(ClientCommandManager.literal("deatiled").executes(context -> {
+                ClientCommandManager.literal("mcex").then(ClientCommandManager.literal("getminingvalue").then(ClientCommandManager.literal("detailed").executes(context -> {
                             context.getSource().sendFeedback(new LiteralText(GetMiningValue.miningValueResponseString(true)));
                             return 0;
                         })
