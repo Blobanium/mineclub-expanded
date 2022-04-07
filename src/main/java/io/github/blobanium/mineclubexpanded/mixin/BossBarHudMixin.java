@@ -11,12 +11,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BossBarHud.class)
 public class BossBarHudMixin {
+    private String lastfield = null;
 
     @Inject(at = @At("HEAD"), method = "renderBossBar")
     private void renderBossBar(MatrixStack matrices, int x, int y, BossBar bossBar, CallbackInfo ci){
         String text = bossBar.getName().getString();
         if(!AdminEventDecoder.lastString.equals(text)){
             AdminEventDecoder.lastString = text;
+        }
+        if(!text.equals(lastfield)){
+            System.out.println(text);
+            lastfield = text;
         }
     }
 }
