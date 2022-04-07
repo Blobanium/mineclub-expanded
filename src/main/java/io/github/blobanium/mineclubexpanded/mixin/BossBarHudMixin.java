@@ -1,6 +1,7 @@
 package io.github.blobanium.mineclubexpanded.mixin;
 
 import io.github.blobanium.mineclubexpanded.games.adminevent.AdminEventDecoder;
+import io.github.blobanium.mineclubexpanded.util.unicode.UnicodeTranslator;
 import net.minecraft.client.gui.hud.BossBarHud;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.boss.BossBar;
@@ -20,7 +21,7 @@ public class BossBarHudMixin {
             AdminEventDecoder.lastString = text;
         }
         if(!text.equals(lastfield)){
-            System.out.println(text);
+            System.out.println(UnicodeTranslator.decodeEntireString(text));
             lastfield = text;
         }
     }
