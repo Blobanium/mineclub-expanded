@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded.mixin;
 
+import io.github.blobanium.mineclubexpanded.games.BattleDomePresence;
 import io.github.blobanium.mineclubexpanded.games.adminevent.AdminEventDecoder;
 import io.github.blobanium.mineclubexpanded.util.unicode.UnicodeTranslator;
 import net.minecraft.client.gui.hud.BossBarHud;
@@ -21,7 +22,7 @@ public class BossBarHudMixin {
             AdminEventDecoder.lastString = text;
         }
         if(!text.equals(lastfield)){
-            System.out.println(UnicodeTranslator.decodeEntireString(text));
+            System.out.println(BattleDomePresence.getTimeLeft(text));
             lastfield = text;
         }
     }
