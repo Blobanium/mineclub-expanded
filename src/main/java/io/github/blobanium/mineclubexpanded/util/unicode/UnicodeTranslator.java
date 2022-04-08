@@ -11,19 +11,19 @@ public class UnicodeTranslator {
         }
         return switch (unicode){
             //Space Splits
-            case "匮", "ꌅ", "奋", "蒸" -> "Split";
+            case "匮", "ꌅ", "奋", "蒸", "钪", "ꌋ", "镦", "晖", "ꈋ", "香", "ꌆ", "铰", "ꌄ", "腈", "顼", "鼬" -> "Split";
 
             //Numbers
-            case "匪", "黄", "勤", "萣", "峣" -> "0";
-            case "赜", "甘", "苈", "菪", "岵" -> "1";
-            case "臣", "荁", "芜", "靰", "凶" -> "2";
-            case "届", "薷", "兰", "莞", "岽" -> "3";
-            case "卧", "虉", "其", "鞔", "炭" -> "4";
-            case "彐", "藿", "芸", "韂", "崤" -> "5";
-            case "刁", "觐", "芫", "孽", "崦" -> "6";
-            case "翚", "蕾", "甚", "鞣", "崎" -> "7";
-            case "帚", "茜", "邯", "靸", "嵽" -> "8";
-            case "翂", "某", "薤", "鞬", "崭" -> "9";
+            case "匪", "黄", "勤", "萣", "峣", "锈" -> "0";
+            case "赜", "甘", "苈", "菪", "岵", "钣" -> "1";
+            case "臣", "荁", "芜", "靰", "凶", "锋" -> "2";
+            case "届", "薷", "兰", "莞", "岽", "铬" -> "3";
+            case "卧", "虉", "其", "鞔", "炭", "铥" -> "4";
+            case "彐", "藿", "芸", "韂", "崤", "锆" -> "5";
+            case "刁", "觐", "芫", "孽", "崦", "铣" -> "6";
+            case "翚", "蕾", "甚", "鞣", "崎", "钐" -> "7";
+            case "帚", "茜", "邯", "靸", "嵽", "铆" -> "8";
+            case "翂", "某", "薤", "鞬", "崭", "镏" -> "9";
 
             //Admin Event Host Names
             case "蕨" -> "ComicxqcL";
@@ -47,6 +47,14 @@ public class UnicodeTranslator {
             case "芋", "芣" -> "Brawl";
             case "岐", "巅" -> "Infected";
             case "迭", "追" -> "Sword Game";
+
+            //Others
+            case "愉" -> "Topbar";
+            case "谏" -> "Diamond";
+            case "悒" -> "Kills";
+            case "惚", "毕", "毙", "怅", "毖", "忳", "情", "愫" -> "Alive";
+            case "句" -> "Dead";
+            case "钭" -> "Timer";
 
             //return default if unique unicode
             default -> unicode;
