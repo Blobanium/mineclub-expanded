@@ -1,5 +1,7 @@
 package io.github.blobanium.mineclubexpanded.games.adminevent;
 
+import io.github.blobanium.mineclubexpanded.util.unicode.UnicodeTranslator;
+
 public class AdminEventDecoder {
     public static String lastString = "";
 
@@ -11,14 +13,7 @@ public class AdminEventDecoder {
     public static void decodeBossBar(){
         String text = lastString;
         if(text.length() != 0) {
-            adminEvent = switch (String.valueOf(text.charAt(0))) {
-                case "颐", "荽" -> "TNT Run";
-                case "萱", "苧" -> "Spleef";
-                case "芋", "芣" -> "Brawl";
-                case "岐", "巅" -> "Infected";
-                case "迭", "追" -> "Sword Game";
-                default -> null;
-            };
+            adminEvent = UnicodeTranslator.unicodeToReadableText(String.valueOf(text.charAt(0)));
 
             if (text.length() == 10) {
                 isStarting = false;
@@ -42,39 +37,11 @@ public class AdminEventDecoder {
     }
 
     private static int getDigit(String unicode){
-        return switch (unicode){
-            case "匪", "黄", "勤", "萣", "峣" -> 0;
-            case "赜", "甘", "苈", "菪", "岵" -> 1;
-            case "臣", "荁", "芜", "靰", "凶" -> 2;
-            case "届", "薷", "兰", "莞", "岽" -> 3;
-            case "卧", "虉", "其", "鞔", "炭" -> 4;
-            case "彐", "藿", "芸", "韂", "崤" -> 5;
-            case "刁", "觐", "芫", "孽", "崦" -> 6;
-            case "翚", "蕾", "甚", "鞣", "崎" -> 7;
-            case "帚", "茜", "邯", "靸", "嵽" -> 8;
-            case "翂", "某", "薤", "鞬", "崭" -> 9;
-            default -> 0;
-        };
+        return Integer.parseInt(UnicodeTranslator.unicodeToReadableText(unicode));
     }
 
     private static String getHost(String unicode){
-        return switch(unicode){
-            case "蕨" -> "ComicxqcL";
-            case "菰" -> "Gabanna";
-            case "芽" -> "Shower";
-            case "薢" -> "JpCuber109";
-            case "岍" -> "Ferus";
-            case "蓐" -> "Lazrith";
-            case "菟" -> "Guby";
-            case "荪" -> "Executive";
-            case "蔈" -> "Respawning";
-            case "艺" -> "Rasmus";
-            case "芎" -> "Hylix";
-            case "蘸" -> "Elsa040";
-            case "蕈" -> "Chqrri";
-            case "蔫" -> "Nixe";
-            default -> null;
-        };
+        return UnicodeTranslator.unicodeToReadableText(unicode);
     }
 
 }
