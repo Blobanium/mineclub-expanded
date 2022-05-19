@@ -1,5 +1,6 @@
 package io.github.blobanium.mineclubexpanded.util.mixinhelper;
 
+import io.github.blobanium.mineclubexpanded.MineclubExpanded;
 import io.github.blobanium.mineclubexpanded.housing.HousingRichPresenceListener;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,11 +15,15 @@ public class InventoryItemIdentifier {
             ItemStack stack = slot.getStack();
             String namestring = stack.getNbt().getCompound("display").getString("Name");
             if(Item.getRawId(stack.getItem()) == 955 && namestring.length() != 0) {
-                fullname = namestring.substring(130).replace("\"}],\"text\":\"\"}", "");
-                if(fullname.length() <= 16){
-                    HousingRichPresenceListener.playerheadName = fullname;
-                } else {
-                    HousingRichPresenceListener.playerheadName = GradientHelper.convertGradientToString(fullname);
+                try {
+                    fullname = namestring.substring(130).replace("\"}],\"text\":\"\"}", "");
+                    if (fullname.length() <= 16) {
+                        HousingRichPresenceListener.playerheadName = fullname;
+                    } else {
+                        HousingRichPresenceListener.playerheadName = GradientHelper.convertGradientToString(fullname);
+                    }
+                } catch (StringIndexOutOfBoundsException e){
+                    MineclubExpanded.LOGGER.fatal("Namestring Read Failure! \nNamestring:" + namestring);
                 }
             }
         }
