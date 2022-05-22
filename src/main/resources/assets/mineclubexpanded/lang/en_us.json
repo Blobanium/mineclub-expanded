@@ -42,5 +42,7 @@
   "mineclub-expanded.config.showdigits.description": "Self explanatory",
   "mineclub-expanded.config.debug.overridekey": "Override Google Spreadsheets API Key",
   "mineclub-expanded.config.hidemcbetsdata": "Hide MC Bets Spreadsheet data",
-  "mineclub-expanded.config.hidemcbetsdata.description": "Hides the MC Bets Spreadsheet Data seen at the marketplace"
+  "mineclub-expanded.config.hidemcbetsdata.description": "Hides the MC Bets Spreadsheet Data seen at the marketplace",
+  "mineclub-expanded.config.admineventnotif": "Admin Event Notification",
+  "mineclub-expanded.config.admineventnotif.description": "Plays a sound when an admin event gets hosted"
 }
